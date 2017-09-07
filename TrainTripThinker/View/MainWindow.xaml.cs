@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TrainTripThinker
+namespace TrainTripThinker.View
 {
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック
