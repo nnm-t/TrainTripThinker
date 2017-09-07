@@ -1,0 +1,2 @@
+# TrainTripThinker
+鉄道旅行特化行程表作成アプリケーション
