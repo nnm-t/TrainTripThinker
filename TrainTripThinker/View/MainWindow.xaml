@@ -5,11 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TrainTripThinker.View"
         xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Style="{StaticResource TttWindowStyle}"
         Title="Train Trip Thinker" Height="800" Width="800"
         WindowStartupLocation="CenterScreen">
+    <metro:MetroWindow.Resources>
+        <ResourceDictionary Source="ResourceDictionary/MainWindowUI.xaml" />
+    </metro:MetroWindow.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
 
+        <ListBox Background="{DynamicResource PrimaryHueDarkBrush}">
+            <md:PackIcon Kind="PencilBox" Style="{DynamicResource ModeIcon}" />
+            <md:PackIcon Kind="Floppy" Style="{DynamicResource ModeIcon}"/>
+            <md:PackIcon Kind="Printer" Style="{DynamicResource ModeIcon}" />
+            <md:PackIcon Kind="Settings" Style="{DynamicResource ModeIcon}" />
+        </ListBox>
     </Grid>
 </metro:MetroWindow>
