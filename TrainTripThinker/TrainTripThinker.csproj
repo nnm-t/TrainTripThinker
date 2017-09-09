@@ -157,5 +157,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TrainTripThinker.Core\TrainTripThinker.Core.csproj">
+      <Project>{3ccb6fe0-9de2-4327-9b10-e092d3e1f376}</Project>
+      <Name>TrainTripThinker.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
