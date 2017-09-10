@@ -1,9 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
 
 using Prism.Mvvm;
 
 using Reactive.Bindings;
-using Reactive.Bindings.Extensions;
 
 using TrainTripThinker.Core.Data;
 using TrainTripThinker.Model;
@@ -23,7 +22,7 @@ namespace TrainTripThinker.ViewModel
         /// <summary>
         /// ドキュメントインスタンスへの参照
         /// </summary>
-        private TttDocument document;
+        private readonly TttDocument document;
 
         /// <summary>
         /// コンストラクタ
@@ -32,13 +31,20 @@ namespace TrainTripThinker.ViewModel
         {
             this.document = this.main.Document;
 
-            this.Itineraries = this.document.ObserveProperty(d => d.Itineraries).ToReactiveProperty();
+            this.Itineraries = this.document.Itineraries.ToReadOnlyReactiveCollection();
+
+            this.AddItieraryCommand = new ReactiveCommand();
+            this.AddItieraryCommand.Subscribe(_ => this.document.AddItinerary());
         }
 
         /// <summary>
         /// 行程表インスタンス
         /// </summary>
-        public ReactiveProperty<ObservableCollection<Itinerary>> Itineraries { get; }
+        public ReadOnlyReactiveCollection<Itinerary> Itineraries { get; }
 
+        /// <summary>
+        /// 行程表を追加
+        /// </summary>
+        public ReactiveCommand AddItieraryCommand { get; }
     }
 }

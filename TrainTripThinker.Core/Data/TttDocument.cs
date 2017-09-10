@@ -12,6 +12,11 @@ namespace TrainTripThinker.Core.Data
         private ObservableCollection<Itinerary> itineraries;
 
         /// <summary>
+        /// 行程表の数
+        /// </summary>
+        public int ItineraryCount => this.itineraries.Count;
+
+        /// <summary>
         /// コンストラクタ
         /// </summary>
         public TttDocument()
@@ -26,6 +31,14 @@ namespace TrainTripThinker.Core.Data
         {
             get => this.itineraries;
             set => this.SetProperty(ref this.itineraries, value);
+        }
+
+        /// <summary>
+        /// 行程表を追加
+        /// </summary>
+        public void AddItinerary()
+        {
+            this.itineraries.Add(new Itinerary("Itinerary" + this.ItineraryCount));
         }
     }
 }

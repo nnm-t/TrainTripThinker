@@ -8,12 +8,21 @@ namespace TrainTripThinker.Core.Data
     public class Itinerary
     {
         /// <summary>
-        ///     コンストラクタ
+        /// コンストラクタ
         /// </summary>
-        public Itinerary()
+        /// <param name="title">
+        /// タイトル名
+        /// </param>
+        public Itinerary(string title)
         {
             this.Elements = new ObservableCollection<ItineraryElement>();
+            this.Title = title;
         }
+
+        /// <summary>
+        /// 行程表のタイトル
+        /// </summary>
+        public string Title { get; set; }
 
         /// <summary>
         ///     行程表のアイテムのコレクション

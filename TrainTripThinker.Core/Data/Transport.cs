@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Net;
+using TrainTripThinker.Core.Enums;
 
 namespace TrainTripThinker.Core.Data
 {
