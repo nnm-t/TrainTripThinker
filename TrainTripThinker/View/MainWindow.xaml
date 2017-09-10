@@ -25,5 +25,7 @@
             <md:PackIcon Kind="Printer" Style="{DynamicResource ModeIcon}" />
             <md:PackIcon Kind="Settings" Style="{DynamicResource ModeIcon}" />
         </ListBox>
+
+        <local:ItineraryViewer Grid.Column="1" />
     </Grid>
 </metro:MetroWindow>

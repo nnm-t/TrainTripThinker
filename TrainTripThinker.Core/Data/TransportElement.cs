@@ -8,6 +8,12 @@ namespace TrainTripThinker.Core.Data
     /// <inheritdoc cref="ItineraryElement"/>
     public class TransportElement : ItineraryElement
     {
+
+        public TransportElement()
+        {
+            this.Transport = new Transport();
+        }
+
         /// <summary>
         /// 乗車～下車までの期間
         /// </summary>
@@ -17,5 +23,6 @@ namespace TrainTripThinker.Core.Data
         /// 乗り物
         /// </summary>
         public Transport Transport { get; set; }
+
     }
 }

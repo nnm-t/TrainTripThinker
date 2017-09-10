@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Net;
+using TrainTripThinker.Core.Enums;
 
 namespace TrainTripThinker.Core.Data
 {
@@ -16,7 +16,7 @@ namespace TrainTripThinker.Core.Data
         /// <summary>
         /// 便名
         /// </summary>
-        public string TransportNumber { get; set; }
+        public TransportNumber TransportNumber { get; set; }
 
         /// <summary>
         /// 路線
