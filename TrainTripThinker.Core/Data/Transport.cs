@@ -12,10 +12,11 @@ namespace TrainTripThinker.Core.Data
         /// 乗り物の種類
         /// </summary>
         public TransportType Type { get; set; }
+
         /// <summary>
         /// 便名
         /// </summary>
-        public string TransportNumber { get; set; }
+        public TransportNumber TransportNumber { get; set; }
 
         /// <summary>
         /// 路線
