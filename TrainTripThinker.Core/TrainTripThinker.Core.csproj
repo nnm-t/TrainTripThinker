@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Data\ItineraryElement.cs" />
     <Compile Include="Data\Departure.cs" />
+    <Compile Include="Data\Platform.cs" />
     <Compile Include="Data\Transport.cs" />
     <Compile Include="Data\TransportElement.cs" />
     <Compile Include="Data\TransportNumber.cs" />

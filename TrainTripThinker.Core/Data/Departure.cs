@@ -20,6 +20,6 @@ namespace TrainTripThinker.Core.Data
         /// <summary>
         /// のりば番号
         /// </summary>
-        public string Platform { get; set; }
+        public Platform Platform { get; set; }
     }
 }
