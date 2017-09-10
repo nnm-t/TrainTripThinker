@@ -1,12 +1,16 @@
 ﻿using System.Collections.ObjectModel;
 
+using Prism.Mvvm;
+
 namespace TrainTripThinker.Core.Data
 {
     /// <summary>
     /// Train Trip Thinkerのドキュメントクラス
     /// </summary>
-    public class TttDocument
+    public class TttDocument : BindableBase
     {
+        private ObservableCollection<Itinerary> itineraries;
+
         /// <summary>
         /// コンストラクタ
         /// </summary>
@@ -18,6 +22,10 @@ namespace TrainTripThinker.Core.Data
         /// <summary>
         /// 行程表のコレクション
         /// </summary>
-        public ObservableCollection<Itinerary> Itineraries { get; set; }
+        public ObservableCollection<Itinerary> Itineraries
+        {
+            get => this.itineraries;
+            set => this.SetProperty(ref this.itineraries, value);
+        }
     }
 }

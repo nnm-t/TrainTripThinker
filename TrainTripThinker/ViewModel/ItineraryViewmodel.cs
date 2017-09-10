@@ -1,4 +1,9 @@
-﻿using Prism.Mvvm;
+﻿using System.Collections.ObjectModel;
+
+using Prism.Mvvm;
+
+using Reactive.Bindings;
+using Reactive.Bindings.Extensions;
 
 using TrainTripThinker.Core.Data;
 using TrainTripThinker.Model;
@@ -26,6 +31,14 @@ namespace TrainTripThinker.ViewModel
         public ItineraryViewModel()
         {
             this.document = this.main.Document;
+
+            this.Itineraries = this.document.ObserveProperty(d => d.Itineraries).ToReactiveProperty();
         }
+
+        /// <summary>
+        /// 行程表インスタンス
+        /// </summary>
+        public ReactiveProperty<ObservableCollection<Itinerary>> Itineraries { get; }
+
     }
 }
