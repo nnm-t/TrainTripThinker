@@ -40,16 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Itinerary.cs" />
     <Compile Include="Data\ItineraryElement.cs" />
     <Compile Include="Data\Departure.cs" />
     <Compile Include="Data\Platform.cs" />
     <Compile Include="Data\Transport.cs" />
     <Compile Include="Data\TransportElement.cs" />
     <Compile Include="Data\TransportNumber.cs" />
+    <Compile Include="Data\TttDocument.cs" />
     <Compile Include="Enums\TransportType.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\Period.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Settings.StyleCop" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
