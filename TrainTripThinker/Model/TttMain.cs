@@ -1,4 +1,5 @@
 ﻿using TrainTripThinker.Core;
+using TrainTripThinker.Core.Data;
 
 namespace TrainTripThinker.Model
 {
@@ -8,16 +9,21 @@ namespace TrainTripThinker.Model
     public class TttMain
     {
         /// <summary>
-        /// コンストラクタ
+        ///     ロジッククラスのインスタンス
+        /// </summary>
+        private readonly Main main;
+
+        /// <summary>
+        ///     コンストラクタ
         /// </summary>
         public TttMain()
         {
-            this.Main = new Main();
+            this.main = new Main();
         }
 
         /// <summary>
-        /// ロジッククラスのインスタンス
+        ///     ドキュメントインスタンス
         /// </summary>
-        public Main Main { get; }
+        public TttDocument Document => this.main.Document;
     }
 }

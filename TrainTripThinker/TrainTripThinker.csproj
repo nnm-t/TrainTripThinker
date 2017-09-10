@@ -113,7 +113,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\ModelManager.cs" />
     <Compile Include="Model\TttMain.cs" />
+    <Compile Include="ViewModel\ItineraryViewModel.cs" />
     <Compile Include="View\ItineraryViewer.xaml.cs">
       <DependentUpon>ItineraryViewer.xaml</DependentUpon>
     </Compile>
@@ -158,9 +160,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
