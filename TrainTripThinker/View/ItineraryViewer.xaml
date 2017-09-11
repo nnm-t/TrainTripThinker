@@ -4,26 +4,89 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TrainTripThinker.View"
-             xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:data="clr-namespace:TrainTripThinker.Core.Data;assembly=TrainTripThinker.Core"
              mc:Ignorable="d" 
              DataContext="{StaticResource ItineraryViewModel}"
              d:DesignHeight="300" d:DesignWidth="300">
-    <dragablz:TabablzControl ItemsSource="{Binding Itineraries}">
-        <dragablz:TabablzControl.HeaderPrefixContent>
-            <Button Content="Add" Command="{Binding AddItieraryCommand}" />
-        </dragablz:TabablzControl.HeaderPrefixContent>
-        <dragablz:TabablzControl.InterTabController>
-            <dragablz:InterTabController />
-        </dragablz:TabablzControl.InterTabController>
+    <UserControl.Resources>
+        <Style TargetType="TabItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Grid Name="Panel" Height="48">
+                            <ContentPresenter Name="ContentPresenter"
+                                              ContentSource="Header"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              TextBlock.FontSize="16">
+                                <ContentPresenter.Margin>
+                                    <Thickness Left="16" Right="16" />
+                                </ContentPresenter.Margin>
+                            </ContentPresenter>
+                        </Grid>
 
-        <dragablz:TabablzControl.HeaderItemTemplate>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Panel" Property="Background"
+                                        Value="{DynamicResource PrimaryHueLightBrush}" />
+                                <Setter TargetName="ContentPresenter"
+                                                Property="TextBlock.Foreground"
+                                                Value="{DynamicResource BlackBrush}" />
+                            </Trigger>
+
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter TargetName="Panel" Property="Background"
+                                        Value="{DynamicResource PrimaryHueMidBrush}" />
+                                <Setter TargetName="ContentPresenter"
+                                                Property="TextBlock.Foreground"
+                                                Value="{DynamicResource WhiteBrush}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <TabControl ItemsSource="{Binding Itineraries}" >
+        <TabControl.Template>
+            <ControlTemplate TargetType="TabControl">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="48" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="48" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TabPanel IsItemsHost="True" />
+
+                    <Button Grid.Row="0" Grid.Column="1"
+                            Command="{Binding AddItieraryCommand}"
+                            Style="{DynamicResource MaterialDesignFlatButton}"
+                            Height="Auto">
+                        <md:PackIcon Kind="Plus" Width="32" Height="32"
+                                     HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Button>
+
+                    <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                        <ContentPresenter ContentSource="SelectedContent" />
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+        </TabControl.Template>
+
+        <TabControl.ItemTemplate>
             <DataTemplate>
                 <TextBlock Text="{Binding Title}" />
             </DataTemplate>
-        </dragablz:TabablzControl.HeaderItemTemplate>
+        </TabControl.ItemTemplate>
 
-        <dragablz:TabablzControl.ContentTemplate>
+        <TabControl.ContentTemplate>
             <DataTemplate>
                 <ItemsControl ItemsSource="{Binding Elements}">
                     <ItemsControl.ItemTemplate>
@@ -33,6 +96,6 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </DataTemplate>
-        </dragablz:TabablzControl.ContentTemplate>
-    </dragablz:TabablzControl>
+        </TabControl.ContentTemplate>
+    </TabControl>
 </UserControl>

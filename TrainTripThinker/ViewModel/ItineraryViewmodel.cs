@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 
 using Prism.Mvvm;
 
@@ -9,6 +10,7 @@ using TrainTripThinker.Model;
 
 namespace TrainTripThinker.ViewModel
 {
+
     /// <summary>
     /// <see cref="View.ItineraryViewer"/>用ViewModel
     /// </summary>
@@ -40,11 +42,12 @@ namespace TrainTripThinker.ViewModel
         /// <summary>
         /// 行程表インスタンス
         /// </summary>
-        public ReadOnlyReactiveCollection<Itinerary> Itineraries { get; }
+        public ReadOnlyObservableCollection<Itinerary> Itineraries { get; }
 
         /// <summary>
         /// 行程表を追加
         /// </summary>
         public ReactiveCommand AddItieraryCommand { get; }
+
     }
 }
