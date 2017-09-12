@@ -10,23 +10,47 @@
              DataContext="{StaticResource ItineraryViewModel}"
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
+        <Style TargetType="Button" x:Key="TabCloseButton" BasedOn="{StaticResource MaterialDesignFlatButton}">
+            <Setter Property="Width" Value="32" />
+            <Setter Property="DockPanel.Dock" Value="Right" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="Margin" Value="4 0" />
+
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="{DynamicResource Primary300}" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style TargetType="TabItem">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TabItem">
-                        <Grid Name="Panel" Height="48">
-                            <ContentPresenter Name="ContentPresenter"
+                        <DockPanel Name="Panel" Height="48">
+                            <ContentPresenter Name="ContentPresenter" Margin="16 0"
                                               ContentSource="Header"
-                                              HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"
-                                              TextBlock.FontSize="16">
-                                <ContentPresenter.Margin>
-                                    <Thickness Left="16" Right="16" />
-                                </ContentPresenter.Margin>
-                            </ContentPresenter>
-                        </Grid>
+                                              HorizontalAlignment="Center" VerticalAlignment="Center"
+                                              TextBlock.FontSize="16" />
+
+                            <Button x:Name="CloseButton"
+                                     Style="{DynamicResource TabCloseButton}">
+                                <md:PackIcon Kind="Close" Width="24" Height="24"
+                                             Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"/>
+                            </Button>
+                        </DockPanel>
 
                         <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="ContentPresenter" Property="TextBlock.Foreground"
+                                            Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+                            </Trigger>
+
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter TargetName="ContentPresenter" Property="TextBlock.Foreground"
+                                                Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                            </Trigger>
+
                             <MultiTrigger>
                                 <MultiTrigger.Conditions>
                                     <Condition Property="IsMouseOver" Value="True" />
@@ -39,10 +63,6 @@
                                             <SolidColorBrush Color="{DynamicResource Primary100}" />
                                         </Setter.Value>
                                     </Setter>
-
-                                    <Setter TargetName="ContentPresenter"
-                                                Property="TextBlock.Foreground"
-                                                Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
                                 </MultiTrigger.Setters>
                             </MultiTrigger>
 
@@ -55,10 +75,6 @@
                                 <MultiTrigger.Setters>
                                     <Setter TargetName="Panel" Property="Background"
                                             Value="{DynamicResource PrimaryHueLightBrush}"/>
-
-                                    <Setter TargetName="ContentPresenter"
-                                                Property="TextBlock.Foreground"
-                                                Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
                                 </MultiTrigger.Setters>
                             </MultiTrigger>
 
@@ -74,10 +90,6 @@
                                             <SolidColorBrush Color="{DynamicResource Primary400}" />
                                         </Setter.Value>
                                     </Setter>
-
-                                    <Setter TargetName="ContentPresenter"
-                                                Property="TextBlock.Foreground"
-                                                Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
                                 </MultiTrigger.Setters>
                             </MultiTrigger>
 
@@ -90,10 +102,6 @@
                                 <MultiTrigger.Setters>
                                     <Setter TargetName="Panel" Property="Background"
                                             Value="{DynamicResource PrimaryHueMidBrush}"/>
-
-                                    <Setter TargetName="ContentPresenter"
-                                                Property="TextBlock.Foreground"
-                                                Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
                                 </MultiTrigger.Setters>
                             </MultiTrigger>
                         </ControlTemplate.Triggers>
@@ -136,7 +144,7 @@
 
         <TabControl.ItemTemplate>
             <DataTemplate>
-                <TextBlock Text="{Binding Title}" />
+                <TextBox Text="{Binding Title}" />
             </DataTemplate>
         </TabControl.ItemTemplate>
 
