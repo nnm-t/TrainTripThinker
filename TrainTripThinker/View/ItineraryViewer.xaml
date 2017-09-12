@@ -27,21 +27,75 @@
                         </Grid>
 
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="Panel" Property="Background"
-                                        Value="{DynamicResource PrimaryHueLightBrush}" />
-                                <Setter TargetName="ContentPresenter"
-                                                Property="TextBlock.Foreground"
-                                                Value="{DynamicResource BlackBrush}" />
-                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True" />
+                                    <Condition Property="IsSelected" Value="True" />
+                                </MultiTrigger.Conditions>
 
-                            <Trigger Property="IsSelected" Value="False">
-                                <Setter TargetName="Panel" Property="Background"
-                                        Value="{DynamicResource PrimaryHueMidBrush}" />
-                                <Setter TargetName="ContentPresenter"
+                                <MultiTrigger.Setters>
+                                    <Setter TargetName="Panel" Property="Background">
+                                        <Setter.Value>
+                                            <SolidColorBrush Color="{DynamicResource Primary100}" />
+                                        </Setter.Value>
+                                    </Setter>
+
+                                    <Setter TargetName="ContentPresenter"
                                                 Property="TextBlock.Foreground"
-                                                Value="{DynamicResource WhiteBrush}" />
-                            </Trigger>
+                                                Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>
+
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="False" />
+                                    <Condition Property="IsSelected" Value="True" />
+                                </MultiTrigger.Conditions>
+
+                                <MultiTrigger.Setters>
+                                    <Setter TargetName="Panel" Property="Background"
+                                            Value="{DynamicResource PrimaryHueLightBrush}"/>
+
+                                    <Setter TargetName="ContentPresenter"
+                                                Property="TextBlock.Foreground"
+                                                Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>
+
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True" />
+                                    <Condition Property="IsSelected" Value="False" />
+                                </MultiTrigger.Conditions>
+
+                                <MultiTrigger.Setters>
+                                    <Setter TargetName="Panel" Property="Background">
+                                        <Setter.Value>
+                                            <SolidColorBrush Color="{DynamicResource Primary400}" />
+                                        </Setter.Value>
+                                    </Setter>
+
+                                    <Setter TargetName="ContentPresenter"
+                                                Property="TextBlock.Foreground"
+                                                Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>
+
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="False" />
+                                    <Condition Property="IsSelected" Value="False" />
+                                </MultiTrigger.Conditions>
+
+                                <MultiTrigger.Setters>
+                                    <Setter TargetName="Panel" Property="Background"
+                                            Value="{DynamicResource PrimaryHueMidBrush}"/>
+
+                                    <Setter TargetName="ContentPresenter"
+                                                Property="TextBlock.Foreground"
+                                                Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
