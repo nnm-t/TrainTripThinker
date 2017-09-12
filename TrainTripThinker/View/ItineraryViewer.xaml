@@ -11,14 +11,15 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <Style TargetType="Button" x:Key="TabCloseButton" BasedOn="{StaticResource MaterialDesignFlatButton}">
-            <Setter Property="Width" Value="32" />
+            <Setter Property="Width" Value="24" />
+            <Setter Property="Height" Value="24" />
             <Setter Property="DockPanel.Dock" Value="Right" />
             <Setter Property="Padding" Value="4" />
             <Setter Property="Margin" Value="4 0" />
 
             <Setter Property="Background">
                 <Setter.Value>
-                    <SolidColorBrush Color="{DynamicResource Primary300}" />
+                    <SolidColorBrush Color="{DynamicResource Primary400}" />
                 </Setter.Value>
             </Setter>
         </Style>
@@ -34,8 +35,10 @@
                                               TextBlock.FontSize="16" />
 
                             <Button x:Name="CloseButton"
-                                     Style="{DynamicResource TabCloseButton}">
-                                <md:PackIcon Kind="Close" Width="24" Height="24"
+                                    Style="{DynamicResource TabCloseButton}"
+                                    Command="{Binding RemoveItineraryCommand, Source={StaticResource ItineraryViewModel}}"
+                                    CommandParameter="{Binding SelectedIndex, RelativeSource={RelativeSource AncestorType=TabControl}}">
+                                <md:PackIcon Kind="Close" Width="16" Height="16"
                                              Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"/>
                             </Button>
                         </DockPanel>
@@ -44,11 +47,13 @@
                             <Trigger Property="IsSelected" Value="True">
                                 <Setter TargetName="ContentPresenter" Property="TextBlock.Foreground"
                                             Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+                                <Setter TargetName="CloseButton" Property="Visibility" Value="Visible" />
                             </Trigger>
 
                             <Trigger Property="IsSelected" Value="False">
                                 <Setter TargetName="ContentPresenter" Property="TextBlock.Foreground"
                                                 Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                                <Setter TargetName="CloseButton" Property="Visibility" Value="Hidden" />
                             </Trigger>
 
                             <MultiTrigger>
@@ -128,7 +133,7 @@
                     <TabPanel IsItemsHost="True" />
 
                     <Button Grid.Row="0" Grid.Column="1"
-                            Command="{Binding AddItieraryCommand}"
+                            Command="{Binding AddItineraryCommand}"
                             Style="{DynamicResource MaterialDesignFlatButton}"
                             Height="Auto">
                         <md:PackIcon Kind="Plus" Width="32" Height="32"

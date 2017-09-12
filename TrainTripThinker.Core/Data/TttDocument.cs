@@ -4,6 +4,8 @@ using Prism.Mvvm;
 
 namespace TrainTripThinker.Core.Data
 {
+    using System;
+
     /// <summary>
     /// Train Trip Thinkerのドキュメントクラス
     /// </summary>
@@ -39,6 +41,15 @@ namespace TrainTripThinker.Core.Data
         public void AddItinerary()
         {
             this.itineraries.Add(new Itinerary("Itinerary" + this.ItineraryCount));
+        }
+
+        /// <summary>
+        /// <see cref="index"/>番目の行程表を削除
+        /// </summary>
+        /// <param name="index">行程表のインデックス</param>
+        public void RemoveItinerary(int index)
+        {
+            this.itineraries.RemoveAt(index);
         }
     }
 }

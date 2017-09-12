@@ -35,8 +35,10 @@ namespace TrainTripThinker.ViewModel
 
             this.Itineraries = this.document.Itineraries.ToReadOnlyReactiveCollection();
 
-            this.AddItieraryCommand = new ReactiveCommand();
-            this.AddItieraryCommand.Subscribe(_ => this.document.AddItinerary());
+            this.AddItineraryCommand = new ReactiveCommand();
+            this.AddItineraryCommand.Subscribe(_ => this.document.AddItinerary());
+            this.RemoveItineraryCommand = new ReactiveCommand<int>();
+            this.RemoveItineraryCommand.Subscribe(index => this.document.RemoveItinerary(index));
         }
 
         /// <summary>
@@ -47,7 +49,12 @@ namespace TrainTripThinker.ViewModel
         /// <summary>
         /// 行程表を追加
         /// </summary>
-        public ReactiveCommand AddItieraryCommand { get; }
+        public ReactiveCommand AddItineraryCommand { get; }
+
+        /// <summary>
+        /// 行程表を削除
+        /// </summary>
+        public ReactiveCommand<int> RemoveItineraryCommand { get; } 
 
     }
 }
