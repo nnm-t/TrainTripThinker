@@ -155,13 +155,50 @@
 
         <TabControl.ContentTemplate>
             <DataTemplate>
-                <ItemsControl ItemsSource="{Binding Elements}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="data:TransportElement">
-                            <TextBlock Text="{Binding Transport.Type}" />
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <ItemsControl ItemsSource="{Binding Elements}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="data:TransportElement">
+                                <TextBlock Text="{Binding Transport.Type}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <Grid Grid.Row="1" Height="64" Margin="8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="64" />
+                        </Grid.ColumnDefinitions>
+
+                        <md:PopupBox Grid.Column="1" PlacementMode="TopAndAlignCentres"
+                                     ToggleCheckedContentCommand="{Binding AddTransportEelementCommand, Source={StaticResource ItineraryViewModel}}"
+                                     ToggleCheckedContentCommandParameter="{Binding}"
+                                     Style="{DynamicResource MaterialDesignMultiFloatingActionPopupBox}">
+                            <md:PopupBox.ToggleContent>
+                                <md:PackIcon Width="32" Height="32" Kind="Plus" />
+                            </md:PopupBox.ToggleContent>
+
+                            <md:PopupBox.ToggleCheckedContent>
+                                <md:PackIcon Width="32" Height="32" Kind="Train" />
+                            </md:PopupBox.ToggleCheckedContent>
+
+                            <StackPanel>
+                                <Button>
+                                    <md:PackIcon Width="24" Height="24" Kind="Clock" />
+                                </Button>
+
+                                <Button>
+                                    <md:PackIcon Width="24" Height="24" Kind="Pencil" />
+                                </Button>
+                            </StackPanel>
+                        </md:PopupBox>
+                    </Grid>
+                </Grid>
             </DataTemplate>
         </TabControl.ContentTemplate>
     </TabControl>

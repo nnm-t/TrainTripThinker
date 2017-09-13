@@ -39,6 +39,8 @@ namespace TrainTripThinker.ViewModel
             this.AddItineraryCommand.Subscribe(_ => this.document.AddItinerary());
             this.RemoveItineraryCommand = new ReactiveCommand<int>();
             this.RemoveItineraryCommand.Subscribe(index => this.document.RemoveItinerary(index));
+            this.AddTransportEelementCommand = new ReactiveCommand<Itinerary>();
+            this.AddTransportEelementCommand.Subscribe(itinerary => itinerary.AddTransportElement());
         }
 
         /// <summary>
@@ -56,5 +58,6 @@ namespace TrainTripThinker.ViewModel
         /// </summary>
         public ReactiveCommand<int> RemoveItineraryCommand { get; } 
 
+        public ReactiveCommand<Itinerary> AddTransportEelementCommand { get; }
     }
 }

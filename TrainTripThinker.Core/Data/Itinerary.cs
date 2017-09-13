@@ -28,5 +28,10 @@ namespace TrainTripThinker.Core.Data
         ///     行程表のアイテムのコレクション
         /// </summary>
         public ObservableCollection<ItineraryElement> Elements { get; set; }
+
+        public void AddTransportElement()
+        {
+            this.Elements.Add(new TransportElement());
+        }
     }
 }
