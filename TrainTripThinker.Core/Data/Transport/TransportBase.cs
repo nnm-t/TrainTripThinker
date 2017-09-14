@@ -1,18 +1,15 @@
-﻿using System.Collections.Generic;
-using TrainTripThinker.Core.Enums;
+﻿using System.Collections.ObjectModel;
+
+using Prism.Mvvm;
 
 namespace TrainTripThinker.Core.Data
 {
     /// <summary>
     /// 列車・バス・船・飛行機などの乗り物
     /// </summary>
-    public class Transport
+    /// <inheritdoc cref="BindableBase"/>
+    public abstract class TransportBase : BindableBase
     {
-        /// <summary>
-        /// 乗り物の種類
-        /// </summary>
-        public TransportType Type { get; set; }
-
         /// <summary>
         /// 便名
         /// </summary>
@@ -21,7 +18,7 @@ namespace TrainTripThinker.Core.Data
         /// <summary>
         /// 路線
         /// </summary>
-        public List<string> Route { get; set; }
+        public ObservableCollection<string> Route { get; set; }
 
         /// <summary>
         /// 名前

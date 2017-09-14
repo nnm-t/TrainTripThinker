@@ -164,7 +164,7 @@
                     <ItemsControl ItemsSource="{Binding Elements}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate DataType="data:TransportElement">
-                                <TextBlock Text="{Binding Transport.Type}" />
+                                <TextBlock Text="{Binding Transport}" />
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>

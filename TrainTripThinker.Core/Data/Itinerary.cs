@@ -15,8 +15,8 @@ namespace TrainTripThinker.Core.Data
         /// </param>
         public Itinerary(string title)
         {
-            this.Elements = new ObservableCollection<ItineraryElement>();
-            this.Title = title;
+            Elements = new ObservableCollection<ItineraryElement>();
+            Title = title;
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace TrainTripThinker.Core.Data
 
         public void AddTransportElement()
         {
-            this.Elements.Add(new TransportElement());
+            Elements.Add(new TransportElement(new Train()));
         }
     }
 }
