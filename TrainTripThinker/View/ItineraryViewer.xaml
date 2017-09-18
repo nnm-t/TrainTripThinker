@@ -114,6 +114,14 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <local:TransportTemplateSelector x:Key="TransportTemplateSelector">
+            <local:TransportTemplateSelector.TrainTemplate>
+                <DataTemplate DataType="data:Train">
+                    <TextBlock Text="{Binding Class}" />
+                </DataTemplate>
+            </local:TransportTemplateSelector.TrainTemplate>
+        </local:TransportTemplateSelector>
     </UserControl.Resources>
 
     <TabControl ItemsSource="{Binding Itineraries}" >
@@ -164,7 +172,9 @@
                     <ItemsControl ItemsSource="{Binding Elements}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate DataType="data:TransportElement">
-                                <TextBlock Text="{Binding Transport}" />
+                                <ContentControl Content="{Binding Transport}"
+                                                ContentTemplateSelector="{StaticResource TransportTemplateSelector}">
+                                </ContentControl>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
