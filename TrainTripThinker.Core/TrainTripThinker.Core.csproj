@@ -52,6 +52,8 @@
     <Compile Include="Data\ItineraryElement\ItineraryElement.cs" />
     <Compile Include="Data\Elements\Departure.cs" />
     <Compile Include="Data\Elements\Platform.cs" />
+    <Compile Include="Data\Transport\ILineColor.cs" />
+    <Compile Include="Data\Transport\IRestRoom.cs" />
     <Compile Include="Data\Transport\ITransportClass.cs" />
     <Compile Include="Data\Transport\Train.cs" />
     <Compile Include="Data\Transport\TransportBase.cs" />

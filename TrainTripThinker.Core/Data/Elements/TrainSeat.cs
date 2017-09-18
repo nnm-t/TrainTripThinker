@@ -4,6 +4,9 @@ using TrainTripThinker.Core.Enums;
 
 namespace TrainTripThinker.Core.Data
 {
+    /// <summary>
+    /// 座席種別
+    /// </summary>
     public class TrainSeat: BindableBase
     {
         private SeatReservation reservation;
@@ -16,6 +19,15 @@ namespace TrainTripThinker.Core.Data
         {
             get => reservation;
             set => SetProperty(ref reservation, value);
+        }
+
+        /// <summary>
+        /// 座席タイプ
+        /// </summary>
+        public string SeatType
+        {
+            get => seatType;
+            set => SetProperty(ref seatType, value);
         }
     }
 }
