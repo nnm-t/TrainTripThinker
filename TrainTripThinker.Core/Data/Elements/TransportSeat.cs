@@ -5,9 +5,10 @@ using TrainTripThinker.Core.Enums;
 namespace TrainTripThinker.Core.Data
 {
     /// <summary>
-    /// 座席種別
+    /// 乗り物の座席種別
     /// </summary>
-    public class TrainSeat: BindableBase
+    /// <inheritdoc cref="BindableBase"/>
+    public class TransportSeat: BindableBase
     {
         private SeatReservation reservation;
         private string seatType;

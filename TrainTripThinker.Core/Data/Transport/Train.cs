@@ -7,11 +7,11 @@ namespace TrainTripThinker.Core.Data
     /// </summary>
     /// <inheritdoc cref="TransportBase"/>
     /// <inheritdoc cref="ITransportClass"/>
-    public class Train : TransportBase, ITransportClass, ILineColor, IRestRoom
+    public class Train : TransportBase, ITransportClass, ILineColor, IRestRoom, ITransportSeat
     {
         private TransportClass transportClass;
         private Color32 lineColor;
-        private TrainSeat seat;
+        private TransportSeat seat;
         private bool hasRestRoom;
 
         /// <inheritdoc />
@@ -34,10 +34,11 @@ namespace TrainTripThinker.Core.Data
             set => SetProperty(ref lineColor, value);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// 座席種別
         /// </summary>
-        public TrainSeat Seat
+        public TransportSeat Seat
         {
             get => seat;
             set => SetProperty(ref seat, value);

@@ -46,15 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Elements\TrainSeat.cs" />
+    <Compile Include="Data\Elements\TransportSeat.cs" />
     <Compile Include="Data\Elements\TransportClass.cs" />
     <Compile Include="Data\Itinerary.cs" />
     <Compile Include="Data\ItineraryElement\ItineraryElement.cs" />
     <Compile Include="Data\Elements\Departure.cs" />
     <Compile Include="Data\Elements\Platform.cs" />
+    <Compile Include="Data\Transport\Bus.cs" />
     <Compile Include="Data\Transport\ILineColor.cs" />
     <Compile Include="Data\Transport\IRestRoom.cs" />
     <Compile Include="Data\Transport\ITransportClass.cs" />
+    <Compile Include="Data\Transport\ITransportSeat.cs" />
     <Compile Include="Data\Transport\Train.cs" />
     <Compile Include="Data\Transport\TransportBase.cs" />
     <Compile Include="Data\ItineraryElement\PeriodElement.cs" />

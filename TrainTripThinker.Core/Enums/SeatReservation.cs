@@ -13,6 +13,11 @@
         /// <summary>
         /// 指定席
         /// </summary>
-        Reserved
+        Reserved,
+
+        /// <summary>
+        /// 定員制
+        /// </summary>
+        Capacity
     }
 }
