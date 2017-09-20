@@ -115,10 +115,70 @@
             </Setter>
         </Style>
 
+        <DataTemplate x:Key="TransportNumberTemplate" DataType="data:TransportNumber">
+            <UniformGrid Columns="3" Margin="4, 0">
+                <UniformGrid.Resources>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
+                        <Setter Property="FontSize" Value="16" />
+                    </Style>
+                </UniformGrid.Resources> 
+                <TextBox Text="{Binding Prefix}" />
+                <TextBox Text="{Binding Number}" md:HintAssist.Hint="便名" />
+                <TextBox Text="{Binding Suffix}" />
+            </UniformGrid>
+        </DataTemplate>
+
         <local:TransportTemplateSelector x:Key="TransportTemplateSelector">
             <local:TransportTemplateSelector.TrainTemplate>
                 <DataTemplate DataType="data:Train">
-                    <TextBlock Text="{Binding Class}" />
+                    <Grid Margin="4, 4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="16" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Rectangle Fill="{DynamicResource PrimaryHueMidBrush}" />
+
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="3*" />
+                                <RowDefinition Height="16" />
+                            </Grid.RowDefinitions>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="4*" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <ContentControl Grid.Column="1" Content="{Binding TransportNumber}"
+                                                ContentTemplate="{StaticResource TransportNumberTemplate}" />
+
+                            </Grid>
+
+                            <Grid Grid.Row="1">
+                                <Grid.Resources>
+                                    <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
+                                        <Setter Property="Margin" Value="4 0" />
+                                        <Setter Property="FontSize" Value="20" />
+                                    </Style>
+                                </Grid.Resources>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32" />
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox Grid.Column="1" Text="{Binding Name}"
+                                         md:HintAssist.Hint="名前" />
+                                <TextBox Grid.Column="2" Text="{Binding Destination}"
+                                         md:HintAssist.Hint="行先" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
                 </DataTemplate>
             </local:TransportTemplateSelector.TrainTemplate>
         </local:TransportTemplateSelector>
@@ -150,7 +210,7 @@
         <DataTemplate x:Key="PlatformTemplate" DataType="data:Platform">
             <UniformGrid Columns="3">
                 <TextBox Text="{Binding Prefix}" />
-                <TextBox Text="{Binding Number}" />
+                <TextBox Text="{Binding Number}" md:HintAssist.Hint="のりば" />
                 <TextBox Text="{Binding Suffix}" />
             </UniformGrid>
         </DataTemplate>
