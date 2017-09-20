@@ -122,6 +122,81 @@
                 </DataTemplate>
             </local:TransportTemplateSelector.TrainTemplate>
         </local:TransportTemplateSelector>
+
+        <DataTemplate x:Key="DepartureTemplate" DataType="data:Departure">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+
+                <UniformGrid Columns="2" Margin="4, 0">
+                    <DatePicker FontSize="16" DisplayDate="{Binding DateTime}"
+                                md:HintAssist.Hint="日付"/>
+                    <md:TimePicker Margin="0" FontSize="16"
+                                   md:HintAssist.Hint="時刻"
+                                   SelectedTime="{Binding DateTime}" />
+                </UniformGrid>
+
+                <TextBox Grid.Column="1" FontSize="16" Text="{Binding Name}"
+                         md:HintAssist.Hint="駅名" Margin="4,0"/>
+
+                <ContentControl Grid.Column="2" Content="{Binding Platform}"
+                                ContentTemplate="{DynamicResource PlatformTemplate}"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="PlatformTemplate" DataType="data:Platform">
+            <UniformGrid Columns="3">
+                <TextBox Text="{Binding Prefix}" />
+                <TextBox Text="{Binding Number}" />
+                <TextBox Text="{Binding Suffix}" />
+            </UniformGrid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="TransportElementTemplate" DataType="data:TransportElement">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="24" />
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Row="1" ColumnSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <ContentControl Content="{Binding Period.Begin}"
+                                    ContentTemplate="{StaticResource DepartureTemplate}"/>
+
+                    <Grid Grid.Row="1" Margin="0, 4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="6*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Canvas Grid.Column="1" Height="100">
+                            <Path Data="M 0 0 L 0 100 L 25 75 L 10 75 L 10 0"  Fill="Black"/>
+                        </Canvas>
+
+                        <ContentControl Grid.Column="2" Content="{Binding Transport}"
+                                        ContentTemplateSelector="{StaticResource TransportTemplateSelector}" />
+                    </Grid>
+
+                    <ContentControl Grid.Row="2" Content="{Binding Period.End}"
+                                    ContentTemplate="{StaticResource DepartureTemplate}"/>
+                </Grid>
+            </Grid>
+        </DataTemplate>
     </UserControl.Resources>
 
     <TabControl ItemsSource="{Binding Itineraries}" >
@@ -169,15 +244,8 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <ItemsControl ItemsSource="{Binding Elements}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate DataType="data:TransportElement">
-                                <ContentControl Content="{Binding Transport}"
-                                                ContentTemplateSelector="{StaticResource TransportTemplateSelector}">
-                                </ContentControl>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                    <ItemsControl ItemsSource="{Binding Elements}"
+                                  ItemTemplate="{StaticResource TransportElementTemplate}"/>
 
                     <Grid Grid.Row="1" Height="64" Margin="8">
                         <Grid.ColumnDefinitions>
