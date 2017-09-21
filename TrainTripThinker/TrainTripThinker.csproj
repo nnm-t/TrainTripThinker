@@ -134,6 +134,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Extensions\Color32Extensions.cs" />
     <Compile Include="Model\ModelManager.cs" />
     <Compile Include="Model\TttMain.cs" />
     <Compile Include="ViewModel\ItineraryViewModel.cs" />

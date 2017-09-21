@@ -148,13 +148,12 @@
 
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="32" />
                                     <ColumnDefinition Width="2*" />
                                     <ColumnDefinition Width="4*" />
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
 
-                                <ContentControl Grid.Column="1" Content="{Binding TransportNumber}"
+                                <ContentControl Content="{Binding TransportNumber}"
                                                 ContentTemplate="{StaticResource TransportNumberTemplate}" />
 
                             </Grid>
