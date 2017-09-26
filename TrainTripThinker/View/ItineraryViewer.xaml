@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:TrainTripThinker.View"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:TrainTripThinker.View"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:data="clr-namespace:TrainTripThinker.Core.Data;assembly=TrainTripThinker.Core"
              mc:Ignorable="d" 
@@ -123,12 +124,28 @@
                     <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
                         <Setter Property="FontSize" Value="16" />
                     </Style>
-                </UniformGrid.Resources> 
+                </UniformGrid.Resources>
                 <TextBox Text="{Binding Prefix}" />
                 <TextBox Text="{Binding Number}" md:HintAssist.Hint="便名" />
                 <TextBox Text="{Binding Suffix}" />
             </UniformGrid>
         </DataTemplate>
+
+        <x:Array x:Key="TransportClasses" Type="data:TransportClass">
+            <data:TransportClass Text="普通"
+                                 Background="{x:Static data:Color32.White}"
+                                 Foreground="{x:Static data:Color32.Black}"/>
+            <data:TransportClass Text="快速"
+                                 Background="{x:Static data:Color32.Blue}"
+                                 Foreground="{x:Static data:Color32.White}" />
+            <data:TransportClass Text="急行"
+                                 Background="{x:Static data:Color32.White}"
+                                 Foreground="{x:Static data:Color32.Red}" />
+            <data:TransportClass Text="特急"
+                                 Background="{x:Static data:Color32.Red}"
+                                 Foreground="{x:Static data:Color32.White}" />
+        </x:Array>
+        <local:Color32BrushConverter x:Key="Color32BrushConverter" />
 
         <local:TransportTemplateSelector x:Key="TransportTemplateSelector">
             <local:TransportTemplateSelector.TrainTemplate>
@@ -169,13 +186,29 @@
                                 </Grid.Resources>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="32" />
-                                    <ColumnDefinition Width="3*" />
                                     <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="4*" />
+                                    <ColumnDefinition Width="3*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Column="1" Text="{Binding Name}"
-                                         md:HintAssist.Hint="名前" />
-                                <TextBox Grid.Column="2" Text="{Binding Destination}"
+                                <ComboBox Grid.Column="1" SelectedItem="{Binding Class}"
+                                          ItemsSource="{StaticResource TransportClasses}"
+                                          Margin="4 0" FontSize="20"
+                                          HorizontalContentAlignment="Stretch"
+                                          md:HintAssist.Hint="種別">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate DataType="data:TransportClass">
+                                            <Grid Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ComboBox} }"
+                                                  Background="{Binding Background, Converter={StaticResource Color32BrushConverter}}">
+                                                <TextBlock Text="{Binding Text}" FontSize="20" Margin="2 0"
+                                                           Foreground="{Binding Foreground, Converter={StaticResource Color32BrushConverter}}"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                                <TextBox Grid.Column="2" Text="{Binding Name}"
+                                             md:HintAssist.Hint="列車名" />
+                                <TextBox Grid.Column="3" Text="{Binding Destination}"
                                          md:HintAssist.Hint="行先" />
                             </Grid>
                         </Grid>

@@ -1,6 +1,7 @@
-﻿using Prism.Mvvm;
+﻿using System;
 
-using TrainTripThinker.Core.Structs;
+using Prism.Mvvm;
+
 
 namespace TrainTripThinker.Core.Data
 {
@@ -12,6 +13,15 @@ namespace TrainTripThinker.Core.Data
         private string text;
         private Color32 background;
         private Color32 foreground;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// 種別インスタンス生成(無記入、白地黒文字)
+        /// </summary>
+        public TransportClass() : this(string.Empty, Color32.White, Color32.Black)
+        {
+            
+        }
 
         /// <inheritdoc />
         /// <summary>

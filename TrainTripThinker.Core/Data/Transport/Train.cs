@@ -1,5 +1,4 @@
-﻿using TrainTripThinker.Core.Structs;
-
+﻿
 namespace TrainTripThinker.Core.Data
 {
     /// <summary>

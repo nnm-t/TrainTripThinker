@@ -1,4 +1,4 @@
-﻿namespace TrainTripThinker.Core.Structs
+﻿namespace TrainTripThinker.Core.Data
 {
     /// <summary>
     /// 32ビットカラー(アルファチャンネル含む)

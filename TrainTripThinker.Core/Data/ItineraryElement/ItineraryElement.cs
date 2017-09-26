@@ -1,7 +1,6 @@
 ﻿using Prism.Mvvm;
 
 using TrainTripThinker.Core.Enums;
-using TrainTripThinker.Core.Structs;
 
 namespace TrainTripThinker.Core.Data
 {

@@ -1,6 +1,5 @@
 ﻿using System.Windows.Media;
-
-using TrainTripThinker.Core.Structs;
+using TrainTripThinker.Core.Data;
 
 namespace TrainTripThinker.Extensions
 {
