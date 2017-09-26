@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TrainTripThinker.View"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:data="clr-namespace:TrainTripThinker.Core.Data;assembly=TrainTripThinker.Core"
              mc:Ignorable="d" 
              DataContext="{StaticResource ItineraryViewModel}"
@@ -115,6 +116,7 @@
             </Setter>
         </Style>
 
+
         <DataTemplate x:Key="TransportNumberTemplate" DataType="data:TransportNumber">
             <UniformGrid Columns="3" Margin="4, 0">
                 <UniformGrid.Resources>
@@ -206,11 +208,21 @@
             </Grid>
         </DataTemplate>
 
+        <x:Array x:Key="PlatformSuffixes" Type="system:String">
+            <system:String>番線</system:String>
+            <system:String>のりば</system:String>
+            <system:String>号線</system:String>
+            <system:String>バース</system:String>
+            <system:String>搭乗口</system:String>
+            <system:String>ゲート</system:String>
+        </x:Array>
+
         <DataTemplate x:Key="PlatformTemplate" DataType="data:Platform">
             <UniformGrid Columns="3">
                 <TextBox Text="{Binding Prefix}" />
-                <TextBox Text="{Binding Number}" md:HintAssist.Hint="のりば" />
-                <TextBox Text="{Binding Suffix}" />
+                <TextBox Text="{Binding Number}" />
+                <ComboBox Text="{Binding Suffix}" SelectedIndex="1" IsEditable="True"
+                          ItemsSource="{StaticResource PlatformSuffixes}"/>
             </UniformGrid>
         </DataTemplate>
 

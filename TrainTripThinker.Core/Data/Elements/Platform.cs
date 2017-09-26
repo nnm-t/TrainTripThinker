@@ -1,4 +1,6 @@
-﻿using Prism.Mvvm;
+﻿using System.Collections.Generic;
+
+using Prism.Mvvm;
 
 namespace TrainTripThinker.Core.Data
 {
@@ -38,5 +40,6 @@ namespace TrainTripThinker.Core.Data
             get => suffix;
             set => SetProperty(ref suffix, value);
         }
+
     }
 }
