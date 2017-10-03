@@ -144,7 +144,6 @@
                                  Background="{x:Static data:Color32.Red}"
                                  Foreground="{x:Static data:Color32.White}" />
         </x:Array>
-        <local:Color32BrushConverter x:Key="Color32BrushConverter" />
 
         <local:TransportTemplateSelector x:Key="TransportTemplateSelector">
             <local:TransportTemplateSelector.TrainTemplate>
