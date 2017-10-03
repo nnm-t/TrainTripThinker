@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:TrainTripThinker.View"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
@@ -119,7 +118,7 @@
 
 
         <DataTemplate x:Key="TransportNumberTemplate" DataType="data:TransportNumber">
-            <UniformGrid Columns="3" Margin="4, 0">
+            <UniformGrid Columns="3" Margin="4 0">
                 <UniformGrid.Resources>
                     <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
                         <Setter Property="FontSize" Value="16" />
@@ -180,7 +179,7 @@
                             <Grid Grid.Row="1">
                                 <Grid.Resources>
                                     <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
-                                        <Setter Property="Margin" Value="4 0" />
+                                        <Setter Property="Margin" Value="4 0 4 3" />
                                         <Setter Property="FontSize" Value="20" />
                                     </Style>
                                 </Grid.Resources>
@@ -251,7 +250,12 @@
         </x:Array>
 
         <DataTemplate x:Key="PlatformTemplate" DataType="data:Platform">
-            <UniformGrid Columns="3">
+            <UniformGrid Columns="3" Margin="4 0">
+                <UniformGrid.Resources>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
+                        <Setter Property="Margin" Value="0 0 0 1" />
+                    </Style>
+                </UniformGrid.Resources>
                 <TextBox Text="{Binding Prefix}" />
                 <TextBox Text="{Binding Number}" />
                 <ComboBox Text="{Binding Suffix}" SelectedIndex="1" IsEditable="True"
