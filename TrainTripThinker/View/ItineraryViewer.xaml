@@ -185,7 +185,7 @@
                             <ComboBox SelectedItem="{Binding LineColor, Converter={StaticResource ColorNameConverter}}"
                                       ItemsSource="{StaticResource ColorNameArray}"
                                       Style="{StaticResource ColorComboBox}"
-                                      FontSize="20" />
+                                      FontSize="20" HorizontalAlignment="Stretch"/>
 
                             <ComboBox Grid.Column="1" SelectedItem="{Binding Class}"
                                       ItemsSource="{StaticResource TransportClasses}"
