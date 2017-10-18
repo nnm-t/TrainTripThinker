@@ -60,12 +60,12 @@ namespace TrainTripThinker.Core.Data
         /// <summary>
         /// ピンク
         /// </summary>
-        public static Color32 Pink => new Color32(0xFF, 0xC0, 0xCB);
+        public static Color32 Pink => new Color32(0xFF, 0x69, 0xB4);
 
         /// <summary>
         /// 水色
         /// </summary>
-        public static Color32 Aqua => new Color32(0x00, 0xFF, 0xFF);
+        public static Color32 Aqua => new Color32(0x00, 0xBF, 0xFF);
 
         /// <summary>
         /// 茶色
