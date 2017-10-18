@@ -195,6 +195,10 @@
             Foreground="{x:Static data:Color32.White}"/>
         <!-- 東武伊勢崎線 -->
         <data:TransportClass
+            Text="特急連絡"
+            Background="{x:Static data:Color32.Green}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
             Text="区間準急"
             Background="{x:Static data:Color32.Green}"
             Foreground="{x:Static data:Color32.White}"/>
