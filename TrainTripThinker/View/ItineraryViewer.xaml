@@ -131,21 +131,6 @@
             </UniformGrid>
         </DataTemplate>
 
-        <x:Array x:Key="TransportClasses" Type="data:TransportClass">
-            <data:TransportClass Text="普通"
-                                 Background="{x:Static data:Color32.White}"
-                                 Foreground="{x:Static data:Color32.Black}"/>
-            <data:TransportClass Text="快速"
-                                 Background="{x:Static data:Color32.Blue}"
-                                 Foreground="{x:Static data:Color32.White}" />
-            <data:TransportClass Text="急行"
-                                 Background="{x:Static data:Color32.White}"
-                                 Foreground="{x:Static data:Color32.Red}" />
-            <data:TransportClass Text="特急"
-                                 Background="{x:Static data:Color32.Red}"
-                                 Foreground="{x:Static data:Color32.White}" />
-        </x:Array>
-
         <local:TransportTemplateSelector x:Key="TransportTemplateSelector">
             <local:TransportTemplateSelector.TrainTemplate>
                 <DataTemplate DataType="data:Train">
@@ -177,7 +162,7 @@
                             </Grid.Resources>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="48" />
-                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="3*" />
                                 <ColumnDefinition Width="4*" />
                                 <ColumnDefinition Width="3*" />
                             </Grid.ColumnDefinitions>
@@ -189,7 +174,7 @@
 
                             <ComboBox Grid.Column="1" SelectedItem="{Binding Class}"
                                       ItemsSource="{StaticResource TransportClasses}"
-                                      Margin="4 0" FontSize="20"
+                                      Margin="4 0" FontSize="20" FontWeight="Bold"
                                       HorizontalContentAlignment="Stretch"
                                       md:HintAssist.Hint="種別">
                                 <ComboBox.ItemTemplate>
