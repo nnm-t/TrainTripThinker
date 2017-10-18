@@ -27,8 +27,10 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.MahApps;component/Themes/MaterialDesignTheme.MahApps.Flyout.xaml" />
 
                 <!-- Train Trip Thinker -->
+                <ResourceDictionary Source="View/ResourceDictionary/Converters.xaml" />
                 <ResourceDictionary Source="View/ResourceDictionary/Window.xaml" />
                 <ResourceDictionary Source="View/ResourceDictionary/DataContexts.xaml" />
+                <ResourceDictionary Source="View/ResourceDictionary/ColorComboBox.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <SolidColorBrush x:Key="HighlightBrush" Color="{DynamicResource Primary700}"/>
@@ -51,7 +53,6 @@
             <SolidColorBrush x:Key="MahApps.Metro.Brushes.ToggleSwitchButton.OnSwitchMouseOverBrush.Win10" Color="{DynamicResource Primary400}" />
             <SolidColorBrush x:Key="MahApps.Metro.Brushes.ToggleSwitchButton.ThumbIndicatorCheckedBrush.Win10" Color="{DynamicResource Primary500Foreground}" />
 
-            <view:Color32BrushConverter x:Key="Color32BrushConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

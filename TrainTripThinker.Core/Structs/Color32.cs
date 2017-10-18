@@ -1,4 +1,6 @@
-﻿namespace TrainTripThinker.Core.Data
+﻿using System.Collections.Generic;
+
+namespace TrainTripThinker.Core.Data
 {
     /// <summary>
     /// 32ビットカラー(アルファチャンネル含む)
@@ -96,9 +98,14 @@
         public static Color32 JnrRed2 => new Color32(0xBB, 0x33, 0x22);
 
         /// <summary>
+        /// 国鉄赤11号
+        /// </summary>
+        public static Color32 JnrRed11 => new Color32(0xCC, 0x44, 0x00);
+
+        /// <summary>
         /// 国鉄赤14号
         /// </summary>
-        public static Color32 JnrWine14 => new Color32(0xDD, 0x33, 0x55);
+        public static Color32 JnrRed14 => new Color32(0xDD, 0x33, 0x55);
 
         /// <summary>
         /// 国鉄ぶどう色2号
@@ -264,6 +271,16 @@
         /// 小田急ロイヤルブルー
         /// </summary>
         public static Color32 OdakyuRoyalBlue => new Color32(0x22, 0x66, 0xBB);
+
+        /// <summary>
+        /// 京王レッド
+        /// </summary>
+        public static Color32 KeioRed => new Color32(0xDD, 0x33, 0x77);
+
+        /// <summary>
+        /// 京王ブルー
+        /// </summary>
+        public static Color32 KeioBlue => new Color32(0x33, 0x33, 0x88);
 
         /// <summary>
         /// 赤成分
