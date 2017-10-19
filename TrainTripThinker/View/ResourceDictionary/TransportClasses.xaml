@@ -169,6 +169,10 @@
             Background="{x:Static data:Color32.Black}"
             Foreground="{x:Static data:Color32.JnrOrange}"/>
         <data:TransportClass
+            Text="丹波路快速"
+            Background="{x:Static data:Color32.Black}"
+            Foreground="{x:Static data:Color32.JnrOrange}"/>
+        <data:TransportClass
             Text="大和路快速"
             Background="{x:Static data:Color32.Black}"
             Foreground="{x:Static data:Color32.JnrGreen15}"/>
@@ -414,9 +418,222 @@
             Background="{x:Static data:Color32.Green}"
             Foreground="{x:Static data:Color32.White}"/>
         <data:TransportClass
-            Text="ウイング"
+            Text="Wing"
             Background="{x:Static data:Color32.White}"
             Foreground="{x:Static data:Color32.Green}"/>
+        <!-- 名鉄 -->
+        <data:TransportClass
+            Text="快速急行"
+            Background="{x:Static data:Color32.White}"
+            Foreground="{x:Static data:Color32.Aqua}"/>
+        <data:TransportClass
+            Text="高速"
+            Background="{x:Static data:Color32.Navy}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="快速特急"
+            Background="{x:Static data:Color32.White}"
+            Foreground="{x:Static data:Color32.Red}"/>
+        <data:TransportClass
+            Text="ミュースカイ"
+            Background="{x:Static data:Color32.White}"
+            Foreground="{x:Static data:Color32.Red}"/>
+        <!-- 近鉄 -->
+        <data:TransportClass
+            Text="区間急行"
+            Background="{x:Static data:Color32.Orange}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="区間快速急行"
+            Background="{x:Static data:Color32.Red}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="快速急行"
+            Background="{x:Static data:Color32.Red}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <!-- 京阪 -->
+        <data:TransportClass
+            Text="区間急行"
+            Background="{x:Static data:Color32.Green}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="通勤準急"
+            Background="{x:Static data:Color32.Blue}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="深夜急行"
+            Background="{x:Static data:Color32.Orange}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="通勤快急"
+            Background="{x:Static data:Color32.Purple}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="K特急"
+            Background="{x:Static data:Color32.Pink}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="快速特急"
+            Background="{x:Static data:Color32.Pink}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="快速特急 洛楽"
+            Background="{x:Static data:Color32.Pink}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="ライナー"
+            Background="{x:Static data:Color32.White}"
+            Foreground="{x:Static data:Color32.Red}"/>
+        <!-- 阪急 -->
+        <data:TransportClass
+            Text="堺筋準急"
+            Background="{x:Static data:Color32.Green}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="臨時準急"
+            Background="{x:Static data:Color32.Green}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="急行"
+            Background="{x:Static data:Color32.Yellow}"
+            Foreground="{x:Static data:Color32.Black}"/>
+        <data:TransportClass
+            Text="堺筋急行"
+            Background="{x:Static data:Color32.Yellow}"
+            Foreground="{x:Static data:Color32.Black}"/>
+        <data:TransportClass
+            Text="臨時急行"
+            Background="{x:Static data:Color32.Yellow}"
+            Foreground="{x:Static data:Color32.Black}"/>
+        <data:TransportClass
+            Text="快速急行"
+            Background="{x:Static data:Color32.Yellow}"
+            Foreground="{x:Static data:Color32.Black}"/>
+        <data:TransportClass
+            Text="臨時快速急行"
+            Background="{x:Static data:Color32.Yellow}"
+            Foreground="{x:Static data:Color32.Black}"/>
+        <data:TransportClass
+            Text="通勤特急"
+            Background="{x:Static data:Color32.Red}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="臨時特急"
+            Background="{x:Static data:Color32.Red}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="直通特急"
+            Background="{x:Static data:Color32.Red}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="快速特急"
+            Background="{x:Static data:Color32.Red}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="快速特急"
+            Background="{x:Static data:Color32.Purple}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <!-- 阪神 -->
+        <data:TransportClass
+            Text="区間急行"
+            Background="{x:Static data:Color32.Orange}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="区間特急"
+            Background="{x:Static data:Color32.Purple}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="直通特急"
+            Background="{x:Static data:Color32.Yellow}"
+            Foreground="{x:Static data:Color32.Blue}"/>
+        <!-- 南海 -->
+        <data:TransportClass
+            Text="準急行"
+            Background="{x:Static data:Color32.Blue}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="準急行"
+            Background="{x:Static data:Color32.Orange}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="区間急行"
+            Background="{x:Static data:Color32.Green}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="-急行-"
+            Background="{x:Static data:Color32.Orange}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="空港急行"
+            Background="{x:Static data:Color32.Orange}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="サザン"
+            Background="{x:Static data:Color32.Red}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="ラピートα"
+            Background="{x:Static data:Color32.Blue}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="ラピートβ"
+            Background="{x:Static data:Color32.Blue}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="泉北ライナー"
+            Background="{x:Static data:Color32.Red}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="こうや"
+            Background="{x:Static data:Color32.Black}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <data:TransportClass
+            Text="りんかん"
+            Background="{x:Static data:Color32.Black}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <!-- 西鉄 -->
+        <data:TransportClass
+            Text="急行"
+            Background="{x:Static data:Color32.Black}"
+            Foreground="{x:Static data:Color32.Green}"/>
+        <data:TransportClass
+            Text="快速急行"
+            Background="{x:Static data:Color32.Black}"
+            Foreground="{x:Static data:Color32.Orange}"/>
+        <data:TransportClass
+            Text="急行"
+            Background="{x:Static data:Color32.Black}"
+            Foreground="{x:Static data:Color32.Yellow}"/>
+        <data:TransportClass
+            Text="特急"
+            Background="{x:Static data:Color32.Black}"
+            Foreground="{x:Static data:Color32.Red}"/>
+        <!-- 準大手 -->
+        <data:TransportClass
+            Text="S特急"
+            Background="{x:Static data:Color32.Green}"
+            Foreground="{x:Static data:Color32.White}"/>
+        <!-- 中小私鉄 -->
+        <data:TransportClass
+            Text="超快速"
+            Background="{x:Static data:Color32.Black}"
+            Foreground="{x:Static data:Color32.Red}"/>
+        <data:TransportClass
+            Text="東葉快速"
+            Background="{x:Static data:Color32.Black}"
+            Foreground="{x:Static data:Color32.Red}"/>
+        <data:TransportClass
+            Text="妙見急行"
+            Background="{x:Static data:Color32.Yellow}"
+            Foreground="{x:Static data:Color32.Black}"/>
+        <data:TransportClass
+            Text="日生急行"
+            Background="{x:Static data:Color32.Yellow}"
+            Foreground="{x:Static data:Color32.Black}"/>
+        <data:TransportClass
+            Text="特快速"
+            Background="{x:Static data:Color32.Red}"
+            Foreground="{x:Static data:Color32.White}"/>
     </x:Array>
 
 </ResourceDictionary>
