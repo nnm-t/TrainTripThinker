@@ -122,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\Icons\GreenCar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ItineraryViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -142,6 +146,9 @@
     <Compile Include="View\BindingConverter\Color32BrushConverter.cs" />
     <Compile Include="View\BindingConverter\ColorNameConverter.cs" />
     <Compile Include="View\DataTemplateSelector\TransportTemplateSelector.cs" />
+    <Compile Include="View\Icons\GreenCar.xaml.cs">
+      <DependentUpon>GreenCar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ItineraryViewer.xaml.cs">
       <DependentUpon>ItineraryViewer.xaml</DependentUpon>
     </Compile>
