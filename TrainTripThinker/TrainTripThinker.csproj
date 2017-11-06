@@ -130,6 +130,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Icons\Restroom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Icons\TrainIcons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -159,6 +163,9 @@
     </Compile>
     <Compile Include="View\Icons\Reserved.xaml.cs">
       <DependentUpon>Reserved.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Icons\Restroom.xaml.cs">
+      <DependentUpon>Restroom.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ItineraryViewer.xaml.cs">
       <DependentUpon>ItineraryViewer.xaml</DependentUpon>

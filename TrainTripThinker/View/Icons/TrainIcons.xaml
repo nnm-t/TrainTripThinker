@@ -14,6 +14,14 @@
         <Setter Property="StrokeThickness" Value="4" />
     </Style>
 
+    <Style TargetType="Path" x:Key="TrainIconsFillPathStyle">
+        <Setter Property="Fill" Value="{DynamicResource BlackBrush}" />
+    </Style>
+
+    <Style TargetType="Ellipse" x:Key="TrainIconsFillEllipseStyle">
+        <Setter Property="Fill" Value="{DynamicResource BlackBrush}" />
+    </Style>
+
     <!-- Icons -->
     <Canvas x:Key="TrainIconsGreenCarReserved" Width="300" Height="300">
         <Path Style="{StaticResource TrainIconsDefaultPathStyle}"
@@ -58,5 +66,19 @@
                     M 115 210 H 160 M 115 230 H 160
                     M 100 250 H 175
                     M 137.5 210 V 250"/>
+    </Canvas>
+
+    <Canvas x:Key="TrainIconsRestroom" Width="300" Height="300">
+        <Path Style="{StaticResource TrainIconsFillPathStyle}" 
+              Data="M 40 70 H 50 A 20 17.5 0 0 0 100 70 H 110 L 120 80
+                    L 110 170 H 100 L 90 260 H 60 L 50 170 H 40 L 30 80 Z"/>
+        <Ellipse Style="{StaticResource TrainIconsFillEllipseStyle}"
+                 Width="40" Height="40" Canvas.Left="55" Canvas.Top="45" />
+        <Path Style="{StaticResource TrainIconsFillPathStyle}" 
+              Data="M 197.5 70 H 200 A 20 17.5 0 0 0 250 70 H 252.5 L 255 72.5
+                    L 250 140 Q 280 150 285 180 H 245 L 235 260 H 215 L 205 180
+                    H 165 Q 170 150 200 140 L 195 72.5 Z"/>
+        <Ellipse Style="{StaticResource TrainIconsFillEllipseStyle}"
+                 Width="40" Height="40" Canvas.Left="205" Canvas.Top="45" />
     </Canvas>
 </ResourceDictionary>
