@@ -126,6 +126,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Icons\Reserved.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Icons\TrainIcons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -152,6 +156,9 @@
     <Compile Include="View\DataTemplateSelector\TransportTemplateSelector.cs" />
     <Compile Include="View\Icons\GreenCar.xaml.cs">
       <DependentUpon>GreenCar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Icons\Reserved.xaml.cs">
+      <DependentUpon>Reserved.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ItineraryViewer.xaml.cs">
       <DependentUpon>ItineraryViewer.xaml</DependentUpon>
