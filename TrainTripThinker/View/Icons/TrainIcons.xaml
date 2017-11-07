@@ -80,6 +80,39 @@
                     H 120 L 90 160 V 140 L 120 90 H 180 L 210 140 Z" />
     </Canvas>
 
+    <Canvas x:Key="TrainIconsA-BedClass" Width="300" Height="300">
+        <Path Style="{StaticResource TrainIconsDefaultPathStyle}"
+                Data="M 30 90 V 190 Q 30 210 50 210 H 250 Q 270 210 270 190 V 90
+                      M 30 125 Q 30 115 40 115 H 220 V 140 H 270
+                      M 220 140 Q 220 125 270 125"/>
+        <Ellipse Style="{StaticResource TrainIconsFillEllipseStyle}"
+                   Width="45" Height="35" Canvas.Top="98" Canvas.Left="215">
+            <Ellipse.RenderTransform>
+                <RotateTransform Angle="-10" />
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Path Style="{StaticResource TrainIconsDefaultPathStyle}"
+              Data="M 120 195 L 150 130 L 180 195 M 130 175 H 170"/>
+    </Canvas>
+
+    <Canvas x:Key="TrainIconsB-BedClass" Width="300" Height="300">
+        <Path Style="{StaticResource TrainIconsDefaultPathStyle}"
+                Data="M 30 90 V 190 Q 30 210 50 210 H 250 Q 270 210 270 190 V 90
+                      M 30 125 Q 30 115 40 115 H 220 V 140 H 270
+                      M 220 140 Q 220 125 270 125"/>
+
+        <Ellipse Style="{StaticResource TrainIconsFillEllipseStyle}"
+                   Width="45" Height="35" Canvas.Top="98" Canvas.Left="215">
+            <Ellipse.RenderTransform>
+                <RotateTransform Angle="-10" />
+            </Ellipse.RenderTransform>
+        </Ellipse>
+
+        <Path Style="{StaticResource TrainIconsDefaultPathStyle}"
+              Data="M 120 130 H 152.5 A 11.25 11.25 0 0 1 152.5 162.5
+                    H 140 H 157.5 A 11.25 11.25 0 0 1 157.5 195 H 120 Z"/>
+    </Canvas>
+
     <Canvas x:Key="TrainIconsRestroom" Width="300" Height="300">
         <Path Style="{StaticResource TrainIconsFillPathStyle}" 
               Data="M 40 70 H 50 A 20 17.5 0 0 0 100 70 H 110 L 120 80
