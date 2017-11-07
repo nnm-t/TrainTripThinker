@@ -174,4 +174,17 @@
         <Ellipse Style="{StaticResource TrainIconsFillEllipseStyle}"
                  Width="40" Height="40" Canvas.Left="205" Canvas.Top="45" />
     </Canvas>
+
+    <Canvas x:Key="TrainIconsDiningCar" Width="300" Height="300">
+        <Path Style="{StaticResource TrainIconsFillPathStyle}" 
+              Canvas.Left="30"
+              Data="M 65 270 V 110 Q 50 110 50 75 Q 50 60 55 30
+                      H 62.5 V 70 H 67.5 V 30 H 72.5 V 70 H 77.5 V 30 H 82.5
+                      V 70 H 87.5 V 30 H 95 Q 100 60 100 75 Q 100 110 85 110 V 270 Z">
+        </Path>
+        <Path Style="{StaticResource TrainIconsFillPathStyle}" 
+              Canvas.Left="-30"
+              Data="M 215 270 V 150 H 200 Q 200 50 240 30 V 150 H 235 V 270 Z">
+        </Path>
+    </Canvas>
 </ResourceDictionary>

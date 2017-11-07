@@ -142,6 +142,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Icons\DiningCar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Icons\GranClass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -196,6 +200,9 @@
     </Compile>
     <Compile Include="View\Icons\Bus4Column.xaml.cs">
       <DependentUpon>Bus4Column.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Icons\DiningCar.xaml.cs">
+      <DependentUpon>DiningCar.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Icons\GranClass.xaml.cs">
       <DependentUpon>GranClass.xaml</DependentUpon>
