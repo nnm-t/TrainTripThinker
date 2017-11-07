@@ -1,4 +1,6 @@
 ﻿
+using TrainTripThinker.Core.Enums;
+
 namespace TrainTripThinker.Core.Data
 {
     /// <summary>
@@ -12,6 +14,7 @@ namespace TrainTripThinker.Core.Data
         private Color32 lineColor;
         private TransportSeat seat;
         private bool hasRestRoom;
+        private MealType mealType;
 
         /// <inheritdoc />
         /// <summary>
@@ -51,6 +54,15 @@ namespace TrainTripThinker.Core.Data
         {
             get => hasRestRoom;
             set => SetProperty(ref hasRestRoom, value);
+        }
+
+        /// <summary>
+        /// 供食設備
+        /// </summary>
+        public MealType MealType
+        {
+            get => mealType;
+            set => SetProperty(ref mealType, value);
         }
     }
 }

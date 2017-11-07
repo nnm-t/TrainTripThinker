@@ -10,25 +10,26 @@ namespace TrainTripThinker.Core.Data
     /// <inheritdoc cref="BindableBase"/>
     public class TransportSeat: BindableBase
     {
-        private SeatReservation reservation;
-        private string seatType;
+        private SeatType type;
+
+        private string remarks;
 
         /// <summary>
         /// 座席指定状況
         /// </summary>
-        public SeatReservation Reservation
+        public SeatType Type
         {
-            get => reservation;
-            set => SetProperty(ref reservation, value);
+            get => type;
+            set => SetProperty(ref type, value);
         }
 
         /// <summary>
-        /// 座席タイプ
+        /// 座席備考
         /// </summary>
-        public string SeatType
+        public string Remarks
         {
-            get => seatType;
-            set => SetProperty(ref seatType, value);
+            get => remarks;
+            set => SetProperty(ref remarks, value);
         }
     }
 }

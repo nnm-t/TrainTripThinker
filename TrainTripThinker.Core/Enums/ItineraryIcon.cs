@@ -8,31 +8,31 @@
         /// <summary>
         /// 無し
         /// </summary>
-        None,
+        None = 0,
 
         /// <summary>
         /// 列車
         /// </summary>
-        Train,
+        Train = 1,
 
         /// <summary>
         /// バス
         /// </summary>
-        Bus,
+        Bus = 2,
 
         /// <summary>
         /// 船
         /// </summary>
-        Ship,
+        Ship = 3,
 
         /// <summary>
         /// 飛行機
         /// </summary>
-        Aircraft,
+        Aircraft = 4,
 
         /// <summary>
         /// 自動車
         /// </summary>
-        Automotive
+        Automotive = 9
     }
 }
