@@ -4,9 +4,14 @@
     <!-- Colors -->
     <Color x:Key="TrainIconsJnrGreen7Color" R="87" G="181" B="68" A="255" />
 
+    <Color x:Key="TrainIconsJrGranClassColor" R="183" G="145" B="0" A="255" />
+
     <!-- Brushes -->
     <SolidColorBrush x:Key="TrainIconsJnrGreen7ColorBrush" 
                      Color="{StaticResource TrainIconsJnrGreen7Color}" />
+
+    <SolidColorBrush x:Key="TrainIconsJrGranClassColorBrush" 
+                     Color="{StaticResource TrainIconsJrGranClassColor}" />
 
     <!-- Styles for Icons -->
     <Style TargetType="Path" x:Key="TrainIconsDefaultPathStyle">
@@ -66,6 +71,13 @@
                     M 115 210 H 160 M 115 230 H 160
                     M 100 250 H 175
                     M 137.5 210 V 250"/>
+    </Canvas>
+
+    <Canvas x:Key="TrainIconsGranClass" Width="300" Height="300">
+        <Path Fill="{StaticResource TrainIconsJrGranClassColorBrush}"
+              Data="M 270 140 L 210 40 H 90 L 30 140 V 160 L 90 260
+                    H 210 L 270 160 H 170 L 185 197.5 L 180 210
+                    H 120 L 90 160 V 140 L 120 90 H 180 L 210 140 Z" />
     </Canvas>
 
     <Canvas x:Key="TrainIconsRestroom" Width="300" Height="300">
