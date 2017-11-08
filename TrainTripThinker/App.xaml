@@ -29,9 +29,11 @@
                 <!-- Train Trip Thinker -->
                 <ResourceDictionary Source="View/ResourceDictionary/Converters.xaml" />
                 <ResourceDictionary Source="View/ResourceDictionary/Window.xaml" />
+                <ResourceDictionary Source="View/Icons/TrainIcons.xaml" />
                 <ResourceDictionary Source="View/ResourceDictionary/DataContexts.xaml" />
                 <ResourceDictionary Source="View/ResourceDictionary/TransportClasses.xaml" />
                 <ResourceDictionary Source="View/ResourceDictionary/ColorComboBox.xaml" />
+                <ResourceDictionary Source="View/ResourceDictionary/TransportSeat.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <SolidColorBrush x:Key="HighlightBrush" Color="{DynamicResource Primary700}"/>

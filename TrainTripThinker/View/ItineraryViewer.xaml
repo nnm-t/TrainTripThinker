@@ -117,7 +117,6 @@
             </Setter>
         </Style>
 
-
         <DataTemplate x:Key="TransportNumberTemplate" DataType="data:TransportNumber">
             <UniformGrid Columns="3" Margin="4 0">
                 <UniformGrid.Resources>
@@ -131,6 +130,7 @@
             </UniformGrid>
         </DataTemplate>
 
+
         <local:TransportTemplateSelector x:Key="TransportTemplateSelector">
             <local:TransportTemplateSelector.TrainTemplate>
                 <DataTemplate DataType="data:Train">
@@ -138,7 +138,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="2*" />
                             <RowDefinition Height="3*" />
-                            <RowDefinition Height="16" />
+                            <RowDefinition Height="36" />
                         </Grid.RowDefinitions>
 
                         <Grid>
@@ -187,10 +187,24 @@
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
+
                             <TextBox Grid.Column="2" Text="{Binding Name}"
                                          md:HintAssist.Hint="列車名" />
                             <TextBox Grid.Column="3" Text="{Binding Destination}"
                                      md:HintAssist.Hint="行先" />
+                        </Grid>
+
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48" />
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="24" />
+                                <ColumnDefinition Width="24" />
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <ContentControl Grid.Column="1" Content="{Binding Seat}"
+                                            ContentTemplate="{StaticResource TransportSeatTemplate}" />
                         </Grid>
                     </Grid>
                 </DataTemplate>

@@ -21,12 +21,12 @@
 
     <Style TargetType="Path" x:Key="TrainIconsDefaultPathStyle">
         <Setter Property="Stroke" Value="{DynamicResource BlackBrush}" />
-        <Setter Property="StrokeThickness" Value="4" />
+        <Setter Property="StrokeThickness" Value="8" />
     </Style>
 
     <Style TargetType="Path" x:Key="TrainIconsInvertPathStyle">
         <Setter Property="Stroke" Value="{DynamicResource WhiteBrush}" />
-        <Setter Property="StrokeThickness" Value="4" />
+        <Setter Property="StrokeThickness" Value="8" />
     </Style>
 
     <Style TargetType="Path" x:Key="TrainIconsFillPathStyle">
@@ -65,6 +65,16 @@
               Data="M 85 255 H 215 V 222.5 L 150 157.5 L 85 222.5 Z " />
         <Path Style="{StaticResource TrainIconsDefaultPathStyle}"
               Data="M 45 85 V 215 H 77.5 L 142.5 150 L 77.5 85 Z" />
+    </Canvas>
+
+    <Canvas x:Key="TrainIconsPartOfReserved" Style="{StaticResource TrainIconsDefaultCanvasStyle}">
+        <Path Style="{StaticResource TrainIconsDefaultPathStyle}"
+              Data="M 50 270 H 225 V 140 L 275 40 L 255 30 L 205 130
+                    H 125 V 145 H 200 L 190 165 H 75 L 50 190 Z" />
+        <Path Style="{StaticResource TrainIconsDefaultPathStyle}"
+              Data="M 35 205 L 75 165 H 190 L 200 145 H 125 V 130 H 205
+                    L 250 40 A 20 20 0 0 0 210 80 L 190 120 H 130 V 130
+                    H 125 V 145 H 80 L 40 180 Q 5 160 35 205 Z" />
     </Canvas>
 
     <Canvas x:Key="TrainIconsAllReserved" Style="{StaticResource TrainIconsDefaultCanvasStyle}">
