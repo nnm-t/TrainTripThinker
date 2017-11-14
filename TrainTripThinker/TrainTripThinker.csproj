@@ -187,6 +187,7 @@
     <Compile Include="View\BindingConverter\Color32BrushConverter.cs" />
     <Compile Include="View\BindingConverter\ColorNameConverter.cs" />
     <Compile Include="View\BindingConverter\SeatIconPairConverter.cs" />
+    <Compile Include="View\DataTemplateSelector\SeatTypeTemplateSelector.cs" />
     <Compile Include="View\DataTemplateSelector\TransportTemplateSelector.cs" />
     <Compile Include="View\Icons\A-Bed.xaml.cs">
       <DependentUpon>A-Bed.xaml</DependentUpon>

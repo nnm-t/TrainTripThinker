@@ -1,31 +1,47 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
                     xmlns:local="clr-namespace:TrainTripThinker.View"
-                    xmlns:model="clr-namespace:TrainTripThinker.Model"
+                    xmlns:enum="clr-namespace:TrainTripThinker.Core.Enums;assembly=TrainTripThinker.Core"
                     xmlns:data="clr-namespace:TrainTripThinker.Core.Data;assembly=TrainTripThinker.Core">
-    <x:Array Type="model:SeatIconPair" x:Key="SeatTypeIconArray">
-        <model:SeatIconPair SeatType="NonReserved" />
-        <model:SeatIconPair SeatType="PartOfReserved"
-                            Icon="{StaticResource TrainIconsPartOfReserved}"/>
-        <model:SeatIconPair SeatType="AllReserved"
-                            Icon="{StaticResource TrainIconsAllReserved}" />
-        <model:SeatIconPair SeatType="GreenCarNonReserved"
-                            Icon="{StaticResource TrainIconsGreenCarNonReserved}" />
-        <model:SeatIconPair SeatType="GreenCarReserved"
-                            Icon="{StaticResource TrainIconsGreenCarReserved}" />
-        <model:SeatIconPair SeatType="GranClass"
-                            Icon="{StaticResource TrainIconsGranClass}" />
-        <model:SeatIconPair SeatType="BClassBed"
-                            Icon="{StaticResource TrainIconsB-BedClass}" />
-        <model:SeatIconPair SeatType="AClassBed"
-                            Icon="{StaticResource TrainIconsA-BedClass}" />
-        <model:SeatIconPair SeatType="Bus4Columns"
-                            Icon="{StaticResource TrainIconsBus4Column}" />
-        <model:SeatIconPair SeatType="Bus3Columns"
-                            Icon="{StaticResource TrainIconsBus3Column}" />
-        <model:SeatIconPair SeatType="Bus2Columns"
-                            Icon="{StaticResource TrainIconsBus2Column}" />
-    </x:Array>
+    <ObjectDataProvider x:Key="SeatTypeEnum" MethodName="GetValues"
+                        ObjectType="{x:Type system:Enum}">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="enum:SeatType" />
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+    <local:SeatTypeTemplateSelector x:Key="SeatTypeTemplateSelector">
+        <local:SeatTypeTemplateSelector.PartOfReserved>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsPartOfReserved}" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.PartOfReserved>
+
+        <local:SeatTypeTemplateSelector.AllReserved>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsAllReserved}" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.AllReserved>
+
+        <local:SeatTypeTemplateSelector.GreenCarNonReserved>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsGreenCarNonReserved}" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.GreenCarNonReserved>
+
+        <local:SeatTypeTemplateSelector.GreenCarReserved>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsGreenCarReserved}" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.GreenCarReserved>
+
+        <local:SeatTypeTemplateSelector.GranClass>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsGranClass}" ></ContentPresenter>
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.GranClass>
+    </local:SeatTypeTemplateSelector>
 
     <DataTemplate x:Key="TransportSeatTemplate" DataType="data:TransportSeat">
         <Grid>
@@ -34,13 +50,12 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <!-- TODO: Itemを選択するとItemsSourceから項目消える 要修正 -->
-            <ComboBox ItemsSource="{StaticResource SeatTypeIconArray}"
-                      SelectedItem="{Binding Type, Converter={StaticResource SeatIconPairConverter}}">
+            <ComboBox SelectedItem="{Binding Type}"
+                      ItemsSource="{Binding Source={StaticResource SeatTypeEnum}}">
                 <ComboBox.ItemTemplate>
-                    <DataTemplate DataType="model:SeatIconPair">
+                    <DataTemplate>
                         <Viewbox Width="24">
-                            <ContentPresenter Content="{Binding Icon}" />
+                            <ContentPresenter ContentTemplateSelector="{StaticResource SeatTypeTemplateSelector}" />
                         </Viewbox>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
