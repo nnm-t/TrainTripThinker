@@ -47,6 +47,16 @@ namespace TrainTripThinker.View
                     return GreenCarReserved;
                 case SeatType.GranClass:
                     return GranClass;
+                case SeatType.BClassBed:
+                    return B_BedClass;
+                case SeatType.AClassBed:
+                    return A_BedClass;
+                case SeatType.Bus4Columns:
+                    return Bus4Column;
+                case SeatType.Bus3Columns:
+                    return Bus3Column;
+                case SeatType.Bus2Columns:
+                    return Bus2Column;
                 default:
                     return null;
             }

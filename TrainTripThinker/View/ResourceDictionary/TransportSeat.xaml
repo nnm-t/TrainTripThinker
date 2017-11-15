@@ -12,6 +12,12 @@
     </ObjectDataProvider>
 
     <local:SeatTypeTemplateSelector x:Key="SeatTypeTemplateSelector">
+        <local:SeatTypeTemplateSelector.NonReserved>
+            <DataTemplate>
+                <TextBlock Text="自" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.NonReserved>
+
         <local:SeatTypeTemplateSelector.PartOfReserved>
             <DataTemplate>
                 <ContentPresenter Content="{StaticResource TrainIconsPartOfReserved}" />
@@ -41,6 +47,36 @@
                 <ContentPresenter Content="{StaticResource TrainIconsGranClass}" ></ContentPresenter>
             </DataTemplate>
         </local:SeatTypeTemplateSelector.GranClass>
+
+        <local:SeatTypeTemplateSelector.B_BedClass>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsB-BedClass}" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.B_BedClass>
+
+        <local:SeatTypeTemplateSelector.A_BedClass>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsA-BedClass}" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.A_BedClass>
+
+        <local:SeatTypeTemplateSelector.Bus4Column>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsBus4Column}" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.Bus4Column>
+
+        <local:SeatTypeTemplateSelector.Bus3Column>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsBus3Column}" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.Bus3Column>
+
+        <local:SeatTypeTemplateSelector.Bus2Column>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsBus2Column}" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.Bus2Column>
     </local:SeatTypeTemplateSelector>
 
     <DataTemplate x:Key="TransportSeatTemplate" DataType="data:TransportSeat">
@@ -54,7 +90,7 @@
                       ItemsSource="{Binding Source={StaticResource SeatTypeEnum}}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <Viewbox Width="24">
+                        <Viewbox Width="24" Height="24">
                             <ContentPresenter ContentTemplateSelector="{StaticResource SeatTypeTemplateSelector}" />
                         </Viewbox>
                     </DataTemplate>
