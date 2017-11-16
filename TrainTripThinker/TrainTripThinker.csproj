@@ -166,6 +166,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Icons\TrainWagon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ItineraryViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -219,6 +223,9 @@
     </Compile>
     <Compile Include="View\Icons\Restroom.xaml.cs">
       <DependentUpon>Restroom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Icons\TrainWagon.xaml.cs">
+      <DependentUpon>TrainWagon.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ItineraryViewer.xaml.cs">
       <DependentUpon>ItineraryViewer.xaml</DependentUpon>
