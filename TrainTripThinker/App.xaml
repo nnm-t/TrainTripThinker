@@ -34,6 +34,7 @@
                 <ResourceDictionary Source="View/ResourceDictionary/TransportClasses.xaml" />
                 <ResourceDictionary Source="View/ResourceDictionary/ColorComboBox.xaml" />
                 <ResourceDictionary Source="View/ResourceDictionary/TransportSeat.xaml" />
+                <ResourceDictionary Source="View/ResourceDictionary/MealTypeComboBox.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <SolidColorBrush x:Key="HighlightBrush" Color="{DynamicResource Primary700}"/>

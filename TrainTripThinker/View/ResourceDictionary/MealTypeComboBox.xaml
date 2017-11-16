@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:enum="clr-namespace:TrainTripThinker.Core.Enums;assembly=TrainTripThinker.Core"
+                    xmlns:local="clr-namespace:TrainTripThinker.View">
+    <ObjectDataProvider x:Key="MealTypeEnum" ObjectType="{x:Type system:Enum}"
+                        MethodName="GetValues">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="enum:MealType" />
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+    <local:MealTypeTemplateSelector x:Key="MealTypeTemplateSelector">
+        <local:MealTypeTemplateSelector.NoneTemplate>
+            <DataTemplate>
+                <!-- 空 -->
+            </DataTemplate>
+        </local:MealTypeTemplateSelector.NoneTemplate>
+
+        <local:MealTypeTemplateSelector.WagonTemplate>
+            <DataTemplate>
+                <!-- 未実装 -->
+            </DataTemplate>
+        </local:MealTypeTemplateSelector.WagonTemplate>
+
+        <local:MealTypeTemplateSelector.DiningCarTemplate>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsDiningCar}" />
+            </DataTemplate>
+        </local:MealTypeTemplateSelector.DiningCarTemplate>
+    </local:MealTypeTemplateSelector>
+
+</ResourceDictionary>
