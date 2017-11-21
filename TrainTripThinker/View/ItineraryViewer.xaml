@@ -247,11 +247,11 @@
                 </Grid.ColumnDefinitions>
 
                 <UniformGrid Columns="2" Margin="4, 0">
-                    <DatePicker FontSize="16" DisplayDate="{Binding DateTime}"
+                    <DatePicker FontSize="16" SelectedDate="{Binding DateTime, Mode=TwoWay}"
                                 md:HintAssist.Hint="日付"/>
                     <md:TimePicker Margin="0" FontSize="16"
                                    md:HintAssist.Hint="時刻"
-                                   SelectedTime="{Binding DateTime}" />
+                                   SelectedTime="{Binding DateTime, Mode=TwoWay}" />
                 </UniformGrid>
 
                 <TextBox Grid.Column="1" FontSize="16" Text="{Binding Name}"
