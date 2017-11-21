@@ -169,11 +169,13 @@
 
                             <ComboBox SelectedItem="{Binding LineColor, Converter={StaticResource ColorNameConverter}}"
                                       ItemsSource="{StaticResource ColorNameArray}"
+                                      IsSynchronizedWithCurrentItem="True"
                                       Style="{StaticResource ColorComboBox}"
                                       FontSize="20" HorizontalAlignment="Stretch"/>
 
-                            <ComboBox Grid.Column="1" SelectedItem="{Binding Class}"
+                            <ComboBox Grid.Column="1" SelectedItem="{Binding Class, Mode=TwoWay}"
                                       ItemsSource="{StaticResource TransportClasses}"
+                                      IsSynchronizedWithCurrentItem="True"
                                       Margin="4 0" FontSize="20" FontWeight="Bold"
                                       HorizontalContentAlignment="Stretch"
                                       md:HintAssist.Hint="種別">
