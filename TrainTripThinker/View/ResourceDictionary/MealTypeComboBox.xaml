@@ -19,7 +19,7 @@
 
         <local:MealTypeTemplateSelector.WagonTemplate>
             <DataTemplate>
-                <!-- 未実装 -->
+                <ContentPresenter Content="{StaticResource TrainIconsWagon}" />
             </DataTemplate>
         </local:MealTypeTemplateSelector.WagonTemplate>
 

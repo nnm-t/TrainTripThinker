@@ -197,4 +197,16 @@
               Data="M 215 270 V 150 H 200 Q 200 50 240 30 V 150 H 235 V 270 Z">
         </Path>
     </Canvas>
+
+    <Canvas x:Key="TrainIconsWagon" x:Shared="False" Width="300" Height="300">
+        <Path Style="{StaticResource TrainIconsFillPathStyle}"
+                Data="M 75 90 L 90 75 H 215 L 230 90 V 110
+                      H 250 V 145 H 225 V 245
+                      H 75 V 180 L 90 165 H 200 V 145 H 75 Z" />
+
+        <Ellipse Width="30" Height="30" Style="{StaticResource TrainIconsFillEllipseStyle}"
+                   Canvas.Top="245" Canvas.Left="75" />
+        <Ellipse Width="30" Height="30" Style="{StaticResource TrainIconsFillEllipseStyle}"
+                   Canvas.Top="245" Canvas.Left="195" />
+    </Canvas>
 </ResourceDictionary>
