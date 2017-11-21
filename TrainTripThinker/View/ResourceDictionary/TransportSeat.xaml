@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib"
                     xmlns:local="clr-namespace:TrainTripThinker.View"
+                    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
                     xmlns:enum="clr-namespace:TrainTripThinker.Core.Enums;assembly=TrainTripThinker.Core"
                     xmlns:data="clr-namespace:TrainTripThinker.Core.Data;assembly=TrainTripThinker.Core">
     <ObjectDataProvider x:Key="SeatTypeEnum" MethodName="GetValues"
@@ -112,7 +113,8 @@
                 </ComboBox.ItemContainerStyle>
             </ComboBox>
 
-            <TextBox Grid.Column="1" Text="{Binding Remarks}" />
+            <TextBox Grid.Column="1" Text="{Binding Remarks}" FontSize="16"
+                     md:HintAssist.Hint="席番"/>
         </Grid>
     </DataTemplate>
 </ResourceDictionary>
