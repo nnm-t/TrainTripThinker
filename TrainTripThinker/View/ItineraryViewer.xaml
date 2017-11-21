@@ -208,6 +208,14 @@
                             <ContentControl Grid.Column="1" Content="{Binding Seat}"
                                             ContentTemplate="{StaticResource TransportSeatTemplate}" />
 
+                            <ToggleButton Grid.Column="2" Style="{StaticResource MaterialDesignActionLightToggleButton}">
+                                <md:ToggleButtonAssist.OnContent>
+                                    <Viewbox Width="24" Height="24">
+                                        <ContentPresenter Content="{StaticResource TrainIconsRestroom}" />
+                                    </Viewbox>
+                                </md:ToggleButtonAssist.OnContent>
+                            </ToggleButton>
+
                             <ComboBox Grid.Column="3" SelectedItem="{Binding MealType}"
                                       ItemsSource="{Binding Source={StaticResource MealTypeEnum}}">
                                 <ComboBox.ItemTemplate>
