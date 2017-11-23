@@ -241,9 +241,9 @@
         <DataTemplate x:Key="DepartureTemplate" DataType="data:Departure">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="5*" />
-                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="9*" />
+                    <ColumnDefinition Width="4*" />
                 </Grid.ColumnDefinitions>
 
                 <UniformGrid Columns="2" Margin="4, 0">
@@ -289,7 +289,7 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
-                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="48" />
                 </Grid.ColumnDefinitions>
 
                 <Grid>
@@ -322,7 +322,7 @@
                 </Grid>
 
                 <Button Grid.Column="1" Width="32" Height="32"
-                        VerticalAlignment="Top"
+                        VerticalAlignment="Top" HorizontalAlignment="Center"
                         Style="{StaticResource MaterialDesignFloatingActionButton}">
                     <md:PackIcon Width="24" Height="24" Kind="Close" />
                 </Button>
@@ -370,15 +370,14 @@
         <TabControl.ContentTemplate>
             <DataTemplate>
                 <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
+                    <ScrollViewer>
+                        <ItemsControl ItemsSource="{Binding Elements}"
+                                      ItemTemplate="{StaticResource TransportElementTemplate}"
+                                      Margin="0 0 0 72"/>
+                    </ScrollViewer>
 
-                    <ItemsControl ItemsSource="{Binding Elements}"
-                                  ItemTemplate="{StaticResource TransportElementTemplate}"/>
-
-                    <Grid Grid.Row="1" Height="64" Margin="8">
+                    <Grid Height="64" Margin="8"
+                          HorizontalAlignment="Right" VerticalAlignment="Bottom">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition Width="64" />
