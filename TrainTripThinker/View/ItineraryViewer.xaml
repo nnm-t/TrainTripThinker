@@ -124,9 +124,9 @@
                         <Setter Property="FontSize" Value="16" />
                     </Style>
                 </UniformGrid.Resources>
-                <TextBox Text="{Binding Prefix}" />
-                <TextBox Text="{Binding Number}" md:HintAssist.Hint="便名" />
-                <TextBox Text="{Binding Suffix}" />
+                <TextBox Text="{Binding Prefix, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Text="{Binding Number, UpdateSourceTrigger=PropertyChanged}" md:HintAssist.Hint="便名" />
+                <TextBox Text="{Binding Suffix, UpdateSourceTrigger=PropertyChanged}" />
             </UniformGrid>
         </DataTemplate>
 
@@ -156,7 +156,8 @@
                             <ContentControl Grid.Column="2" Content="{Binding Seat}"
                                             ContentTemplate="{StaticResource TransportSeatTemplate}" />
 
-                            <ToggleButton Grid.Column="3" Style="{StaticResource MaterialDesignActionLightToggleButton}">
+                            <ToggleButton Grid.Column="3" Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                                          IsChecked="{Binding HasRestRoom, UpdateSourceTrigger=PropertyChanged}">
                                 <md:ToggleButtonAssist.OnContent>
                                     <Viewbox Width="24" Height="24">
                                         <ContentPresenter Content="{StaticResource TrainIconsRestroom}" />
@@ -164,7 +165,7 @@
                                 </md:ToggleButtonAssist.OnContent>
                             </ToggleButton>
 
-                            <ComboBox Grid.Column="4" SelectedItem="{Binding MealType}"
+                            <ComboBox Grid.Column="4" SelectedItem="{Binding MealType, UpdateSourceTrigger=PropertyChanged}"
                                       ItemsSource="{Binding Source={StaticResource MealTypeEnum}}">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
@@ -204,16 +205,14 @@
                                 <ColumnDefinition Width="3*" />
                             </Grid.ColumnDefinitions>
 
-                            <ComboBox SelectedItem="{Binding LineColor, Converter={StaticResource ColorNameConverter}}"
+                            <ComboBox SelectedItem="{Binding LineColor, Converter={StaticResource ColorNameConverter}, UpdateSourceTrigger=PropertyChanged}"
                                       ItemsSource="{StaticResource ColorNameArray}"
-                                      IsSynchronizedWithCurrentItem="True"
                                       Style="{StaticResource ColorComboBox}"
                                       Margin="0 0 0 4"
                                       FontSize="20" HorizontalAlignment="Stretch"/>
 
-                            <ComboBox Grid.Column="1" SelectedItem="{Binding Class, Mode=TwoWay}"
+                            <ComboBox Grid.Column="1" SelectedItem="{Binding Class, UpdateSourceTrigger=PropertyChanged}"
                                       ItemsSource="{StaticResource TransportClasses}"
-                                      IsSynchronizedWithCurrentItem="True"
                                       Margin="4 0 4 0" FontSize="20" FontWeight="Bold"
                                     HorizontalContentAlignment="Stretch"
                                       md:HintAssist.Hint="種別">
@@ -228,9 +227,9 @@
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
 
-                            <TextBox Grid.Column="2" Text="{Binding Name}"
+                            <TextBox Grid.Column="2" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
                                          md:HintAssist.Hint="列車名" />
-                            <TextBox Grid.Column="3" Text="{Binding Destination}"
+                            <TextBox Grid.Column="3" Text="{Binding Destination, UpdateSourceTrigger=PropertyChanged}"
                                      md:HintAssist.Hint="行先" />
                         </Grid>
                     </Grid>
@@ -247,17 +246,17 @@
                 </Grid.ColumnDefinitions>
 
                 <UniformGrid Columns="2" Margin="4, 0">
-                    <DatePicker FontSize="16" SelectedDate="{Binding DateTime, Mode=TwoWay}"
+                    <DatePicker FontSize="16" SelectedDate="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                 md:HintAssist.Hint="日付"/>
                     <md:TimePicker Margin="0" FontSize="16"
                                    md:HintAssist.Hint="時刻"
-                                   SelectedTime="{Binding DateTime, Mode=TwoWay}" />
+                                   SelectedTime="{Binding Time, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </UniformGrid>
 
-                <TextBox Grid.Column="1" FontSize="16" Text="{Binding Name}"
+                <TextBox Grid.Column="1" FontSize="16" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
                          md:HintAssist.Hint="駅名" Margin="4,0"/>
 
-                <ContentControl Grid.Column="2" Content="{Binding Platform}"
+                <ContentControl Grid.Column="2" Content="{Binding Platform, UpdateSourceTrigger=PropertyChanged}"
                                 ContentTemplate="{DynamicResource PlatformTemplate}"/>
             </Grid>
         </DataTemplate>
@@ -278,9 +277,9 @@
                         <Setter Property="Margin" Value="0 0 0 1" />
                     </Style>
                 </UniformGrid.Resources>
-                <TextBox Text="{Binding Prefix}" />
-                <TextBox Text="{Binding Number}" />
-                <ComboBox Text="{Binding Suffix}" SelectedIndex="1" IsEditable="True"
+                <TextBox Text="{Binding Prefix, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Text="{Binding Number, UpdateSourceTrigger=PropertyChanged}" />
+                <ComboBox Text="{Binding Suffix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEditable="True"
                           ItemsSource="{StaticResource PlatformSuffixes}"/>
             </UniformGrid>
         </DataTemplate>

@@ -10,6 +10,11 @@ namespace TrainTripThinker.Core.Data
     /// <inheritdoc cref="BindableBase"/>
     public abstract class TransportBase : BindableBase
     {
+        protected TransportBase()
+        {
+            TransportNumber = new TransportNumber();
+        }
+
         /// <summary>
         /// 便名
         /// </summary>

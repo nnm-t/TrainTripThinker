@@ -17,15 +17,41 @@ namespace TrainTripThinker.Core.Data
         public Departure()
         {
             DateTime = DateTime.Now;
+
+            Platform = new Platform();
         }
 
         /// <summary>
         /// 発着時間
         /// </summary>
+        /// <remarks>
+        /// DatePicker, TimePickerのBindingにはここは指定しない
+        /// (値を書き換えた時に関与しないデータを戻してしまうため)
+        /// </remarks>
         public DateTime DateTime
         {
             get => dateTime;
             set => SetProperty(ref dateTime, value);
+        }
+
+        /// <summary>
+        /// 日付
+        /// </summary>
+        /// <remarks>DatePickerはここにBinding</remarks>
+        public DateTime Date
+        {
+            get => dateTime;
+            set => SetProperty(ref dateTime, SetNewDate(dateTime, value));
+        }
+
+        /// <summary>
+        /// 時刻
+        /// </summary>
+        /// <remarks>TimePickerはここにBinding</remarks>
+        public DateTime Time
+        {
+            get => dateTime;
+            set => SetProperty(ref dateTime, SetNewTime(dateTime, value));
         }
 
         /// <summary>
@@ -44,6 +70,16 @@ namespace TrainTripThinker.Core.Data
         {
             get => platform;
             set => SetProperty(ref platform, value);
+        }
+
+        private DateTime SetNewDate(DateTime oldDate, DateTime newDate)
+        {
+            return new DateTime(newDate.Year, newDate.Month, newDate.Day, oldDate.Hour, oldDate.Minute, oldDate.Second);
+        }
+
+        private DateTime SetNewTime(DateTime oldTime, DateTime newTime)
+        {
+            return new DateTime(oldTime.Year, oldTime.Month, oldTime.Day, newTime.Hour, newTime.Minute, newTime.Second);
         }
     }
 }

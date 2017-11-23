@@ -11,7 +11,7 @@ namespace TrainTripThinker.Core.Data
     public class Platform : BindableBase
     {
         private string prefix;
-        private uint? number;
+        private string number;
         private string suffix;
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace TrainTripThinker.Core.Data
         /// <summary>
         /// のりば番号
         /// </summary>
-        public uint? Number
+        public string Number
         {
             get => number;
             set => SetProperty(ref number, value);
