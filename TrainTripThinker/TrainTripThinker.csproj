@@ -185,12 +185,10 @@
     <Compile Include="Extensions\Color32Extensions.cs" />
     <Compile Include="Model\ColorName.cs" />
     <Compile Include="Model\ModelManager.cs" />
-    <Compile Include="Model\SeatIconPair.cs" />
     <Compile Include="Model\TttMain.cs" />
     <Compile Include="ViewModel\ItineraryViewModel.cs" />
     <Compile Include="View\BindingConverter\Color32BrushConverter.cs" />
     <Compile Include="View\BindingConverter\ColorNameConverter.cs" />
-    <Compile Include="View\BindingConverter\SeatIconPairConverter.cs" />
     <Compile Include="View\DataTemplateSelector\MealTypeTemplateSelector.cs" />
     <Compile Include="View\DataTemplateSelector\SeatTypeTemplateSelector.cs" />
     <Compile Include="View\DataTemplateSelector\TransportTemplateSelector.cs" />

@@ -3,5 +3,4 @@
                     xmlns:local="clr-namespace:TrainTripThinker.View">
     <local:Color32BrushConverter x:Key="Color32BrushConverter" />
     <local:ColorNameConverter x:Key="ColorNameConverter" />
-    <local:SeatIconPairConverter x:Key="SeatIconPairConverter" />
 </ResourceDictionary>
