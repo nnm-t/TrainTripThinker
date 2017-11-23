@@ -287,17 +287,12 @@
 
         <DataTemplate x:Key="TransportElementTemplate" DataType="data:TransportElement">
             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="24" />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
-                    <ColumnDefinition Width="24" />
+                    <ColumnDefinition Width="40" />
                 </Grid.ColumnDefinitions>
 
-                <Grid Grid.Row="1" ColumnSpan="2">
+                <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition />
@@ -325,6 +320,12 @@
                     <ContentControl Grid.Row="2" Content="{Binding Period.End}"
                                     ContentTemplate="{StaticResource DepartureTemplate}"/>
                 </Grid>
+
+                <Button Grid.Column="1" Width="32" Height="32"
+                        VerticalAlignment="Top"
+                        Style="{StaticResource MaterialDesignFloatingActionButton}">
+                    <md:PackIcon Width="24" Height="24" Kind="Close" />
+                </Button>
             </Grid>
         </DataTemplate>
     </UserControl.Resources>
