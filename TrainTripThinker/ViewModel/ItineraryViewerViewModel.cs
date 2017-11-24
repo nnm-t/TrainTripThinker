@@ -11,10 +11,11 @@ using TrainTripThinker.Model;
 namespace TrainTripThinker.ViewModel
 {
 
+    /// <inheritdoc />
     /// <summary>
-    /// <see cref="View.ItineraryViewer"/>用ViewModel
+    /// <see cref="T:TrainTripThinker.View.ItineraryViewer" />用ViewModel
     /// </summary>
-    public class ItineraryViewModel : BindableBase
+    public class ItineraryViewerViewModel : BindableBase
     {
         /// <summary>
         /// Mainインスタンスへの参照
@@ -29,18 +30,18 @@ namespace TrainTripThinker.ViewModel
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public ItineraryViewModel()
+        public ItineraryViewerViewModel()
         {
-            this.document = this.main.Document;
+            document = main.Document;
 
-            this.Itineraries = this.document.Itineraries.ToReadOnlyReactiveCollection();
+            Itineraries = document.Itineraries.ToReadOnlyReactiveCollection();
 
-            this.AddItineraryCommand = new ReactiveCommand();
-            this.AddItineraryCommand.Subscribe(_ => this.document.AddItinerary());
-            this.RemoveItineraryCommand = new ReactiveCommand<int>();
-            this.RemoveItineraryCommand.Subscribe(index => this.document.RemoveItinerary(index));
-            this.AddTransportEelementCommand = new ReactiveCommand<Itinerary>();
-            this.AddTransportEelementCommand.Subscribe(itinerary => itinerary.AddTransportElement());
+            AddItineraryCommand = new ReactiveCommand();
+            AddItineraryCommand.Subscribe(_ => document.AddItinerary());
+            RemoveItineraryCommand = new ReactiveCommand<int>();
+            RemoveItineraryCommand.Subscribe(index => document.RemoveItinerary(index));
+            AddTransportEelementCommand = new ReactiveCommand<Itinerary>();
+            AddTransportEelementCommand.Subscribe(itinerary => itinerary.AddTransportElement());
         }
 
         /// <summary>
