@@ -1,12 +1,17 @@
 ﻿using System.Collections.ObjectModel;
 
+using Prism.Mvvm;
+
 namespace TrainTripThinker.Core.Data
 {
+    /// <inheritdoc />
     /// <summary>
-    ///     行程表
+    /// 行程表
     /// </summary>
-    public class Itinerary
+    public class Itinerary : BindableBase
     {
+        private string title;
+
         /// <summary>
         /// コンストラクタ
         /// </summary>
@@ -22,10 +27,14 @@ namespace TrainTripThinker.Core.Data
         /// <summary>
         /// 行程表のタイトル
         /// </summary>
-        public string Title { get; set; }
+        public string Title
+        {
+            get => title;
+            set => SetProperty(ref title, value);
+        }
 
         /// <summary>
-        ///     行程表のアイテムのコレクション
+        /// 行程表のアイテムのコレクション
         /// </summary>
         public ObservableCollection<ItineraryElement> Elements { get; set; }
 

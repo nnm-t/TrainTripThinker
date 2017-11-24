@@ -187,6 +187,7 @@
     <Compile Include="Model\ModelManager.cs" />
     <Compile Include="Model\TttMain.cs" />
     <Compile Include="ViewModel\ItineraryViewerViewModel.cs" />
+    <Compile Include="ViewModel\ItineraryViewModel.cs" />
     <Compile Include="View\BindingConverter\Color32BrushConverter.cs" />
     <Compile Include="View\BindingConverter\ColorNameConverter.cs" />
     <Compile Include="View\DataTemplateSelector\MealTypeTemplateSelector.cs" />
