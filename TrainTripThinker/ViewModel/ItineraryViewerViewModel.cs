@@ -34,20 +34,18 @@ namespace TrainTripThinker.ViewModel
         {
             document = main.Document;
 
-            Itineraries = document.Itineraries.ToReadOnlyReactiveCollection();
+            Itineraries = document.Itineraries.ToReadOnlyReactiveCollection(x => new ItineraryViewModel(x));
 
             AddItineraryCommand = new ReactiveCommand();
             AddItineraryCommand.Subscribe(_ => document.AddItinerary());
             RemoveItineraryCommand = new ReactiveCommand<int>();
             RemoveItineraryCommand.Subscribe(index => document.RemoveItinerary(index));
-            AddTransportEelementCommand = new ReactiveCommand<Itinerary>();
-            AddTransportEelementCommand.Subscribe(itinerary => itinerary.AddTransportElement());
         }
 
         /// <summary>
         /// 行程表インスタンス
         /// </summary>
-        public ReadOnlyObservableCollection<Itinerary> Itineraries { get; }
+        public ReadOnlyObservableCollection<ItineraryViewModel> Itineraries { get; }
 
         /// <summary>
         /// 行程表を追加
@@ -59,6 +57,5 @@ namespace TrainTripThinker.ViewModel
         /// </summary>
         public ReactiveCommand<int> RemoveItineraryCommand { get; } 
 
-        public ReactiveCommand<Itinerary> AddTransportEelementCommand { get; }
     }
 }

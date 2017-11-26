@@ -7,6 +7,7 @@
              xmlns:local="clr-namespace:TrainTripThinker.View"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:data="clr-namespace:TrainTripThinker.Core.Data;assembly=TrainTripThinker.Core"
+             xmlns:vm="clr-namespace:TrainTripThinker.ViewModel"
              mc:Ignorable="d" 
              DataContext="{StaticResource ItineraryViewModel}"
              d:DesignHeight="300" d:DesignWidth="300">
@@ -362,12 +363,12 @@
 
         <TabControl.ItemTemplate>
             <DataTemplate>
-                <TextBox Text="{Binding Title}" />
+                <TextBox Text="{Binding Title.Value}" />
             </DataTemplate>
         </TabControl.ItemTemplate>
 
         <TabControl.ContentTemplate>
-            <DataTemplate>
+            <DataTemplate DataType="vm:ItineraryViewModel">
                 <Grid>
                     <ScrollViewer>
                         <ItemsControl ItemsSource="{Binding Elements}"
@@ -383,8 +384,7 @@
                         </Grid.ColumnDefinitions>
 
                         <md:PopupBox Grid.Column="1" PlacementMode="TopAndAlignCentres"
-                                     ToggleCheckedContentCommand="{Binding AddTransportEelementCommand, Source={StaticResource ItineraryViewModel}}"
-                                     ToggleCheckedContentCommandParameter="{Binding}"
+                                     ToggleCheckedContentCommand="{Binding AddTransportElementCommand}"
                                      Style="{DynamicResource MaterialDesignMultiFloatingActionPopupBox}">
                             <md:PopupBox.ToggleContent>
                                 <md:PackIcon Width="32" Height="32" Kind="Plus" />
