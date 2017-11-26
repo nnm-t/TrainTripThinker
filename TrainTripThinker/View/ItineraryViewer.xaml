@@ -323,6 +323,7 @@
 
                 <Button Grid.Column="1" Width="32" Height="32"
                         VerticalAlignment="Top" HorizontalAlignment="Center"
+                        Command="{Binding RemoveElementCommand}"
                         Style="{StaticResource MaterialDesignFloatingActionButton}">
                     <md:PackIcon Width="24" Height="24" Kind="Close" />
                 </Button>

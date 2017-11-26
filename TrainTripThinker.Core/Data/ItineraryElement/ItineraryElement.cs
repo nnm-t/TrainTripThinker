@@ -1,4 +1,6 @@
-﻿using Prism.Mvvm;
+﻿using System;
+
+using Prism.Mvvm;
 
 using TrainTripThinker.Core.Enums;
 
@@ -16,11 +18,15 @@ namespace TrainTripThinker.Core.Data
 
         private ItineraryIcon icon;
 
-        protected ItineraryElement()
+        private Action<ItineraryElement> removeElement;
+
+        protected ItineraryElement(Action<ItineraryElement> removeElement)
         {
             Icon = ItineraryIcon.None;
             Color = Color32.Transparent;
             FreeForm = string.Empty;
+
+            this.removeElement = removeElement;
         }
 
         /// <summary>
@@ -48,6 +54,11 @@ namespace TrainTripThinker.Core.Data
         {
             get => icon;
             set => SetProperty(ref icon, value);
+        }
+
+        public void RemoveElement()
+        {
+            removeElement(this);
         }
     }
 }

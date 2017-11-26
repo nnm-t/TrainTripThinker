@@ -15,6 +15,9 @@ namespace TrainTripThinker.ViewModel
             Color = model.ObserveProperty(m => m.Color).ToReactiveProperty();
             FreeForm = model.ObserveProperty(m => m.FreeForm).ToReactiveProperty();
             Icon = model.ObserveProperty(m => m.Icon).ToReactiveProperty();
+
+            RemoveElementCommand = new ReactiveCommand();
+            RemoveElementCommand.Subscribe(model.RemoveElement);
         }
 
         public ReactiveProperty<Color32> Color { get; }
@@ -22,5 +25,7 @@ namespace TrainTripThinker.ViewModel
         public ReactiveProperty<string> FreeForm { get; }
 
         public ReactiveProperty<ItineraryIcon> Icon { get; }
+
+        public ReactiveCommand RemoveElementCommand { get; }
     }
 }

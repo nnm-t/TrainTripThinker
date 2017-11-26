@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 
 
 namespace TrainTripThinker.Core.Data
@@ -9,7 +10,8 @@ namespace TrainTripThinker.Core.Data
     /// <inheritdoc cref="PeriodElement"/>
     public class TransportElement : PeriodElement
     {
-        public TransportElement(TransportBase transport)
+        public TransportElement(TransportBase transport, Action<ItineraryElement> removeElement)
+            : base(removeElement)
         {
             Transport = transport;
         }

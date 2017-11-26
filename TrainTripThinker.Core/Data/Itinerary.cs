@@ -40,7 +40,12 @@ namespace TrainTripThinker.Core.Data
 
         public void AddTransportElement()
         {
-            Elements.Add(new TransportElement(new Train()));
+            Elements.Add(new TransportElement(new Train(), CloseTransportElement));
+        }
+
+        public void CloseTransportElement(ItineraryElement element)
+        {
+            Elements.Remove(element);
         }
     }
 }
