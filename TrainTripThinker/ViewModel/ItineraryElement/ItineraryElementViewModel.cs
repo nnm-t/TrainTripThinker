@@ -18,6 +18,12 @@ namespace TrainTripThinker.ViewModel
 
             RemoveElementCommand = new ReactiveCommand();
             RemoveElementCommand.Subscribe(model.RemoveElement);
+
+            MoveUpElementCommand = new ReactiveCommand();
+            MoveUpElementCommand.Subscribe(model.MoveUpElement);
+
+            MoveDownElementCommand = new ReactiveCommand();
+            MoveDownElementCommand.Subscribe(model.MoveDownElement);
         }
 
         public ReactiveProperty<Color32> Color { get; }
@@ -27,5 +33,9 @@ namespace TrainTripThinker.ViewModel
         public ReactiveProperty<ItineraryIcon> Icon { get; }
 
         public ReactiveCommand RemoveElementCommand { get; }
+
+        public ReactiveCommand MoveUpElementCommand { get; }
+
+        public ReactiveCommand MoveDownElementCommand { get; }
     }
 }

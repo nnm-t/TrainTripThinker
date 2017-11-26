@@ -321,12 +321,27 @@
                                     ContentTemplate="{StaticResource DepartureTemplate}"/>
                 </Grid>
 
-                <Button Grid.Column="1" Width="32" Height="32"
-                        VerticalAlignment="Top" HorizontalAlignment="Center"
-                        Command="{Binding RemoveElementCommand}"
-                        Style="{StaticResource MaterialDesignFloatingActionButton}">
-                    <md:PackIcon Width="24" Height="24" Kind="Close" />
-                </Button>
+                <UniformGrid Rows="3" Width="32" Height="120" Grid.Column="1"
+                             HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Button Width="32" Height="32"
+                            Command="{Binding RemoveElementCommand}"
+                            Style="{StaticResource MaterialDesignFloatingActionButton}">
+                        <md:PackIcon Width="24" Height="24" Kind="Close" />
+                    </Button>
+
+                    <Button Width="32" Height="32"
+                            Command="{Binding MoveUpElementCommand}"
+                            Style="{StaticResource MaterialDesignFloatingActionButton}">
+                        <md:PackIcon Width="24" Height="24" Kind="ArrowUp" />
+                    </Button>
+
+                    <Button Width="32" Height="32"
+                            Command="{Binding MoveDownElementCommand}"
+                            Style="{StaticResource MaterialDesignFloatingActionButton}">
+                        <md:PackIcon Width="24" Height="24" Kind="ArrowDown" />
+                    </Button>
+                </UniformGrid>
+
             </Grid>
         </DataTemplate>
     </UserControl.Resources>

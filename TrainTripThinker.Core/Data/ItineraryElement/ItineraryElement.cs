@@ -18,15 +18,15 @@ namespace TrainTripThinker.Core.Data
 
         private ItineraryIcon icon;
 
-        private Action<ItineraryElement> removeElement;
+        private readonly ItineraryElementDelegates delegates;
 
-        protected ItineraryElement(Action<ItineraryElement> removeElement)
+        protected ItineraryElement(ItineraryElementDelegates delegates)
         {
             Icon = ItineraryIcon.None;
             Color = Color32.Transparent;
             FreeForm = string.Empty;
 
-            this.removeElement = removeElement;
+            this.delegates = delegates;
         }
 
         /// <summary>
@@ -58,7 +58,17 @@ namespace TrainTripThinker.Core.Data
 
         public void RemoveElement()
         {
-            removeElement(this);
+            delegates.Remove(this);
+        }
+
+        public void MoveUpElement()
+        {
+            delegates.MoveUp(this);
+        }
+
+        public void MoveDownElement()
+        {
+                delegates.MoveDown(this);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace TrainTripThinker.Core.Data
     {
         private Period<Departure> period;
 
-        public PeriodElement(Action<ItineraryElement> removeElement) : base(removeElement)
+        public PeriodElement(ItineraryElementDelegates delegates) : base(delegates)
         {
             Period = new Period<Departure>(new Departure(), new Departure());
         }

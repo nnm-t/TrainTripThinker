@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 
 using Prism.Mvvm;
 
@@ -12,6 +13,8 @@ namespace TrainTripThinker.Core.Data
     {
         private string title;
 
+        private ItineraryElementDelegates delegates;
+
         /// <summary>
         /// コンストラクタ
         /// </summary>
@@ -22,6 +25,8 @@ namespace TrainTripThinker.Core.Data
         {
             Elements = new ObservableCollection<ItineraryElement>();
             Title = title;
+
+            delegates = new ItineraryElementDelegates(RemoveElement, MoveUpElement, MoveDownElement);
         }
 
         /// <summary>
@@ -40,12 +45,44 @@ namespace TrainTripThinker.Core.Data
 
         public void AddTransportElement()
         {
-            Elements.Add(new TransportElement(new Train(), CloseTransportElement));
+            Elements.Add(new TransportElement(new Train(), delegates));
         }
 
-        public void CloseTransportElement(ItineraryElement element)
+        public void RemoveElement(ItineraryElement element)
         {
             Elements.Remove(element);
+        }
+
+        public bool MoveUpElement(ItineraryElement element)
+        {
+            int index = Elements.IndexOf(element);
+
+            if (index == 0)
+            {
+                return false;
+            }
+
+            Elements.Remove(element);
+
+            Elements.Insert(index - 1, element);
+
+            return true;
+        }
+
+        public bool MoveDownElement(ItineraryElement element)
+        {
+            int index = Elements.IndexOf(element);
+
+            if (index == Elements.Count - 1)
+            {
+                return false;
+            }
+
+            Elements.Remove(element);
+
+            Elements.Insert(index + 1, element);
+
+            return true;
         }
     }
 }
