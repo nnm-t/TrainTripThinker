@@ -12,9 +12,9 @@ namespace TrainTripThinker.Core.Data
     /// </summary>
     public class Itinerary : BindableBase
     {
-        private string title;
-
         private readonly ItineraryElementDelegates delegates;
+
+        private string title;
 
         /// <summary>
         /// コンストラクタ
