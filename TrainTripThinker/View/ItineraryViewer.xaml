@@ -285,7 +285,7 @@
             </UniformGrid>
         </DataTemplate>
 
-        <DataTemplate x:Key="TransportElementTemplate" DataType="data:TransportElement">
+        <DataTemplate x:Key="TransportElementViewModelTemplate" DataType="vm:TransportElementViewModel">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -299,7 +299,7 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <ContentControl Content="{Binding Period.Begin}"
+                    <ContentControl Content="{Binding Period.Value.Begin}"
                                     ContentTemplate="{StaticResource DepartureTemplate}"/>
 
                     <Grid Grid.Row="1" Margin="0, 4">
@@ -313,11 +313,11 @@
                             <Path Data="M 0 0 V 80 L 25 55 H 10 V 0"  Fill="Black"/>
                         </Canvas>
 
-                        <ContentControl Grid.Column="2" Content="{Binding Transport}"
+                        <ContentControl Grid.Column="2" Content="{Binding Transport.Value}"
                                         ContentTemplateSelector="{StaticResource TransportTemplateSelector}" />
                     </Grid>
 
-                    <ContentControl Grid.Row="2" Content="{Binding Period.End}"
+                    <ContentControl Grid.Row="2" Content="{Binding Period.Value.End}"
                                     ContentTemplate="{StaticResource DepartureTemplate}"/>
                 </Grid>
 
@@ -372,7 +372,7 @@
                 <Grid>
                     <ScrollViewer>
                         <ItemsControl ItemsSource="{Binding Elements}"
-                                      ItemTemplate="{StaticResource TransportElementTemplate}"
+                                      ItemTemplate="{StaticResource TransportElementViewModelTemplate}"
                                       Margin="0 0 0 72"/>
                     </ScrollViewer>
 

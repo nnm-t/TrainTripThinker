@@ -13,7 +13,8 @@ namespace TrainTripThinker.ViewModel
         public ItineraryViewModel(Itinerary model)
         {
             Title = model.ObserveProperty(m => m.Title).ToReactiveProperty();
-            Elements = model.Elements.ToReadOnlyReactiveCollection();
+            Elements = model.Elements.ToReadOnlyReactiveCollection(
+                ItineraryElementViewModelFactory.CreateViewModel);
 
             AddTransportElementCommand = new ReactiveCommand();
             AddTransportElementCommand.Subscribe(model.AddTransportElement);
@@ -21,7 +22,7 @@ namespace TrainTripThinker.ViewModel
 
         public ReactiveProperty<string> Title { get; }
 
-        public ReadOnlyReactiveCollection<ItineraryElement> Elements { get; }
+        public ReadOnlyReactiveCollection<ItineraryElementViewModel> Elements { get; }
 
         public ReactiveCommand AddTransportElementCommand { get; }
     }
