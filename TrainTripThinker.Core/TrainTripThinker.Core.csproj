@@ -70,6 +70,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structs\Color32.cs" />
+    <Compile Include="Utility\CollectionExtensions.cs" />
     <Compile Include="Utility\Period.cs" />
   </ItemGroup>
   <ItemGroup>
