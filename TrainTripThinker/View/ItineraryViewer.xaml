@@ -285,6 +285,69 @@
             </UniformGrid>
         </DataTemplate>
 
+        <UniformGrid Rows="3" Width="32" Height="120" x:Key="ItineraryElementController" x:Shared="False"
+                     HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Button Width="32" Height="32"
+                    Command="{Binding RemoveElementCommand}"
+                    Style="{StaticResource MaterialDesignFloatingActionButton}">
+                <md:PackIcon Width="24" Height="24" Kind="Close" />
+            </Button>
+
+            <Button Width="32" Height="32"
+                    Command="{Binding MoveUpElementCommand}"
+                    Style="{StaticResource MaterialDesignFloatingActionButton}">
+                <md:PackIcon Width="24" Height="24" Kind="ArrowUp" />
+            </Button>
+
+            <Button Width="32" Height="32"
+                    Command="{Binding MoveDownElementCommand}"
+                    Style="{StaticResource MaterialDesignFloatingActionButton}">
+                <md:PackIcon Width="24" Height="24" Kind="ArrowDown" />
+            </Button>
+        </UniformGrid>
+
+        <DataTemplate x:Key="ItineraryElementViewModelTemplate" DataType="vm:ItineraryElementViewModel">
+            <Grid Margin="0 4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="48" />
+                </Grid.ColumnDefinitions>
+
+                <TextBox Text="{Binding FreeForm.Value}" FontSize="16" Margin="4 0" md:HintAssist.Hint="自由入力"
+                         AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+
+                <ContentPresenter Grid.Column="1" Content="{StaticResource ItineraryElementController}" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="PeriodElementViewModelTemplate" DataType="vm:PeriodElementViewModel">
+            <Grid Margin="0 4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="48" />
+                </Grid.ColumnDefinitions>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <ContentControl Content="{Binding Period.Value.Begin}"
+                                    ContentTemplate="{StaticResource DepartureTemplate}"/>
+
+                    <TextBox Text="{Binding FreeForm.Value}" FontSize="16" Margin="4 0" Grid.Row="1" md:HintAssist.Hint="自由入力"
+                             AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+
+                    <ContentControl Grid.Row="2" Content="{Binding Period.Value.End}"
+                                    ContentTemplate="{StaticResource DepartureTemplate}"/>
+                </Grid>
+
+                <ContentPresenter Grid.Column="1" Content="{StaticResource ItineraryElementController}" />
+            </Grid>
+        </DataTemplate>
+
         <DataTemplate x:Key="TransportElementViewModelTemplate" DataType="vm:TransportElementViewModel">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -321,29 +384,15 @@
                                     ContentTemplate="{StaticResource DepartureTemplate}"/>
                 </Grid>
 
-                <UniformGrid Rows="3" Width="32" Height="120" Grid.Column="1"
-                             HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <Button Width="32" Height="32"
-                            Command="{Binding RemoveElementCommand}"
-                            Style="{StaticResource MaterialDesignFloatingActionButton}">
-                        <md:PackIcon Width="24" Height="24" Kind="Close" />
-                    </Button>
-
-                    <Button Width="32" Height="32"
-                            Command="{Binding MoveUpElementCommand}"
-                            Style="{StaticResource MaterialDesignFloatingActionButton}">
-                        <md:PackIcon Width="24" Height="24" Kind="ArrowUp" />
-                    </Button>
-
-                    <Button Width="32" Height="32"
-                            Command="{Binding MoveDownElementCommand}"
-                            Style="{StaticResource MaterialDesignFloatingActionButton}">
-                        <md:PackIcon Width="24" Height="24" Kind="ArrowDown" />
-                    </Button>
-                </UniformGrid>
-
+                <ContentPresenter Grid.Column="1" Content="{StaticResource ItineraryElementController}" />
             </Grid>
         </DataTemplate>
+
+        <local:ItineraryElementViewModelTemplateSelector x:Key="ItineraryElementViewModelTemplateSelector"
+             ItineraryElementTemplate="{StaticResource ItineraryElementViewModelTemplate}"
+             PeriodElementTemplate="{StaticResource PeriodElementViewModelTemplate}"
+             TransportElementTemplate="{StaticResource TransportElementViewModelTemplate}">
+        </local:ItineraryElementViewModelTemplateSelector>
     </UserControl.Resources>
 
     <TabControl ItemsSource="{Binding Itineraries}" >
@@ -388,7 +437,7 @@
                 <Grid>
                     <ScrollViewer>
                         <ItemsControl ItemsSource="{Binding Elements}"
-                                      ItemTemplate="{StaticResource TransportElementViewModelTemplate}"
+                                      ItemTemplateSelector="{StaticResource ItineraryElementViewModelTemplateSelector}"
                                       Margin="0 0 0 72"/>
                     </ScrollViewer>
 
@@ -399,7 +448,7 @@
                             <ColumnDefinition Width="64" />
                         </Grid.ColumnDefinitions>
 
-                        <md:PopupBox Grid.Column="1" PlacementMode="TopAndAlignCentres"
+                        <md:PopupBox Grid.Column="1" PlacementMode="TopAndAlignCentres" md:ToolTip="乗り物"
                                      ToggleCheckedContentCommand="{Binding AddTransportElementCommand}"
                                      Style="{DynamicResource MaterialDesignMultiFloatingActionPopupBox}">
                             <md:PopupBox.ToggleContent>
@@ -411,11 +460,11 @@
                             </md:PopupBox.ToggleCheckedContent>
 
                             <StackPanel>
-                                <Button>
+                                <Button Command="{Binding AddPeriodElementCommand}" ToolTip="時刻付き自由入力">
                                     <md:PackIcon Width="24" Height="24" Kind="Clock" />
                                 </Button>
 
-                                <Button>
+                                <Button Command="{Binding AddItineraryElementCommand}" ToolTip="時刻無し自由入力">
                                     <md:PackIcon Width="24" Height="24" Kind="Pencil" />
                                 </Button>
                             </StackPanel>

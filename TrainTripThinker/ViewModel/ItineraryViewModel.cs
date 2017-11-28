@@ -18,6 +18,12 @@ namespace TrainTripThinker.ViewModel
 
             AddTransportElementCommand = new ReactiveCommand();
             AddTransportElementCommand.Subscribe(model.AddTransportElement);
+
+            AddItineraryElementCommand = new ReactiveCommand();
+            AddItineraryElementCommand.Subscribe(model.AddItineraryElement);
+
+            AddPeriodElementCommand = new ReactiveCommand();
+            AddPeriodElementCommand.Subscribe(model.AddPeriodElement);
         }
 
         public ReactiveProperty<string> Title { get; }
@@ -25,5 +31,9 @@ namespace TrainTripThinker.ViewModel
         public ReadOnlyReactiveCollection<ItineraryElementViewModel> Elements { get; }
 
         public ReactiveCommand AddTransportElementCommand { get; }
+
+        public ReactiveCommand AddItineraryElementCommand { get; }
+
+        public ReactiveCommand AddPeriodElementCommand { get; }
     }
 }

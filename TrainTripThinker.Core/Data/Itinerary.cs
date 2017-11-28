@@ -48,5 +48,15 @@ namespace TrainTripThinker.Core.Data
         {
             Elements.Add(new TransportElement(new Train(), delegates));
         }
+
+        public void AddItineraryElement()
+        {
+            Elements.Add(new ItineraryElement(delegates));
+        }
+
+        public void AddPeriodElement()
+        {
+            Elements.Add(new PeriodElement(delegates));
+        }
     }
 }

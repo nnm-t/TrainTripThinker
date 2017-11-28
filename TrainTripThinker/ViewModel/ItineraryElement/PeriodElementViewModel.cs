@@ -6,9 +6,9 @@ using TrainTripThinker.Core.Utility;
 
 namespace TrainTripThinker.ViewModel
 {
-    public abstract class PeriodElementViewModel : ItineraryElementViewModel
+    public class PeriodElementViewModel : ItineraryElementViewModel
     {
-        protected PeriodElementViewModel(PeriodElement model)
+        public PeriodElementViewModel(PeriodElement model)
             : base(model)
         {
             Period = model.ObserveProperty(m => m.Period).ToReactiveProperty();

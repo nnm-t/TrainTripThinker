@@ -8,9 +8,9 @@ using TrainTripThinker.Core.Enums;
 
 namespace TrainTripThinker.ViewModel
 {
-    public abstract class ItineraryElementViewModel : BindableBase
+    public class ItineraryElementViewModel : BindableBase
     {
-        protected ItineraryElementViewModel(ItineraryElement model)
+        public ItineraryElementViewModel(ItineraryElement model)
         {
             Color = model.ObserveProperty(m => m.Color).ToReactiveProperty();
             FreeForm = model.ObserveProperty(m => m.FreeForm).ToReactiveProperty();

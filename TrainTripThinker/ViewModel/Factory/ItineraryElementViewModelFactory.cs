@@ -12,6 +12,10 @@ namespace TrainTripThinker.ViewModel
             {
                 case TransportElement transportElement:
                     return new TransportElementViewModel(transportElement);
+                case PeriodElement periodElement:
+                    return new PeriodElementViewModel(periodElement);
+                case ItineraryElement itineraryElement:
+                    return new ItineraryElementViewModel(itineraryElement);
                 default:
                     throw new InvalidOperationException("ViewModelが実装されていない型が読み込まれました");
             }

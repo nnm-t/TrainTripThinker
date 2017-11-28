@@ -10,7 +10,7 @@ namespace TrainTripThinker.Core.Data
     ///     行程表の要素の基本クラス
     /// </summary>
     /// <inheritdoc cref="BindableBase" />
-    public abstract class ItineraryElement : BindableBase
+    public class ItineraryElement : BindableBase
     {
         private Color32 color;
 
@@ -20,7 +20,7 @@ namespace TrainTripThinker.Core.Data
 
         private readonly ItineraryElementDelegates delegates;
 
-        protected ItineraryElement(ItineraryElementDelegates delegates)
+        public ItineraryElement(ItineraryElementDelegates delegates)
         {
             Icon = ItineraryIcon.None;
             Color = Color32.Transparent;

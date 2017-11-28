@@ -194,6 +194,7 @@
     <Compile Include="ViewModel\ItineraryElement\TransportElementViewModel.cs" />
     <Compile Include="View\BindingConverter\Color32BrushConverter.cs" />
     <Compile Include="View\BindingConverter\ColorNameConverter.cs" />
+    <Compile Include="View\DataTemplateSelector\ItineraryElementViewModelTemplateSelector.cs" />
     <Compile Include="View\DataTemplateSelector\MealTypeTemplateSelector.cs" />
     <Compile Include="View\DataTemplateSelector\SeatTypeTemplateSelector.cs" />
     <Compile Include="View\DataTemplateSelector\TransportTemplateSelector.cs" />
