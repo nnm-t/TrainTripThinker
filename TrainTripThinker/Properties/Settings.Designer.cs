@@ -22,5 +22,17 @@ namespace TrainTripThinker.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Settings.json")]
+        public string SettingsJson {
+            get {
+                return ((string)(this["SettingsJson"]));
+            }
+            set {
+                this["SettingsJson"] = value;
+            }
+        }
     }
 }

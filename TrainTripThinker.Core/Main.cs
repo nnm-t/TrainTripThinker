@@ -12,7 +12,7 @@ namespace TrainTripThinker.Core
         /// </summary>
         public Main()
         {
-            this.Document = new TttDocument();
+            Document = new TttDocument();
         }
 
         /// <summary>

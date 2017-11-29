@@ -67,6 +67,7 @@
     <Compile Include="Enums\ItineraryIcon.cs" />
     <Compile Include="Enums\MealType.cs" />
     <Compile Include="Enums\SeatType.cs" />
+    <Compile Include="IO\TextReader.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structs\Color32.cs" />
