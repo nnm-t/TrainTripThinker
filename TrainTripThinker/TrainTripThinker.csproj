@@ -204,6 +204,9 @@
     <Compile Include="ViewModel\ItineraryElement\TransportElementViewModel.cs" />
     <Compile Include="View\BindingConverter\Color32BrushConverter.cs" />
     <Compile Include="View\BindingConverter\ColorNameConverter.cs" />
+    <Compile Include="View\DataTemplateSelector\DynamicTemplateSelector\DynamicTemplateSelector.cs" />
+    <Compile Include="View\DataTemplateSelector\DynamicTemplateSelector\DataTemplateHolder.cs" />
+    <Compile Include="View\DataTemplateSelector\DynamicTemplateSelector\DataTemplateHolderCollection.cs" />
     <Compile Include="View\DataTemplateSelector\ItineraryElementViewModelTemplateSelector.cs" />
     <Compile Include="View\DataTemplateSelector\MealTypeTemplateSelector.cs" />
     <Compile Include="View\DataTemplateSelector\SeatTypeTemplateSelector.cs" />
@@ -257,6 +260,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ResourceDictionary\DataContexts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ResourceDictionary\DataTemplateSelectors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ResourceDictionary\ItineraryElementController.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
