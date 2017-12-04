@@ -275,6 +275,31 @@
         </UniformGrid>
     </DataTemplate>
 
+    <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}"
+           x:Key="FreeFormTextBox">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Margin" Value="4 0" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="AcceptsReturn" Value="True" />
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="md:HintAssist.Hint" Value="自由入力" />
+        <Setter Property="Text" Value="{Binding FreeForm.Value}" />
+    </Style>
+
+    <Style TargetType="ContentControl" x:Key="DepartureContentControl">
+        <Setter Property="ContentTemplate" Value="{StaticResource DepartureTemplate}" />
+    </Style>
+
+    <Style TargetType="ContentControl" BasedOn="{StaticResource DepartureContentControl}"
+           x:Key="DepartureBeginContentControl">
+        <Setter Property="Content" Value="{Binding Period.Value.Begin}" />
+    </Style>
+
+    <Style TargetType="ContentControl" BasedOn="{StaticResource DepartureContentControl}"
+           x:Key="DepartureEndContentControl">
+        <Setter Property="Content" Value="{Binding Period.Value.End}" />
+    </Style>
+
     <DataTemplate x:Key="ItineraryElementViewModelTemplate" DataType="vm:ItineraryElementViewModel">
         <Grid Margin="0 4">
             <Grid.ColumnDefinitions>
@@ -282,8 +307,7 @@
                 <ColumnDefinition Width="48" />
             </Grid.ColumnDefinitions>
 
-            <TextBox Text="{Binding FreeForm.Value}" FontSize="16" Margin="4 0" md:HintAssist.Hint="自由入力"
-                         AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+            <TextBox Style="{StaticResource FreeFormTextBox}"/>
 
             <ContentPresenter Grid.Column="1" Content="{StaticResource ItineraryElementController}" />
         </Grid>
@@ -303,14 +327,11 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <ContentControl Content="{Binding Period.Value.Begin}"
-                                    ContentTemplate="{StaticResource DepartureTemplate}"/>
+                <ContentControl Style="{StaticResource DepartureBeginContentControl}"/>
 
-                <TextBox Text="{Binding FreeForm.Value}" FontSize="16" Margin="4 0" Grid.Row="1" md:HintAssist.Hint="自由入力"
-                             AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+                <TextBox Grid.Row="1" Style="{StaticResource FreeFormTextBox}"/>
 
-                <ContentControl Grid.Row="2" Content="{Binding Period.Value.End}"
-                                    ContentTemplate="{StaticResource DepartureTemplate}"/>
+                <ContentControl Grid.Row="2" Style="{StaticResource DepartureEndContentControl}"/>
             </Grid>
 
             <ContentPresenter Grid.Column="1" Content="{StaticResource ItineraryElementController}" />
@@ -331,8 +352,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <ContentControl Content="{Binding Period.Value.Begin}"
-                                    ContentTemplate="{StaticResource DepartureTemplate}"/>
+                <ContentControl Style="{StaticResource DepartureBeginContentControl}"/>
 
                 <Grid Grid.Row="1" Margin="0, 4">
                     <Grid.ColumnDefinitions>
@@ -349,13 +369,22 @@
                                     Style="{StaticResource TransportContentControl}"/>
                 </Grid>
 
-                <ContentControl Grid.Row="2" Content="{Binding Period.Value.End}"
-                                    ContentTemplate="{StaticResource DepartureTemplate}"/>
+                <ContentControl Grid.Row="2" Style="{StaticResource DepartureEndContentControl}"/>
             </Grid>
 
             <ContentPresenter Grid.Column="1" Content="{StaticResource ItineraryElementController}" />
         </Grid>
     </DataTemplate>
+
+    <Style TargetType="md:PackIcon" x:Key="AddItineraryElementLargePackIcon">
+        <Setter Property="Width" Value="32" />
+        <Setter Property="Height" Value="32" />
+    </Style>
+
+    <Style TargetType="md:PackIcon" x:Key="AddItineraryElementSmallPackIcon">
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
+    </Style>
 
     <TabControl x:Key="ItinerariesTabControl" ItemsSource="{Binding Itineraries}" >
         <TabControl.Template>
@@ -414,20 +443,20 @@
                                      ToggleCheckedContentCommand="{Binding AddTransportElementCommand}"
                                      Style="{DynamicResource MaterialDesignMultiFloatingActionPopupBox}">
                             <md:PopupBox.ToggleContent>
-                                <md:PackIcon Width="32" Height="32" Kind="Plus" />
+                                <md:PackIcon Style="{StaticResource AddItineraryElementLargePackIcon}" Kind="Plus" />
                             </md:PopupBox.ToggleContent>
 
                             <md:PopupBox.ToggleCheckedContent>
-                                <md:PackIcon Width="32" Height="32" Kind="Train" />
+                                <md:PackIcon Style="{StaticResource AddItineraryElementLargePackIcon}" Kind="Train" />
                             </md:PopupBox.ToggleCheckedContent>
 
                             <StackPanel>
                                 <Button Command="{Binding AddPeriodElementCommand}" ToolTip="時刻付き自由入力">
-                                    <md:PackIcon Width="24" Height="24" Kind="Clock" />
+                                    <md:PackIcon Style="{StaticResource AddItineraryElementSmallPackIcon}" Kind="Clock" />
                                 </Button>
 
                                 <Button Command="{Binding AddItineraryElementCommand}" ToolTip="時刻無し自由入力">
-                                    <md:PackIcon Width="24" Height="24" Kind="Pencil" />
+                                    <md:PackIcon Style="{StaticResource AddItineraryElementSmallPackIcon}" Kind="Pencil" />
                                 </Button>
                             </StackPanel>
                         </md:PopupBox>
