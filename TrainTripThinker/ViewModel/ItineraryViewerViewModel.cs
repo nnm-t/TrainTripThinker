@@ -15,13 +15,8 @@ namespace TrainTripThinker.ViewModel
     /// <summary>
     /// <see cref="T:TrainTripThinker.View.ItineraryViewer" />用ViewModel
     /// </summary>
-    public class ItineraryViewerViewModel : BindableBase
+    public class ItineraryViewerViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Mainインスタンスへの参照
-        /// </summary>
-        private readonly TttMain main = ModelManager<TttMain>.Instance;
-
         /// <summary>
         /// ドキュメントインスタンスへの参照
         /// </summary>
@@ -32,7 +27,7 @@ namespace TrainTripThinker.ViewModel
         /// </summary>
         public ItineraryViewerViewModel()
         {
-            document = main.Document;
+            document = Main.Document;
 
             Itineraries = document.Itineraries.ToReadOnlyReactiveCollection(x => new ItineraryViewModel(x));
 
