@@ -13,18 +13,34 @@
     <metro:MetroWindow.Resources>
         <ResourceDictionary Source="ResourceDictionary/MainWindowUI.xaml" />
     </metro:MetroWindow.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <ListBox Background="{DynamicResource PrimaryHueDarkBrush}">
-            <md:PackIcon Kind="PencilBox" Style="{DynamicResource ModeIcon}" />
-            <md:PackIcon Kind="Floppy" Style="{DynamicResource ModeIcon}"/>
-            <md:PackIcon Kind="Printer" Style="{DynamicResource ModeIcon}" />
-            <md:PackIcon Kind="Settings" Style="{DynamicResource ModeIcon}" />
-        </ListBox>
+        <ItemsControl Background="{DynamicResource PrimaryHueDarkBrush}">
+            <Button Style="{StaticResource MenuButton}">
+                <md:PackIcon Kind="File" Style="{DynamicResource ModeIcon}" />
+            </Button>
+
+            <Button Style="{StaticResource MenuButton}">
+                <md:PackIcon Kind="Folder" Style="{DynamicResource ModeIcon}" />
+            </Button>
+
+            <Button Style="{StaticResource MenuButton}">
+                <md:PackIcon Kind="Floppy" Style="{DynamicResource ModeIcon}" />
+            </Button>
+
+            <Button Style="{StaticResource MenuButton}">
+                <md:PackIcon Kind="Printer" Style="{DynamicResource ModeIcon}" />
+            </Button>
+
+            <Button Style="{StaticResource MenuButton}">
+                <md:PackIcon Kind="Settings" Style="{DynamicResource ModeIcon}" />
+            </Button>
+        </ItemsControl>
 
         <local:ItineraryViewer Grid.Column="1" />
     </Grid>
