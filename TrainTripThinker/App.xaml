@@ -28,16 +28,17 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.MahApps;component/Themes/MaterialDesignTheme.MahApps.Flyout.xaml" />
 
                 <!-- Train Trip Thinker -->
+                <ResourceDictionary Source="View/Icons/TrainIcons.xaml" />
                 <ResourceDictionary Source="View/ResourceDictionary/Converters.xaml" />
                 <ResourceDictionary Source="View/ResourceDictionary/Window.xaml" />
-                <ResourceDictionary Source="View/Icons/TrainIcons.xaml" />
                 <ResourceDictionary Source="View/ResourceDictionary/DataContexts.xaml" />
                 <ResourceDictionary Source="View/ResourceDictionary/TransportClasses.xaml" />
                 <ResourceDictionary Source="View/ResourceDictionary/ColorComboBox.xaml" />
                 <ResourceDictionary Source="View/ResourceDictionary/TransportSeat.xaml" />
                 <ResourceDictionary Source="View/ResourceDictionary/MealTypeComboBox.xaml" />
-                <ResourceDictionary Source="View/ResourceDictionary/DataTemplateSelectors.xaml" />
                 <ResourceDictionary Source="View/ResourceDictionary/ItineraryElementController.xaml" />
+                <ResourceDictionary Source="View/ResourceDictionary/PlatformSuffixes.xaml" />
+                <ResourceDictionary Source="View/ResourceDictionary/DataTemplateSelectors.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <SolidColorBrush x:Key="HighlightBrush" Color="{DynamicResource Primary700}"/>

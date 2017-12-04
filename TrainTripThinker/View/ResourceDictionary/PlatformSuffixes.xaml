@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <x:Array x:Key="PlatformSuffixes" Type="system:String">
+        <system:String>番線</system:String>
+        <system:String>のりば</system:String>
+        <system:String>号線</system:String>
+        <system:String>バース</system:String>
+        <system:String>搭乗口</system:String>
+        <system:String>ゲート</system:String>
+    </x:Array>
+</ResourceDictionary>
