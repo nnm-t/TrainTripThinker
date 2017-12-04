@@ -207,10 +207,8 @@
     <Compile Include="View\DataTemplateSelector\DynamicTemplateSelector\DynamicTemplateSelector.cs" />
     <Compile Include="View\DataTemplateSelector\DynamicTemplateSelector\DataTemplateHolder.cs" />
     <Compile Include="View\DataTemplateSelector\DynamicTemplateSelector\DataTemplateHolderCollection.cs" />
-    <Compile Include="View\DataTemplateSelector\ItineraryElementViewModelTemplateSelector.cs" />
     <Compile Include="View\DataTemplateSelector\MealTypeTemplateSelector.cs" />
     <Compile Include="View\DataTemplateSelector\SeatTypeTemplateSelector.cs" />
-    <Compile Include="View\DataTemplateSelector\TransportTemplateSelector.cs" />
     <Compile Include="View\Icons\A-Bed.xaml.cs">
       <DependentUpon>A-Bed.xaml</DependentUpon>
     </Compile>
