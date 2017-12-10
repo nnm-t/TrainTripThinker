@@ -8,6 +8,9 @@ namespace TrainTripThinker.ViewModel
     {
         public MainWindowViewModel()
         {
+            CreateDocummentCommand = new ReactiveCommand();
+            OpenFileCommand = new ReactiveCommand();
+            SaveFileCommand = new ReactiveCommand();
         }
 
         public ReactiveCommand CreateDocummentCommand { get; }

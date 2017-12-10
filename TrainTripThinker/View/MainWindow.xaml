@@ -8,7 +8,6 @@
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Style="{StaticResource TttWindowStyle}"
-        Title="Train Trip Thinker" Height="800" Width="800"
         WindowStartupLocation="CenterScreen">
     <metro:MetroWindow.Resources>
         <ResourceDictionary Source="ResourceDictionary/MainWindowUI.xaml" />
@@ -21,15 +20,15 @@
         </Grid.ColumnDefinitions>
 
         <ItemsControl Background="{DynamicResource PrimaryHueDarkBrush}">
-            <Button Style="{StaticResource MenuButton}">
+            <Button Style="{StaticResource MenuButton}" Command="{Binding CreateDocumentCommand}">
                 <md:PackIcon Kind="File" Style="{DynamicResource ModeIcon}" />
             </Button>
 
-            <Button Style="{StaticResource MenuButton}">
+            <Button Style="{StaticResource MenuButton}" Command="{Binding OpenFileCommand}">
                 <md:PackIcon Kind="Folder" Style="{DynamicResource ModeIcon}" />
             </Button>
 
-            <Button Style="{StaticResource MenuButton}">
+            <Button Style="{StaticResource MenuButton}" Command="{Binding SaveFileCommand}">
                 <md:PackIcon Kind="Floppy" Style="{DynamicResource ModeIcon}" />
             </Button>
 
