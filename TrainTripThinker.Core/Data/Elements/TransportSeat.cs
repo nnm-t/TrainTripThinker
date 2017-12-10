@@ -9,8 +9,8 @@ namespace TrainTripThinker.Core.Data
     /// <summary>
     /// 乗り物の座席種別
     /// </summary>
-    /// <inheritdoc cref="BindableBase"/>
-    public class TransportSeat : BindableBase
+    /// <inheritdoc cref="FileChangeNotifyBase"/>
+    public class TransportSeat : FileChangeNotifyBase
     {
         private SeatType type;
 

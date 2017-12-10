@@ -1,6 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 
 using Prism.Mvvm;
+
+using Reactive.Bindings.Extensions;
 
 namespace TrainTripThinker.Core.Data
 {
@@ -8,11 +11,14 @@ namespace TrainTripThinker.Core.Data
     /// 列車・バス・船・飛行機などの乗り物
     /// </summary>
     /// <inheritdoc cref="BindableBase"/>
-    public abstract class TransportBase : BindableBase
+    public abstract class TransportBase : FileChangeNotifyBase
     {
         protected TransportBase()
         {
             TransportNumber = new TransportNumber();
+
+            Route = new ObservableCollection<string>();
+            Route.CollectionChangedAsObservable().Subscribe(OnCollectionChanged);
         }
 
         /// <summary>

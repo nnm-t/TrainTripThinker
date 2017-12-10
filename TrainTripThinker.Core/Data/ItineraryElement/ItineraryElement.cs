@@ -10,7 +10,7 @@ namespace TrainTripThinker.Core.Data
     ///     行程表の要素の基本クラス
     /// </summary>
     /// <inheritdoc cref="BindableBase" />
-    public class ItineraryElement : BindableBase
+    public class ItineraryElement : FileChangeNotifyBase
     {
         private Color32 color;
 

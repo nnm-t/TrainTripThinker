@@ -7,8 +7,8 @@ namespace TrainTripThinker.Core.Data
     /// <summary>
     /// のりば番号
     /// </summary>
-    /// <inheritdoc cref="BindableBase"/>
-    public class Platform : BindableBase
+    /// <inheritdoc cref="FileChangeNotifyBase"/>
+    public class Platform : FileChangeNotifyBase
     {
         private string prefix;
         private string number;

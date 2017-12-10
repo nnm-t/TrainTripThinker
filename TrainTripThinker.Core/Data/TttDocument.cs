@@ -1,14 +1,15 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 
-using Prism.Mvvm;
+using Reactive.Bindings.Extensions;
 
 namespace TrainTripThinker.Core.Data
 {
     /// <summary>
     /// Train Trip Thinkerのドキュメントクラス
     /// </summary>
-    /// <inheritdoc cref="BindableBase"/>
-    public class TttDocument : BindableBase
+    /// <inheritdoc cref="FileChangeNotifyBase"/>
+    public class TttDocument : FileChangeNotifyBase
     {
         /// <summary>
         /// 行程表コレクション
@@ -21,6 +22,7 @@ namespace TrainTripThinker.Core.Data
         public TttDocument()
         {
             Itineraries = new ObservableCollection<Itinerary>();
+            Itineraries.CollectionChangedAsObservable().Subscribe(OnCollectionChanged);
         }
 
         /// <summary>

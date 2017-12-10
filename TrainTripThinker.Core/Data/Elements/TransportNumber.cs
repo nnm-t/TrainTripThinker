@@ -6,7 +6,7 @@ namespace TrainTripThinker.Core.Data
     /// 便名
     /// </summary>
     /// <inheritdoc cref="BindableBase"/>
-    public class TransportNumber : BindableBase
+    public class TransportNumber : FileChangeNotifyBase
     {
         private string prefix;
 

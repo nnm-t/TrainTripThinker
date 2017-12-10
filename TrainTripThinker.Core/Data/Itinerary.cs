@@ -1,6 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 
 using Prism.Mvvm;
+
+using Reactive.Bindings.Extensions;
 
 using TrainTripThinker.Core.Utility;
 
@@ -10,7 +13,7 @@ namespace TrainTripThinker.Core.Data
     /// <summary>
     /// 行程表
     /// </summary>
-    public class Itinerary : BindableBase
+    public class Itinerary : FileChangeNotifyBase
     {
         private readonly ItineraryElementDelegates delegates;
 
@@ -25,6 +28,8 @@ namespace TrainTripThinker.Core.Data
         public Itinerary(string title)
         {
             Elements = new ObservableCollection<ItineraryElement>();
+            Elements.CollectionChangedAsObservable().Subscribe(OnCollectionChanged);
+
             Title = title;
 
             delegates = new ItineraryElementDelegates(Elements.Remove, Elements.MoveUpElement, Elements.MoveDownElement);

@@ -7,8 +7,8 @@ namespace TrainTripThinker.Core.Data
     /// <summary>
     /// 駅・停留所・港・空港などのりばからの発着データ
     /// </summary>
-    /// <inheritdoc cref="BindableBase"/>
-    public class Departure : BindableBase
+    /// <inheritdoc cref="FileChangeNotifyBase"/>
+    public class Departure : FileChangeNotifyBase
     {
         private DateTime dateTime;
         private string name;

@@ -8,7 +8,7 @@ namespace TrainTripThinker.Core.Data
     /// <summary>
     /// 乗り物の種別
     /// </summary>
-    public class TransportClass : BindableBase
+    public class TransportClass : FileChangeNotifyBase
     {
         private string text;
         private Color32 background;

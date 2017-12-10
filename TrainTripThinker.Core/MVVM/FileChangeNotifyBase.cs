@@ -37,7 +37,7 @@ namespace TrainTripThinker.Core
             Main.IsFileChanged = true;
         }
 
-        protected virtual void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs args)
+        protected virtual void OnCollectionChanged(NotifyCollectionChangedEventArgs args)
         {
             NotifyFileChanged();
         }
