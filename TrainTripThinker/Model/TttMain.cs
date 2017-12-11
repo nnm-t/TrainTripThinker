@@ -51,6 +51,16 @@ namespace TrainTripThinker.Model
             return main.CreateDocument();
         }
 
+        public void OpenFile()
+        {
+            CommonDialog.ChooseOpenFile();
+        }
+
+        public void SaveFile()
+        {
+            CommonDialog.ChooseSaveFile();
+        }
+
         public bool JudgeIsFileChanged(Action action)
         {
             if (Main.IsFileChanged)

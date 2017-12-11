@@ -5,5 +5,8 @@
     <Setting Name="SettingsJson" Type="System.String" Scope="User">
       <Value Profile="(Default)">Settings.json</Value>
     </Setting>
+    <Setting Name="ExtensionFilter" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Train Trip Thinker行程表(*.tttlst)|*.tttlst|JavaScript Object Notation(*.json)|*.json|すべてのファイル(*.*)|*.*</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -22,7 +22,10 @@ namespace TrainTripThinker.ViewModel
             CreateDocummentCommand.Subscribe(() => JudgeShowFileChangeDialog(() => Main.CreateDocument()));
 
             OpenFileCommand = new ReactiveCommand();
+            OpenFileCommand.Subscribe(() => JudgeShowFileChangeDialog(() => Main.OpenFile()));
+
             SaveFileCommand = new ReactiveCommand();
+            SaveFileCommand.Subscribe(() => Main.SaveFile());
         }
 
         public bool IsShowFileChangeDialog

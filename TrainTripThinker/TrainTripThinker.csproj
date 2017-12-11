@@ -196,6 +196,7 @@
     </Compile>
     <Compile Include="Extensions\Color32Extensions.cs" />
     <Compile Include="Model\ColorName.cs" />
+    <Compile Include="Model\CommonDialogs\CommonDialog.cs" />
     <Compile Include="Model\ModelManager.cs" />
     <Compile Include="Model\Settings\TttSettings.cs" />
     <Compile Include="Model\ThemeSelector.cs" />

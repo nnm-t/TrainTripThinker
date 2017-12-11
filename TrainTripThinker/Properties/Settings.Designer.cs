@@ -12,7 +12,7 @@ namespace TrainTripThinker.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.3.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.5.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -32,6 +32,19 @@ namespace TrainTripThinker.Properties {
             }
             set {
                 this["SettingsJson"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Train Trip Thinker行程表(*.tttlst)|*.tttlst|JavaScript Object Notation(*.json)|*.jso" +
+            "n|すべてのファイル(*.*)|*.*")]
+        public string ExtensionFilter {
+            get {
+                return ((string)(this["ExtensionFilter"]));
+            }
+            set {
+                this["ExtensionFilter"] = value;
             }
         }
     }
