@@ -14,6 +14,7 @@
         <ResourceDictionary Source="ResourceDictionary/MainWindowUI.xaml" />
     </metro:MetroWindow.Resources>
 
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -21,7 +22,7 @@
         </Grid.ColumnDefinitions>
 
         <ItemsControl Background="{DynamicResource PrimaryHueDarkBrush}">
-            <Button Style="{StaticResource MenuButton}" Command="{Binding CreateDocumentCommand}">
+            <Button Style="{StaticResource MenuButton}" Command="{Binding CreateDocummentCommand}">
                 <md:PackIcon Kind="File" Style="{DynamicResource ModeIcon}" />
             </Button>
 
@@ -41,6 +42,12 @@
                 <md:PackIcon Kind="Settings" Style="{DynamicResource ModeIcon}" />
             </Button>
         </ItemsControl>
+
+        <md:DialogHost Grid.Column="1" IsOpen="{Binding IsShowFileChangeDialog}">
+            <md:DialogHost.DialogContent>
+                <local:FileChangeDialog />
+            </md:DialogHost.DialogContent>
+        </md:DialogHost>
 
         <local:ItineraryViewer Grid.Column="1" />
     </Grid>

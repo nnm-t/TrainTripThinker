@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+
+using Newtonsoft.Json;
 
 using Prism.Mvvm;
 
@@ -18,8 +20,6 @@ namespace TrainTripThinker.Model
         private readonly Main main;
 
         private readonly string settingsJson = Properties.Settings.Default.SettingsJson;
-
-        private bool isShowFileChangeDialog;
 
         /// <summary>
         ///     コンストラクタ
@@ -43,24 +43,23 @@ namespace TrainTripThinker.Model
 
         public ThemeSelector ThemeSelector { get; }
 
-        public bool IsShowFileChangeDialog
-        {
-            get => isShowFileChangeDialog;
-            set => SetProperty(ref isShowFileChangeDialog, value);
-        }
-
         /// <summary>
         /// ファイル新規作成
         /// </summary>
         public bool CreateDocument()
         {
+            return main.CreateDocument();
+        }
+
+        public bool JudgeIsFileChanged(Action action)
+        {
             if (Main.IsFileChanged)
             {
-                // ファイル変更されている
-                IsShowFileChangeDialog = true;
+                return true;
             }
 
-            return main.CreateDocument();
+            action();
+            return false;
         }
     }
 }
