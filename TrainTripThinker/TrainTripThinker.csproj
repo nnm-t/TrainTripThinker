@@ -130,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Page Include="View\Dialogs\FileChangeDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Icons\A-Bed.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -211,6 +215,9 @@
     <Compile Include="View\DataTemplateSelector\DynamicTemplateSelector\DataTemplateHolderCollection.cs" />
     <Compile Include="View\DataTemplateSelector\MealTypeTemplateSelector.cs" />
     <Compile Include="View\DataTemplateSelector\SeatTypeTemplateSelector.cs" />
+    <Compile Include="View\Dialogs\FileChangeDialog.xaml.cs">
+      <DependentUpon>FileChangeDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Icons\A-Bed.xaml.cs">
       <DependentUpon>A-Bed.xaml</DependentUpon>
     </Compile>

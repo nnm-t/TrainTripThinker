@@ -5,7 +5,6 @@
         <Setter Property="TitleCaps" Value="False" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="GlowBrush" Value="{DynamicResource AccentColorBrush}" />
-        <Setter Property="DataContext" Value="{StaticResource MainWindowViewModel}" />
         <Setter Property="Width" Value="800" />
         <Setter Property="Height" Value="800" />
         <Setter Property="Title" Value="Train Trip Thinker" />

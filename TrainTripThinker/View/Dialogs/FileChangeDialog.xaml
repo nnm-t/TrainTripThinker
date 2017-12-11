@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="TrainTripThinker.View.FileChangeDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TrainTripThinker.View"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel>
+        <TextBlock FontSize="20" Text="Train Trip Thinker" />
+
+        <TextBlock FontSize="14" Text="は変更されています。 変更を保存しますか?" />
+
+        <StackPanel Orientation="Horizontal">
+            <Button Style="{DynamicResource MaterialDesignFlatAccentButton}" Content="はい"
+                    Command="{x:Static md:DialogHost.CloseDialogCommand}">
+                <Button.CommandParameter>
+                    <system:Boolean>True</system:Boolean>
+                </Button.CommandParameter>
+            </Button>
+
+            <Button Style="{DynamicResource MaterialDesignFlatButton}" Content="いいえ"
+                    Command="{x:Static md:DialogHost.CloseDialogCommand}">
+                <Button.CommandParameter>
+                    <system:Boolean>False</system:Boolean>
+                </Button.CommandParameter>
+            </Button>
+
+            <Button Style="{DynamicResource MaterialDesignFlatButton}" Content="キャンセル"
+                    Command="{x:Static md:DialogHost.CloseDialogCommand}" />
+        </StackPanel>
+    </StackPanel>
+</UserControl>

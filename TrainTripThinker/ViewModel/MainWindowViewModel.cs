@@ -1,6 +1,7 @@
 ﻿using Prism.Mvvm;
 
 using Reactive.Bindings;
+using Reactive.Bindings.Extensions;
 
 namespace TrainTripThinker.ViewModel
 {
@@ -8,10 +9,14 @@ namespace TrainTripThinker.ViewModel
     {
         public MainWindowViewModel()
         {
+            IsShowFileChangeDialog = Main.ObserveProperty(m => m.IsShowFileChangeDialog).ToReactiveProperty();
+
             CreateDocummentCommand = new ReactiveCommand();
             OpenFileCommand = new ReactiveCommand();
             SaveFileCommand = new ReactiveCommand();
         }
+
+        public ReactiveProperty<bool> IsShowFileChangeDialog { get; }
 
         public ReactiveCommand CreateDocummentCommand { get; }
 

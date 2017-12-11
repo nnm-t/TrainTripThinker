@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
 
+using Prism.Mvvm;
+
 using TrainTripThinker.Core;
 using TrainTripThinker.Core.Data;
 
@@ -8,7 +10,7 @@ namespace TrainTripThinker.Model
     /// <summary>
     ///     Train Trip Thinkerメインクラス
     /// </summary>
-    public class TttMain
+    public class TttMain : BindableBase
     {
         /// <summary>
         ///     ロジッククラスのインスタンス
@@ -16,6 +18,8 @@ namespace TrainTripThinker.Model
         private readonly Main main;
 
         private readonly string settingsJson = Properties.Settings.Default.SettingsJson;
+
+        private bool isShowFileChangeDialog;
 
         /// <summary>
         ///     コンストラクタ
@@ -38,5 +42,25 @@ namespace TrainTripThinker.Model
         public TttSettings Settings { get; }
 
         public ThemeSelector ThemeSelector { get; }
+
+        public bool IsShowFileChangeDialog
+        {
+            get => isShowFileChangeDialog;
+            set => SetProperty(ref isShowFileChangeDialog, value);
+        }
+
+        /// <summary>
+        /// ファイル新規作成
+        /// </summary>
+        public bool CreateDocument()
+        {
+            if (Main.IsFileChanged)
+            {
+                // ファイル変更されている
+                IsShowFileChangeDialog = true;
+            }
+
+            return main.CreateDocument();
+        }
     }
 }
