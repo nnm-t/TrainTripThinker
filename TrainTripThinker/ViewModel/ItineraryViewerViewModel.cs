@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 
-using Prism.Mvvm;
-
 using Reactive.Bindings;
 
 using TrainTripThinker.Core.Data;
-using TrainTripThinker.Model;
 
 namespace TrainTripThinker.ViewModel
 {

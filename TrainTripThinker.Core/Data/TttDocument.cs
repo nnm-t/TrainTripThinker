@@ -55,5 +55,13 @@ namespace TrainTripThinker.Core.Data
         {
             itineraries.RemoveAt(index);
         }
+
+        /// <summary>
+        /// ドキュメントをリセットする
+        /// </summary>
+        public void Clear()
+        {
+            Itineraries.Clear();
+        }
     }
 }

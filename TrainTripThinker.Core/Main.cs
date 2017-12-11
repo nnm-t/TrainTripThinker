@@ -1,12 +1,16 @@
-﻿using TrainTripThinker.Core.Data;
+﻿using Prism.Mvvm;
+
+using TrainTripThinker.Core.Data;
 
 namespace TrainTripThinker.Core
 {
     /// <summary>
     /// ロジックメインクラス
     /// </summary>
-    public class Main
+    public class Main : BindableBase
     {
+        private TttDocument document;
+
         /// <summary>
         /// 起動時コンストラクタ
         /// </summary>
@@ -24,11 +28,20 @@ namespace TrainTripThinker.Core
         /// <summary>
         /// オープン中の行程表ドキュメント
         /// </summary>
-        public TttDocument Document { get; set; }
+        public TttDocument Document
+        {
+            get => document;
+            set => SetProperty(ref document, value);
+        }
 
+        /// <summary>
+        /// ドキュメントを新規作成(実態は中身のリセット)
+        /// </summary>
+        /// <returns>成功可否</returns>
         public bool CreateDocument()
         {
-            Document = new TttDocument();
+            Document.Clear();
+            IsFileChanged = false;
 
             return true;
         }
