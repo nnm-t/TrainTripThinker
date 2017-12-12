@@ -17,6 +17,8 @@ namespace TrainTripThinker.Core
         public Main()
         {
             Document = new TttDocument();
+
+            IsFileChanged = false;
         }
 
         /// <summary>
