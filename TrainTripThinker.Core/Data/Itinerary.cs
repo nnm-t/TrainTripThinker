@@ -25,12 +25,15 @@ namespace TrainTripThinker.Core.Data
         /// <param name="title">
         /// タイトル名
         /// </param>
-        public Itinerary(string title)
+        public Itinerary(string title) : this()
+        {
+            Title = title;
+        }
+
+        public Itinerary()
         {
             Elements = new ObservableCollection<ItineraryElement>();
             Elements.CollectionChangedAsObservable().Subscribe(OnCollectionChanged);
-
-            Title = title;
 
             delegates = new ItineraryElementDelegates(Elements.Remove, Elements.MoveUpElement, Elements.MoveDownElement);
         }
@@ -62,6 +65,14 @@ namespace TrainTripThinker.Core.Data
         public void AddPeriodElement()
         {
             Elements.Add(new PeriodElement(delegates));
+        }
+
+        public void AddDelegateToElements()
+        {
+            foreach (ItineraryElement element in Elements)
+            {
+                element.AddDelegates(delegates);
+            }
         }
     }
 }

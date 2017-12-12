@@ -1,5 +1,7 @@
 ﻿using System;
 
+using Newtonsoft.Json;
+
 using Prism.Mvvm;
 
 using TrainTripThinker.Core.Enums;
@@ -18,7 +20,8 @@ namespace TrainTripThinker.Core.Data
 
         private ItineraryIcon icon;
 
-        private readonly ItineraryElementDelegates delegates;
+        private ItineraryElementDelegates delegates;
+
 
         public ItineraryElement(ItineraryElementDelegates delegates)
         {
@@ -54,6 +57,11 @@ namespace TrainTripThinker.Core.Data
         {
             get => icon;
             set => SetProperty(ref icon, value);
+        }
+
+        public void AddDelegates(ItineraryElementDelegates delegates)
+        {
+            this.delegates = delegates;
         }
 
         public void RemoveElement()

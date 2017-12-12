@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using Prism.Mvvm;
 
 using TrainTripThinker.Core.Data;
+using TrainTripThinker.Core.Utility;
 
 namespace TrainTripThinker.Core
 {
@@ -56,7 +57,8 @@ namespace TrainTripThinker.Core
         {
             using (var reader = new TextReader(filePath))
             {
-                Document.Load(JsonConvert.DeserializeObject<TttDocument>(reader.Read()));
+                Document.Load(
+                    JsonConvert.DeserializeObject<TttDocument>(reader.Read()));
             }
 
             IsFileChanged = false;
@@ -68,7 +70,10 @@ namespace TrainTripThinker.Core
         {
             using (var writer = new TextWriter(filePath))
             {
-                writer.Write(JsonConvert.SerializeObject(Document, Formatting.Indented));
+                writer.Write(
+                    JsonConvert.SerializeObject(
+                        Document,
+                        Formatting.Indented));
             }
 
             IsFileChanged = false;

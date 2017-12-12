@@ -74,6 +74,7 @@ namespace TrainTripThinker.Core.Data
             Clear();
             foreach (Itinerary itinerary in another.Itineraries)
             {
+                itinerary.AddDelegateToElements();
                 AddItinerary(itinerary);
             }
         }
