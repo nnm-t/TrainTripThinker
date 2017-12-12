@@ -44,7 +44,12 @@ namespace TrainTripThinker.Core.Data
         /// </summary>
         public void AddItinerary()
         {
-            itineraries.Add(new Itinerary("Itinerary" + ItineraryCount));
+            Itineraries.Add(new Itinerary("Itinerary" + ItineraryCount));
+        }
+
+        private void AddItinerary(Itinerary itinerary)
+        {
+            Itineraries.Add(itinerary);
         }
 
         /// <summary>
@@ -62,6 +67,15 @@ namespace TrainTripThinker.Core.Data
         public void Clear()
         {
             Itineraries.Clear();
+        }
+
+        public void Load(TttDocument another)
+        {
+            Clear();
+            foreach (Itinerary itinerary in another.Itineraries)
+            {
+                AddItinerary(itinerary);
+            }
         }
     }
 }

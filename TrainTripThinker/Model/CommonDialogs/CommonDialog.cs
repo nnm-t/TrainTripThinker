@@ -19,7 +19,7 @@ namespace TrainTripThinker.Model
             FileDialog dialog = InitializeDialog(new SaveFileDialog());
             bool? result = dialog.ShowDialog();
 
-            return result.Value ? dialog.SafeFileName : null;
+            return result.Value ? dialog.FileName : null;
         }
 
         private static FileDialog InitializeDialog(FileDialog dialog)

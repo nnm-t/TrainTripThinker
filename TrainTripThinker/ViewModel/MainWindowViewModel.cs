@@ -67,6 +67,7 @@ namespace TrainTripThinker.ViewModel
             {
                 // はい
                 // 保存のロジックを割り込ませる
+                Main.SaveFile();
             }
 
             // いいえ

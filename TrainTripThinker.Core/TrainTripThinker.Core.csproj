@@ -33,6 +33,9 @@
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="Prism, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
@@ -96,6 +99,7 @@
     <Compile Include="Enums\MealType.cs" />
     <Compile Include="Enums\SeatType.cs" />
     <Compile Include="IO\TextReader.cs" />
+    <Compile Include="IO\TextWriter.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="MVVM\FileChangeNotifyBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

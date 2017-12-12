@@ -1,11 +1,16 @@
 ﻿using System;
+using System.Reactive.Linq;
+using System.Windows;
 
 using Newtonsoft.Json;
 
 using Prism.Mvvm;
 
+using Reactive.Bindings.Extensions;
+
 using TrainTripThinker.Core;
 using TrainTripThinker.Core.Data;
+using TrainTripThinker.ViewModel;
 
 namespace TrainTripThinker.Model
 {
@@ -28,8 +33,10 @@ namespace TrainTripThinker.Model
         {
             main = new Main();
 
-            var textReader = new TextReader(settingsJson);
-            Settings = JsonConvert.DeserializeObject<TttSettings>(textReader.Read());
+            using (var textReader = new TextReader(settingsJson))
+            {
+                Settings = JsonConvert.DeserializeObject<TttSettings>(textReader.Read());
+            }
 
             ThemeSelector = new ThemeSelector(Settings);
         }
@@ -53,12 +60,28 @@ namespace TrainTripThinker.Model
 
         public void OpenFile()
         {
-            CommonDialog.ChooseOpenFile();
+            string filePath = CommonDialog.ChooseOpenFile();
+
+            if (filePath == null)
+            {
+                // キャンセル
+                return;
+            }
+
+            main.OpenDocument(filePath);
         }
 
         public void SaveFile()
         {
-            CommonDialog.ChooseSaveFile();
+            string filePath = CommonDialog.ChooseSaveFile();
+
+            if (filePath == null)
+            {
+                // キャンセル
+                return;
+            }
+
+            main.SaveDocument(filePath);
         }
 
         public bool JudgeIsFileChanged(Action action)

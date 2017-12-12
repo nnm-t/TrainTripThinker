@@ -1,4 +1,8 @@
-﻿using Prism.Mvvm;
+﻿using System.IO;
+
+using Newtonsoft.Json;
+
+using Prism.Mvvm;
 
 using TrainTripThinker.Core.Data;
 
@@ -43,6 +47,30 @@ namespace TrainTripThinker.Core
         public bool CreateDocument()
         {
             Document.Clear();
+            IsFileChanged = false;
+
+            return true;
+        }
+
+        public bool OpenDocument(string filePath)
+        {
+            using (var reader = new TextReader(filePath))
+            {
+                Document.Load(JsonConvert.DeserializeObject<TttDocument>(reader.Read()));
+            }
+
+            IsFileChanged = false;
+
+            return true;
+        }
+
+        public bool SaveDocument(string filePath)
+        {
+            using (var writer = new TextWriter(filePath))
+            {
+                writer.Write(JsonConvert.SerializeObject(Document));
+            }
+
             IsFileChanged = false;
 
             return true;

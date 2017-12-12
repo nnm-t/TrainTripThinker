@@ -1,9 +1,10 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text;
 
 namespace TrainTripThinker.Core
 {
-    public class TextReader
+    public class TextReader : IDisposable
     {
 
         public TextReader(string path)
@@ -19,6 +20,11 @@ namespace TrainTripThinker.Core
         public string Read()
         {
             return StreamReader.ReadToEnd();
+        }
+
+        public void Dispose()
+        {
+            StreamReader.Close();
         }
     }
 }
