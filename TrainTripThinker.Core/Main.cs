@@ -68,7 +68,7 @@ namespace TrainTripThinker.Core
         {
             using (var writer = new TextWriter(filePath))
             {
-                writer.Write(JsonConvert.SerializeObject(Document));
+                writer.Write(JsonConvert.SerializeObject(Document, Formatting.Indented));
             }
 
             IsFileChanged = false;
