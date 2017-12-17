@@ -21,7 +21,7 @@ namespace TrainTripThinker.ViewModel
             var productName = Attribute.GetCustomAttribute(assembly, typeof(AssemblyProductAttribute)) as AssemblyProductAttribute;
 
             DocumentName = Main.ObserveProperty(m => m.DocumentName).ToReactiveProperty();
-            WindowTitle = Main.ObserveProperty(m => m.DocumentName).Select(n => productName.Product + " - " + n).ToReactiveProperty();
+            WindowTitle = Main.ObserveProperty(m => m.DocumentName).Select(n => n + " - " + productName.Product).ToReactiveProperty();
 
             CloseDialogCommand = new ReactiveCommand<bool?>();
             CloseDialogCommand.Subscribe(OnCloseFileChangeDialog);
