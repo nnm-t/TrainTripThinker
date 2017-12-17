@@ -58,7 +58,7 @@ namespace TrainTripThinker.Core
             using (var reader = new TextReader(filePath))
             {
                 Document.Load(
-                    JsonConvert.DeserializeObject<TttDocument>(reader.Read()));
+                    JsonConvert.DeserializeObject<TttDocument>(reader.Read(), TttDocumentConverter.Create()));
             }
 
             IsFileChanged = false;

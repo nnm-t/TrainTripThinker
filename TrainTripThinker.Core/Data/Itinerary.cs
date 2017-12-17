@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 
+using Newtonsoft.Json;
+
 using Prism.Mvvm;
 
 using Reactive.Bindings.Extensions;

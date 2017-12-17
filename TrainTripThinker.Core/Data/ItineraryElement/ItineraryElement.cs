@@ -23,13 +23,16 @@ namespace TrainTripThinker.Core.Data
         private ItineraryElementDelegates delegates;
 
 
-        public ItineraryElement(ItineraryElementDelegates delegates)
+        public ItineraryElement(ItineraryElementDelegates delegates) : this()
+        {
+            this.delegates = delegates;
+        }
+
+        public ItineraryElement()
         {
             Icon = ItineraryIcon.None;
             Color = Color32.Transparent;
             FreeForm = string.Empty;
-
-            this.delegates = delegates;
         }
 
         /// <summary>

@@ -16,6 +16,11 @@ namespace TrainTripThinker.Core.Data
             Transport = transport;
         }
 
+        public TransportElement()
+        {
+            
+        }
+
         /// <summary>
         /// 乗り物
         /// </summary>

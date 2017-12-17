@@ -84,6 +84,8 @@
     <Compile Include="Data\Elements\Departure.cs" />
     <Compile Include="Data\Elements\Platform.cs" />
     <Compile Include="Data\ItineraryElement\ItineraryElementDelegates.cs" />
+    <Compile Include="JsonConverter\ItineraryElementConverter.cs" />
+    <Compile Include="JsonConverter\JsonCreationConverter.cs" />
     <Compile Include="Data\Transport\Bus.cs" />
     <Compile Include="Data\Transport\ILineColor.cs" />
     <Compile Include="Data\Transport\IRestRoom.cs" />
@@ -100,6 +102,8 @@
     <Compile Include="Enums\SeatType.cs" />
     <Compile Include="IO\TextReader.cs" />
     <Compile Include="IO\TextWriter.cs" />
+    <Compile Include="JsonConverter\TransportConverter.cs" />
+    <Compile Include="JsonConverter\TttDocumentConverter.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="MVVM\FileChangeNotifyBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
