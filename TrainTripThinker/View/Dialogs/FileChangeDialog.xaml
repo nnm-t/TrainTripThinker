@@ -7,11 +7,24 @@
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" x:Key="DialogText">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+    </UserControl.Resources>
     <!-- ビジュアルツリー上でMainWindowViewModelをDataContextとして伝搬させること -->
     <StackPanel Margin="12">
         <TextBlock FontSize="20" Text="Train Trip Thinker" Margin="0 0 0 4" />
 
-        <TextBlock FontSize="14" Text="は変更されています。 変更を保存しますか?" />
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="ファイル "
+                       Style="{StaticResource DialogText}"/>
+            <TextBlock Text="{Binding DocumentName.Value}"
+                       FontWeight="Bold"
+                       Style="{StaticResource DialogText}"/>
+            <TextBlock Text=" は変更されています。 変更を保存しますか?"
+                       Style="{StaticResource DialogText}"/>
+        </StackPanel>
 
         <UniformGrid Columns="3">
             <Button Style="{DynamicResource MaterialDesignFlatButton}" Content="はい"

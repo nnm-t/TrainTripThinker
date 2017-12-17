@@ -26,12 +26,16 @@ namespace TrainTripThinker.Model
 
         private readonly string settingsJson = Properties.Settings.Default.SettingsJson;
 
+        private string documentName;
+
         /// <summary>
         ///     コンストラクタ
         /// </summary>
         public TttMain()
         {
             main = new Main();
+
+            DocumentName = Properties.Settings.Default.DefaultDocumentName;
 
             using (var textReader = new TextReader(settingsJson))
             {
@@ -46,6 +50,12 @@ namespace TrainTripThinker.Model
         /// </summary>
         public TttDocument Document => main.Document;
 
+        public string DocumentName
+        {
+            get => documentName;
+            set => SetProperty(ref documentName, value);
+        }
+
         public TttSettings Settings { get; }
 
         public ThemeSelector ThemeSelector { get; }
@@ -55,7 +65,10 @@ namespace TrainTripThinker.Model
         /// </summary>
         public bool CreateDocument()
         {
-            return main.CreateDocument();
+            bool result = main.CreateDocument();
+            DocumentName = Properties.Settings.Default.DefaultDocumentName;
+
+            return result;
         }
 
         public void OpenFile()

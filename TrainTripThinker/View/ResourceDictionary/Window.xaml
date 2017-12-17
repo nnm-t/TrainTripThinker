@@ -7,6 +7,6 @@
         <Setter Property="GlowBrush" Value="{DynamicResource AccentColorBrush}" />
         <Setter Property="Width" Value="800" />
         <Setter Property="Height" Value="800" />
-        <Setter Property="Title" Value="Train Trip Thinker" />
+        <Setter Property="Title" Value="{Binding WindowTitle.Value}" />
     </Style>
 </ResourceDictionary>

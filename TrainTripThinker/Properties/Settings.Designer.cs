@@ -47,5 +47,17 @@ namespace TrainTripThinker.Properties {
                 this["ExtensionFilter"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("名称未設定")]
+        public string DefaultDocumentName {
+            get {
+                return ((string)(this["DefaultDocumentName"]));
+            }
+            set {
+                this["DefaultDocumentName"] = value;
+            }
+        }
     }
 }

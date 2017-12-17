@@ -1,8 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Reactive.Linq;
+using System.Reflection;
 using System.Windows;
 
 using Reactive.Bindings;
+using Reactive.Bindings.Extensions;
 
 namespace TrainTripThinker.ViewModel
 {
@@ -14,6 +17,12 @@ namespace TrainTripThinker.ViewModel
 
         public MainWindowViewModel()
         {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            var productName = Attribute.GetCustomAttribute(assembly, typeof(AssemblyProductAttribute)) as AssemblyProductAttribute;
+
+            DocumentName = Main.ObserveProperty(m => m.DocumentName).ToReactiveProperty();
+            WindowTitle = Main.ObserveProperty(m => m.DocumentName).Select(n => productName.Product + " - " + n).ToReactiveProperty();
+
             CloseDialogCommand = new ReactiveCommand<bool?>();
             CloseDialogCommand.Subscribe(OnCloseFileChangeDialog);
 
@@ -28,6 +37,7 @@ namespace TrainTripThinker.ViewModel
 
             ClosingWindowCommand = new ReactiveCommand<CancelEventArgs>();
             ClosingWindowCommand.Subscribe(OnClosingWindow);
+
         }
 
         public bool IsShowFileChangeDialog
@@ -35,6 +45,10 @@ namespace TrainTripThinker.ViewModel
             get => isShowFileChangeDialog;
             set => SetProperty(ref isShowFileChangeDialog, value);
         }
+
+        public ReactiveProperty<string> DocumentName { get; }
+
+        public ReactiveProperty<string> WindowTitle { get; }
 
         public ReactiveCommand CreateDocummentCommand { get; }
 
