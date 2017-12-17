@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Reactive.Linq;
 using System.Windows;
 
@@ -11,6 +12,8 @@ using Reactive.Bindings.Extensions;
 using TrainTripThinker.Core;
 using TrainTripThinker.Core.Data;
 using TrainTripThinker.ViewModel;
+
+using TextReader = TrainTripThinker.Core.TextReader;
 
 namespace TrainTripThinker.Model
 {
@@ -82,6 +85,7 @@ namespace TrainTripThinker.Model
             }
 
             main.OpenDocument(filePath);
+            DocumentName = Path.GetFileName(filePath);
         }
 
         public void SaveFile()
@@ -95,6 +99,7 @@ namespace TrainTripThinker.Model
             }
 
             main.SaveDocument(filePath);
+            DocumentName = Path.GetFileName(filePath);
         }
 
         public bool JudgeIsFileChanged(Action action)
