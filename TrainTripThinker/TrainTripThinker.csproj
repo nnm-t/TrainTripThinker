@@ -211,6 +211,7 @@
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\BindingConverter\Color32BrushConverter.cs" />
     <Compile Include="View\BindingConverter\ColorNameConverter.cs" />
+    <Compile Include="View\BindingConverter\TransportClassConverter.cs" />
     <Compile Include="View\DataTemplateSelector\DynamicTemplateSelector\DynamicTemplateSelector.cs" />
     <Compile Include="View\DataTemplateSelector\DynamicTemplateSelector\DataTemplateHolder.cs" />
     <Compile Include="View\DataTemplateSelector\DynamicTemplateSelector\DataTemplateHolderCollection.cs" />

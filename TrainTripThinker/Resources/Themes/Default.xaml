@@ -202,14 +202,15 @@
                                       Margin="0 0 0 4"
                                       FontSize="20" HorizontalAlignment="Stretch"/>
 
-                <ComboBox Grid.Column="1" SelectedItem="{Binding Class, UpdateSourceTrigger=PropertyChanged}"
+                <ComboBox Grid.Column="1" SelectedItem="{Binding Class, Mode=TwoWay, Converter={StaticResource TransportClassConverter},
+                                      UpdateSourceTrigger=PropertyChanged}"
                                       ItemsSource="{StaticResource TransportClasses}"
                                       Margin="4 0 4 0" FontSize="20" FontWeight="Bold"
-                                    HorizontalContentAlignment="Stretch"
+                                      HorizontalContentAlignment="Stretch"
                                       md:HintAssist.Hint="種別">
                     <ComboBox.ItemTemplate>
                         <DataTemplate DataType="data:TransportClass">
-                            <Grid Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ComboBox} }"
+                            <Grid Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ComboBox}}"
                                               Background="{Binding Background, Converter={StaticResource Color32BrushConverter}}">
                                 <TextBlock Text="{Binding Text}" FontSize="20" Margin="2 0"
                                                        Foreground="{Binding Foreground, Converter={StaticResource Color32BrushConverter}}"/>

@@ -46,6 +46,36 @@ namespace TrainTripThinker.Core.Data
             Foreground = foreground;
         }
 
+        public override bool Equals(object obj)
+        {
+            if (!(obj is TransportClass other))
+            {
+                return false;
+            }
+
+            if (!Text.Equals(other.Text))
+            {
+                return false;
+            }
+
+            if (!Background.Equals(other.Background))
+            {
+                return false;
+            }
+
+            if (!Foreground.Equals(other.Foreground))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            return Text.GetHashCode() * Background.GetHashCode() * Foreground.GetHashCode();
+        }
+
         /// <summary>
         /// 普通
         /// </summary>

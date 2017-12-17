@@ -22,6 +22,41 @@ namespace TrainTripThinker.Core.Data
             A = a;
         }
 
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Color32 color))
+            {
+                return false;
+            }
+
+            if (!A.Equals(color.A))
+            {
+                return false;
+            }
+
+            if (!R.Equals(color.R))
+            {
+                return false;
+            }
+
+            if (!G.Equals(color.G))
+            {
+                return false;
+            }
+
+            if (!B.Equals(color.B))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            return A.GetHashCode() * R.GetHashCode() * G.GetHashCode() * B.GetHashCode();
+        }
+
         /// <summary>
         /// 黒
         /// </summary>
