@@ -11,43 +11,46 @@
         DataContext="{StaticResource MainWindowViewModel}"
         WindowStartupLocation="CenterScreen"
         Closing="OnClosing">
-        <metro:MetroWindow.Resources>
-            <ResourceDictionary Source="ResourceDictionary/MainWindowUI.xaml" />
-        </metro:MetroWindow.Resources>
+    <metro:MetroWindow.Resources>
+        <ResourceDictionary Source="ResourceDictionary/MainWindowUI.xaml" />
+    </metro:MetroWindow.Resources>
+
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
 
-        <ItemsControl Background="{DynamicResource PrimaryHueDarkBrush}">
-            <Button Style="{StaticResource MenuButton}" Command="{Binding CreateDocummentCommand}">
-                <md:PackIcon Kind="File" Style="{DynamicResource ModeIcon}" />
-            </Button>
+            <ItemsControl Background="{DynamicResource PrimaryHueDarkBrush}">
+                <Button Style="{StaticResource MenuButton}" Command="{Binding CreateDocummentCommand}">
+                    <md:PackIcon Kind="File" Style="{DynamicResource ModeIcon}" />
+                </Button>
 
-            <Button Style="{StaticResource MenuButton}" Command="{Binding OpenFileCommand}">
-                <md:PackIcon Kind="Folder" Style="{DynamicResource ModeIcon}" />
-            </Button>
+                <Button Style="{StaticResource MenuButton}" Command="{Binding OpenFileCommand}">
+                    <md:PackIcon Kind="Folder" Style="{DynamicResource ModeIcon}" />
+                </Button>
 
-            <Button Style="{StaticResource MenuButton}" Command="{Binding SaveFileCommand}">
-                <md:PackIcon Kind="Floppy" Style="{DynamicResource ModeIcon}" />
-            </Button>
+                <Button Style="{StaticResource MenuButton}" Command="{Binding SaveFileCommand}">
+                    <md:PackIcon Kind="Floppy" Style="{DynamicResource ModeIcon}" />
+                </Button>
 
-            <Button Style="{StaticResource MenuButton}">
-                <md:PackIcon Kind="Printer" Style="{DynamicResource ModeIcon}" />
-            </Button>
+                <Button Style="{StaticResource MenuButton}">
+                    <md:PackIcon Kind="Printer" Style="{DynamicResource ModeIcon}" />
+                </Button>
 
-            <Button Style="{StaticResource MenuButton}">
-                <md:PackIcon Kind="Settings" Style="{DynamicResource ModeIcon}" />
-            </Button>
-        </ItemsControl>
+                <Button Style="{StaticResource MenuButton}">
+                    <md:PackIcon Kind="Settings" Style="{DynamicResource ModeIcon}" />
+                </Button>
+            </ItemsControl>
 
-        <md:DialogHost Grid.Column="1" IsOpen="{Binding IsShowFileChangeDialog}">
+            <local:ItineraryViewer Grid.Column="1" />
+        </Grid>
+
+        <md:DialogHost IsOpen="{Binding IsShowFileChangeDialog}">
             <md:DialogHost.DialogContent>
                 <local:FileChangeDialog />
             </md:DialogHost.DialogContent>
         </md:DialogHost>
-
-        <local:ItineraryViewer Grid.Column="1" />
     </Grid>
 </metro:MetroWindow>
