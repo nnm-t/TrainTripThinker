@@ -1,9 +1,8 @@
 ﻿using System;
-
-using Prism.Mvvm;
+using System.ComponentModel;
+using System.Windows;
 
 using Reactive.Bindings;
-using Reactive.Bindings.Extensions;
 
 namespace TrainTripThinker.ViewModel
 {
@@ -26,6 +25,9 @@ namespace TrainTripThinker.ViewModel
 
             SaveFileCommand = new ReactiveCommand();
             SaveFileCommand.Subscribe(() => Main.SaveFile());
+
+            ClosingWindowCommand = new ReactiveCommand<CancelEventArgs>();
+            ClosingWindowCommand.Subscribe(OnClosingWindow);
         }
 
         public bool IsShowFileChangeDialog
@@ -41,6 +43,8 @@ namespace TrainTripThinker.ViewModel
         public ReactiveCommand SaveFileCommand { get; }
 
         public ReactiveCommand<bool?> CloseDialogCommand { get; }
+
+        public ReactiveCommand<CancelEventArgs> ClosingWindowCommand { get; }
 
         public void JudgeShowFileChangeDialog(Action action)
         {
@@ -72,6 +76,15 @@ namespace TrainTripThinker.ViewModel
 
             // いいえ
             fileChangeDialogAction();
+        }
+
+        public void OnClosingWindow(CancelEventArgs e)
+        {
+            // 一旦終了を抑止
+            e.Cancel = true;
+
+            // ダイアログの結果に応じてAppication.Current.Shutdown()で落とす
+            JudgeShowFileChangeDialog(() => Application.Current.Shutdown());
         }
     }
 }

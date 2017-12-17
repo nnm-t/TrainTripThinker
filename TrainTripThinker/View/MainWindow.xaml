@@ -9,12 +9,11 @@
         mc:Ignorable="d"
         Style="{StaticResource TttWindowStyle}"
         DataContext="{StaticResource MainWindowViewModel}"
-        WindowStartupLocation="CenterScreen">
-    <metro:MetroWindow.Resources>
-        <ResourceDictionary Source="ResourceDictionary/MainWindowUI.xaml" />
-    </metro:MetroWindow.Resources>
-
-
+        WindowStartupLocation="CenterScreen"
+        Closing="OnClosing">
+        <metro:MetroWindow.Resources>
+            <ResourceDictionary Source="ResourceDictionary/MainWindowUI.xaml" />
+        </metro:MetroWindow.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
