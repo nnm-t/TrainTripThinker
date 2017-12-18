@@ -1,6 +1,9 @@
 ﻿
 using System;
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
 using TrainTripThinker.Core.Enums;
 
 namespace TrainTripThinker.Core.Data
@@ -68,6 +71,7 @@ namespace TrainTripThinker.Core.Data
         /// <summary>
         /// 供食設備
         /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
         public MealType MealType
         {
             get => mealType;

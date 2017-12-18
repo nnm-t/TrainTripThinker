@@ -1,5 +1,8 @@
 ﻿using System;
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
 using Prism.Mvvm;
 
 using TrainTripThinker.Core.Enums;
@@ -30,6 +33,7 @@ namespace TrainTripThinker.Core.Data
         /// <summary>
         /// 座席指定状況
         /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
         public SeatType Type
         {
             get => type;

@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 using Prism.Mvvm;
 
@@ -56,6 +57,7 @@ namespace TrainTripThinker.Core.Data
         /// <summary>
         ///     アイコン
         /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
         public ItineraryIcon Icon
         {
             get => icon;
