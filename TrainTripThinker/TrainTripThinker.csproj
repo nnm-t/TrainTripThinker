@@ -57,6 +57,9 @@
     <Reference Include="CommonServiceLocator, Version=2.0.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.2.0.1\lib\net47\CommonServiceLocator.dll</HintPath>
     </Reference>
+    <Reference Include="DotNetKit.Misc.Disposables, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetKit.Misc.Disposables.1.0.0\lib\netstandard1.0\DotNetKit.Misc.Disposables.dll</HintPath>
+    </Reference>
     <Reference Include="DotNetKit.Wpf.Printing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetKit.Wpf.Printing.1.0.0\lib\net45\DotNetKit.Wpf.Printing.dll</HintPath>
     </Reference>
@@ -207,6 +210,8 @@
     <Compile Include="Model\ColorName.cs" />
     <Compile Include="Model\CommonDialogs\CommonDialog.cs" />
     <Compile Include="Model\ModelManager.cs" />
+    <Compile Include="Model\Printing\IPrinter.cs" />
+    <Compile Include="Model\Printing\PrinterSelector.cs" />
     <Compile Include="Model\Settings\TttSettings.cs" />
     <Compile Include="Model\ThemeSelector.cs" />
     <Compile Include="Model\TttMain.cs" />
@@ -368,8 +373,6 @@
       <Name>TrainTripThinker.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\Printing\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
