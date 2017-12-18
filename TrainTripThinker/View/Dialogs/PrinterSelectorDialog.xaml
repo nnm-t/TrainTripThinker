@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="TrainTripThinker.View.Dialogs.PrinterSelectorDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TrainTripThinker.View.Dialogs"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             DataContext="{StaticResource PrinterSelectorDialogViewModel}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary Source="../ResourceDictionary/Dialog.xaml" />
+    </UserControl.Resources>
+
+    <StackPanel Style="{StaticResource DialogParentStackPanel}">
+        <StackPanel Orientation="Horizontal" Margin="0 0 0 4">
+            <md:PackIcon Kind="Printer" Width="24" Height="24"
+                         VerticalAlignment="Center" />
+
+            <TextBlock FontSize="20" Text="印刷"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{StaticResource DialogText}" Text="プリンタ: " />
+
+            <ComboBox />
+
+            <TextBlock Style="{StaticResource DialogText}" Text="用紙サイズ: " />
+
+            <ComboBox />
+            
+            <TextBlock Style="{StaticResource DialogText}" Text="向き: " />
+
+            <ComboBox />
+        </StackPanel>
+
+        <UniformGrid Columns="2">
+            <Button Style="{StaticResource MaterialDesignFlatButton}" Content="OK"
+                    Command="{Binding PrintCommand}"/>
+
+            <Button Style="{StaticResource MaterialDesignFlatButton}" Content="キャンセル"
+                    Command="{Binding CancelCommand}"/>
+        </UniformGrid>
+    </StackPanel>
+</UserControl>

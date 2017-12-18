@@ -8,13 +8,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
-        <Style TargetType="TextBlock" x:Key="DialogText">
-            <Setter Property="FontSize" Value="14" />
-        </Style>
+        <ResourceDictionary Source="../ResourceDictionary/Dialog.xaml" />
     </UserControl.Resources>
     <!-- ビジュアルツリー上でMainWindowViewModelをDataContextとして伝搬させること -->
-    <StackPanel Margin="12">
-        <TextBlock FontSize="20" Text="Train Trip Thinker" Margin="0 0 0 4" />
+    <StackPanel Style="{StaticResource DialogParentStackPanel}">
+        <TextBlock Text="Train Trip Thinker" Style="{StaticResource DialogTitleText}" />
 
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="ファイル "

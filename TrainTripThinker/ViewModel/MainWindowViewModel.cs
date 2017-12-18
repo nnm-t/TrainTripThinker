@@ -35,6 +35,9 @@ namespace TrainTripThinker.ViewModel
             SaveFileCommand = new ReactiveCommand();
             SaveFileCommand.Subscribe(() => Main.SaveFile());
 
+            PrintCommand = new ReactiveCommand();
+            PrintCommand.Subscribe(() => Main.Print());
+
             ClosingWindowCommand = new ReactiveCommand<CancelEventArgs>();
             ClosingWindowCommand.Subscribe(OnClosingWindow);
 
@@ -55,6 +58,8 @@ namespace TrainTripThinker.ViewModel
         public ReactiveCommand OpenFileCommand { get; }
 
         public ReactiveCommand SaveFileCommand { get; }
+
+        public ReactiveCommand PrintCommand { get; }
 
         public ReactiveCommand<bool?> CloseDialogCommand { get; }
 

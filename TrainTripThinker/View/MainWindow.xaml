@@ -35,12 +35,14 @@
                     <md:PackIcon Kind="Floppy" Style="{DynamicResource ModeIcon}" />
                 </Button>
 
-                <Button Style="{StaticResource MenuButton}">
+                <Button Style="{StaticResource MenuButton}" Command="{Binding PrintCommand}">
                     <md:PackIcon Kind="Printer" Style="{DynamicResource ModeIcon}" />
                 </Button>
 
-                <Button Style="{StaticResource MenuButton}">
-                    <md:PackIcon Kind="Settings" Style="{DynamicResource ModeIcon}" />
+                <Button Style="{StaticResource MenuButton}" IsEnabled="False"
+                        Background="{DynamicResource GrayHoverBrush}">
+                    <md:PackIcon Kind="Settings" Style="{DynamicResource ModeIcon}"
+                                 Foreground="{DynamicResource GrayNormalBrush}"/>
                 </Button>
             </ItemsControl>
 

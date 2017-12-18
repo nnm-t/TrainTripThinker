@@ -102,6 +102,12 @@ namespace TrainTripThinker.Model
             DocumentName = Path.GetFileName(filePath);
         }
 
+        public void Print()
+        {
+            // プリンタ選択ダイアログ表示
+            PrinterDialog.SelectPrinter();
+        }
+
         public bool JudgeIsFileChanged(Action action)
         {
             if (Main.IsFileChanged)
