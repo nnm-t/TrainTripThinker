@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 
+using Newtonsoft.Json;
+
 using Reactive.Bindings.Extensions;
 
 namespace TrainTripThinker.Core.Data
@@ -28,7 +30,13 @@ namespace TrainTripThinker.Core.Data
         /// <summary>
         /// 行程表の数
         /// </summary>
+        [JsonIgnore]
         public int ItineraryCount => itineraries.Count;
+
+        /// <summary>
+        /// TrainTripThinkerのバージョン
+        /// </summary>
+        public Version Version { get; set; }
 
         /// <summary>
         /// 行程表コレクション
@@ -72,6 +80,9 @@ namespace TrainTripThinker.Core.Data
         public void Load(TttDocument another)
         {
             Clear();
+
+            Version = another.Version;
+
             foreach (Itinerary itinerary in another.Itineraries)
             {
                 itinerary.AddDelegateToElements();

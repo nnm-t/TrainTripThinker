@@ -58,7 +58,9 @@ namespace TrainTripThinker.Core
             using (var reader = new TextReader(filePath))
             {
                 Document.Load(
-                    JsonConvert.DeserializeObject<TttDocument>(reader.Read(), TttDocumentConverter.Create()));
+                    JsonConvert.DeserializeObject<TttDocument>(
+                        reader.Read(),
+                        TttDocumentConverter.CreateReadConverters()));
             }
 
             IsFileChanged = false;
@@ -68,12 +70,16 @@ namespace TrainTripThinker.Core
 
         public bool SaveDocument(string filePath)
         {
+            // バージョン番号を書き込む
+            Document.Version = VersionManagement.GetCurrentVersion();
+
             using (var writer = new TextWriter(filePath))
             {
                 writer.Write(
                     JsonConvert.SerializeObject(
                         Document,
-                        Formatting.Indented));
+                        Formatting.Indented,
+                        TttDocumentConverter.CreateWriteConverters()));
             }
 
             IsFileChanged = false;

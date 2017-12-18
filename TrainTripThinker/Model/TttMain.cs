@@ -105,7 +105,6 @@ namespace TrainTripThinker.Model
         public void Print()
         {
             // プリンタ選択ダイアログ表示
-            PrinterDialog.SelectPrinter();
         }
 
         public bool JudgeIsFileChanged(Action action)

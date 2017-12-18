@@ -110,6 +110,7 @@
     <Compile Include="Structs\Color32.cs" />
     <Compile Include="Utility\CollectionExtensions.cs" />
     <Compile Include="Utility\Period.cs" />
+    <Compile Include="Utility\VersionManagement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
