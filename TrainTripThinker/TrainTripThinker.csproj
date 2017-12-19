@@ -211,10 +211,12 @@
     <Compile Include="Model\CommonDialogs\CommonDialog.cs" />
     <Compile Include="Model\ModelManager.cs" />
     <Compile Include="Model\Printing\IPrinter.cs" />
+    <Compile Include="Model\Printing\Printer.cs" />
     <Compile Include="Model\Printing\PrinterSelector.cs" />
     <Compile Include="Model\Settings\TttSettings.cs" />
     <Compile Include="Model\ThemeSelector.cs" />
     <Compile Include="Model\TttMain.cs" />
+    <Compile Include="Utility\SizeExtensions.cs" />
     <Compile Include="ViewModel\Dialogs\PrinterSelectorDialogViewModel.cs" />
     <Compile Include="ViewModel\Factory\ItineraryElementViewModelFactory.cs" />
     <Compile Include="ViewModel\ItineraryElement\ItineraryElementViewModel.cs" />
