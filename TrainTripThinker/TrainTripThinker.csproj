@@ -211,6 +211,7 @@
     <Compile Include="Model\CommonDialogs\CommonDialog.cs" />
     <Compile Include="Model\ModelManager.cs" />
     <Compile Include="Model\Printing\IPrinter.cs" />
+    <Compile Include="Model\Printing\PaperOrientation.cs" />
     <Compile Include="Model\Printing\PaperSize.cs" />
     <Compile Include="Model\Printing\Printer.cs" />
     <Compile Include="Model\Printing\PrinterSelector.cs" />

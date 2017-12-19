@@ -37,11 +37,13 @@
 
             <TextBlock Style="{StaticResource DialogText}" Text="用紙サイズ: " />
 
-            <ComboBox />
+            <ComboBox SelectedItem="{Binding PaperSize.Value}"
+                      ItemsSource="{Binding PaperSizes}" />
             
             <TextBlock Style="{StaticResource DialogText}" Text="向き: " />
 
-            <ComboBox />
+            <ComboBox SelectedItem="{Binding PaperOrientation}"
+                      ItemsSource="{Binding PaperOrientations}"/>
         </StackPanel>
 
         <UniformGrid Columns="2">
