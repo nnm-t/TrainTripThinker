@@ -38,12 +38,26 @@
             <TextBlock Style="{StaticResource DialogText}" Text="用紙サイズ: " />
 
             <ComboBox SelectedItem="{Binding PaperSize.Value}"
-                      ItemsSource="{Binding PaperSizes}" />
-            
+                      ItemsSource="{Binding PaperSizes}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate DataType="print:PaperSize">
+                        <TextBlock Style="{StaticResource DialogText}"
+                                   Text="{Binding Name}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
             <TextBlock Style="{StaticResource DialogText}" Text="向き: " />
 
             <ComboBox SelectedItem="{Binding PaperOrientation}"
-                      ItemsSource="{Binding PaperOrientations}"/>
+                      ItemsSource="{Binding PaperOrientations}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate DataType="print:PaperOrientation">
+                        <TextBlock Style="{StaticResource DialogText}"
+                                   Text="{Binding Name}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </StackPanel>
 
         <UniformGrid Columns="2">
