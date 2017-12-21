@@ -215,6 +215,7 @@
     <Compile Include="Model\Printing\PaperSize.cs" />
     <Compile Include="Model\Printing\Printer.cs" />
     <Compile Include="Model\Printing\PrinterSelector.cs" />
+    <Compile Include="Model\Printing\PrintingProvider.cs" />
     <Compile Include="Model\Settings\TttSettings.cs" />
     <Compile Include="Model\ThemeSelector.cs" />
     <Compile Include="Model\TttMain.cs" />

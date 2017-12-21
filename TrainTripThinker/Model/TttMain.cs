@@ -11,6 +11,7 @@ using Reactive.Bindings.Extensions;
 
 using TrainTripThinker.Core;
 using TrainTripThinker.Core.Data;
+using TrainTripThinker.Model.Printing;
 using TrainTripThinker.ViewModel;
 
 using TextReader = TrainTripThinker.Core.TextReader;
@@ -46,6 +47,8 @@ namespace TrainTripThinker.Model
             }
 
             ThemeSelector = new ThemeSelector(Settings);
+
+            PrintingProvider = new PrintingProvider();
         }
 
         /// <summary>
@@ -62,6 +65,8 @@ namespace TrainTripThinker.Model
         public TttSettings Settings { get; }
 
         public ThemeSelector ThemeSelector { get; }
+
+        public PrintingProvider PrintingProvider { get; }
 
         /// <summary>
         /// ファイル新規作成
