@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TrainTripThinker.View.Dialogs
+namespace TrainTripThinker.View
 {
     /// <summary>
     /// PrinterSelectorDialog.xaml の相互作用ロジック

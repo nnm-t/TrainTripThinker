@@ -35,7 +35,8 @@
                     <md:PackIcon Kind="Floppy" Style="{DynamicResource ModeIcon}" />
                 </Button>
 
-                <Button Style="{StaticResource MenuButton}" Command="{Binding PrintCommand}">
+                <Button Style="{StaticResource MenuButton}" DataContext="{StaticResource PrinterSelectorDialogViewModel}"
+                        Command="{Binding ShowDialogCommand}">
                     <md:PackIcon Kind="Printer" Style="{DynamicResource ModeIcon}" />
                 </Button>
 
@@ -52,6 +53,13 @@
         <md:DialogHost IsOpen="{Binding IsShowFileChangeDialog}">
             <md:DialogHost.DialogContent>
                 <local:FileChangeDialog />
+            </md:DialogHost.DialogContent>
+        </md:DialogHost>
+        
+        <md:DialogHost DataContext="{StaticResource PrinterSelectorDialogViewModel}"
+            IsOpen="{Binding IsShowDialog}">
+            <md:DialogHost.DialogContent>
+                <local:PrinterSelectorDialog />
             </md:DialogHost.DialogContent>
         </md:DialogHost>
     </Grid>

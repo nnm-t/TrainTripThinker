@@ -10,6 +10,8 @@ namespace TrainTripThinker.ViewModel
     {
         private readonly PrintingProvider printingProvider;
 
+        private bool isShowDialog;
+
         public PrinterSelectorDialogViewModel()
         {
             printingProvider = Main.PrintingProvider;
@@ -20,6 +22,18 @@ namespace TrainTripThinker.ViewModel
 
             PaperSizes = PrintingProvider.PaperSizes;
             PaperOrientations = PrintingProvider.PaperOrientations;
+
+            CancelCommand = new ReactiveCommand();
+            CancelCommand.Subscribe(() => IsShowDialog = false);
+
+            ShowDialogCommand = new ReactiveCommand();
+            ShowDialogCommand.Subscribe(() => IsShowDialog = true);
+        }
+
+        public bool IsShowDialog
+        {
+            get => isShowDialog;
+            set => SetProperty(ref isShowDialog, value);
         }
 
         public PrinterSelector<Printer> PrinterSelector { get; }
@@ -35,5 +49,7 @@ namespace TrainTripThinker.ViewModel
         public ReactiveCommand PrintCommand { get; }
 
         public ReactiveCommand CancelCommand { get; }
+
+        public ReactiveCommand ShowDialogCommand { get; }
     }
 }
