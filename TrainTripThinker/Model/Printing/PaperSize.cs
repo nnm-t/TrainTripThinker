@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 
 namespace TrainTripThinker.Model.Printing
@@ -7,7 +9,7 @@ namespace TrainTripThinker.Model.Printing
     {
         static PaperSize()
         {
-            PaperSizes = GetPaperSizes();
+            PaperSizes = GetPaperSizes().ToList();
         }
 
         public PaperSize(string name, Size size)
@@ -16,7 +18,7 @@ namespace TrainTripThinker.Model.Printing
             Size = size;
         }
 
-        public static IEnumerable<PaperSize> PaperSizes { get; }
+        public static IList<PaperSize> PaperSizes { get; }
 
         public static PaperSize A3 => new PaperSize(nameof(A3), new Size(297, 420));
 
@@ -35,6 +37,18 @@ namespace TrainTripThinker.Model.Printing
         public string Name { get; }
 
         public Size Size { get; }
+
+        public override bool Equals(object obj)
+        {
+            PaperSize other = obj as PaperSize ?? throw new InvalidOperationException();
+
+            return Name.Equals(other.Name) && Size.Equals(other.Size);
+        }
+
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode() * Size.GetHashCode();
+        }
 
         private static IEnumerable<PaperSize> GetPaperSizes()
         {

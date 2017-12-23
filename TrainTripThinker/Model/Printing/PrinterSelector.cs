@@ -16,7 +16,7 @@ namespace TrainTripThinker.Model.Printing
 
         private TPrinter selectedPrinter;
 
-        private PrinterSelector(IEnumerable<TPrinter> printers, TPrinter defaultPrinter, IDisposable disposable)
+        private PrinterSelector(IList<TPrinter> printers, TPrinter defaultPrinter, IDisposable disposable)
         {
             this.disposable = disposable;
 
@@ -24,7 +24,7 @@ namespace TrainTripThinker.Model.Printing
             SelectedPrinter = defaultPrinter;
         }
 
-        public IEnumerable<TPrinter> Printers { get; }
+        public IList<TPrinter> Printers { get; }
 
         public TPrinter SelectedPrinter
         {
@@ -44,7 +44,7 @@ namespace TrainTripThinker.Model.Printing
                        printQueueCollection.Dispose();
                    });
 
-            IEnumerable<T> printers = printQueueCollection.Select(printerFromPrintQueue);
+            IList<T> printers = printQueueCollection.Select(printerFromPrintQueue).ToList();
 
             try
             {

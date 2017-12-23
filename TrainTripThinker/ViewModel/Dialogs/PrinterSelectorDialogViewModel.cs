@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using System.Reactive.Linq;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 using TrainTripThinker.Model.Printing;
@@ -17,11 +18,16 @@ namespace TrainTripThinker.ViewModel
             printingProvider = Main.PrintingProvider;
             PrinterSelector = printingProvider.PrinterSelector;
 
-            PaperSize = printingProvider.ObserveProperty(p => p.PaperSize).ToReactiveProperty();
-            PaperOrientation = printingProvider.ObserveProperty(p => p.PaperOrientation).ToReactiveProperty();
+            SelectedPrinterIndex = PrinterSelector.ObserveProperty(p => p.SelectedPrinter)
+                .Select(x => PrinterSelector.Printers.IndexOf(x)).ToReactiveProperty();
 
             PaperSizes = PrintingProvider.PaperSizes;
             PaperOrientations = PrintingProvider.PaperOrientations;
+
+            PaperSizeIndex = printingProvider.ObserveProperty(p => p.PaperSize)
+                .Select(x => PrintingProvider.PaperSizes.IndexOf(x)).ToReactiveProperty();
+            PaperOrientationIndex = printingProvider.ObserveProperty(p => p.PaperOrientation)
+                .Select(x => PrintingProvider.PaperOrientations.IndexOf(x)).ToReactiveProperty();
 
             CancelCommand = new ReactiveCommand();
             CancelCommand.Subscribe(() => IsShowDialog = false);
@@ -38,13 +44,15 @@ namespace TrainTripThinker.ViewModel
 
         public PrinterSelector<Printer> PrinterSelector { get; }
 
+        public ReactiveProperty<int> SelectedPrinterIndex { get; }
+
         public IEnumerable<PaperSize> PaperSizes { get; }
 
-        public ReactiveProperty<PaperSize> PaperSize { get; }
+        public ReactiveProperty<int> PaperSizeIndex { get; }
 
         public IEnumerable<PaperOrientation> PaperOrientations { get; }
 
-        public ReactiveProperty<PaperOrientation> PaperOrientation { get; }
+        public ReactiveProperty<int> PaperOrientationIndex { get; }
 
         public ReactiveCommand PrintCommand { get; }
 

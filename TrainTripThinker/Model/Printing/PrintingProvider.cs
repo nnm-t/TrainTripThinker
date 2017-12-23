@@ -12,11 +12,14 @@ namespace TrainTripThinker.Model.Printing
         public PrintingProvider()
         {
             PrinterSelector = PrinterSelector<IPrinter>.FromLocalServer(q => new Printer(q));
+
+            PaperSize = PaperSize.A4;
+            PaperOrientation = PaperOrientation.Portrait;
         }
 
-        public static IEnumerable<PaperSize> PaperSizes => PaperSize.PaperSizes;
+        public static IList<PaperSize> PaperSizes => PaperSize.PaperSizes;
 
-        public static IEnumerable<PaperOrientation> PaperOrientations => PaperOrientation.Orientations;
+        public static IList<PaperOrientation> PaperOrientations => PaperOrientation.Orientations;
 
         public PrinterSelector<Printer> PrinterSelector { get; }
 

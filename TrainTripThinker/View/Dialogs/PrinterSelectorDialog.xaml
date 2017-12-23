@@ -21,44 +21,49 @@
             <TextBlock FontSize="20" Text="印刷"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Style="{StaticResource DialogText}" Text="プリンタ: " />
+        <TextBlock Style="{StaticResource DialogText}" Text="プリンタ: " />
 
-            <ComboBox SelectedItem="{Binding PrinterSelector.SelectedPrinter}"
-                      ItemsSource="{Binding PrinterSelector.Printers}"
-                      Style="{StaticResource MaterialDesignComboBox}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate DataType="print:IPrinter">
-                        <TextBlock Style="{StaticResource DialogText}"
+        <ComboBox ItemsSource="{Binding PrinterSelector.Printers}"
+                      SelectedIndex="{Binding SelectedPrinterIndex.Value}"
+                      Style="{StaticResource MaterialDesignComboBox}"
+                      Width="240">
+            <ComboBox.ItemTemplate>
+                <DataTemplate DataType="print:IPrinter">
+                    <TextBlock Style="{StaticResource DialogText}"
                                    Text="{Binding Name}" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
-            <TextBlock Style="{StaticResource DialogText}" Text="用紙サイズ: " />
+        <UniformGrid Columns="2">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource DialogText}" Text="用紙サイズ: " />
 
-            <ComboBox SelectedItem="{Binding PaperSize.Value}"
-                      ItemsSource="{Binding PaperSizes}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate DataType="print:PaperSize">
-                        <TextBlock Style="{StaticResource DialogText}"
+                <ComboBox ItemsSource="{Binding PaperSizes}"
+                      SelectedIndex="{Binding PaperSizeIndex.Value}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate DataType="print:PaperSize">
+                            <TextBlock Style="{StaticResource DialogText}"
                                    Text="{Binding Name}" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
 
-            <TextBlock Style="{StaticResource DialogText}" Text="向き: " />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource DialogText}" Text="向き: " />
 
-            <ComboBox SelectedItem="{Binding PaperOrientation.Value}"
-                      ItemsSource="{Binding PaperOrientations}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate DataType="print:PaperOrientation">
-                        <TextBlock Style="{StaticResource DialogText}"
+                <ComboBox ItemsSource="{Binding PaperOrientations}"
+                      SelectedIndex="{Binding PaperOrientationIndex.Value}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate DataType="print:PaperOrientation">
+                            <TextBlock Style="{StaticResource DialogText}"
                                    Text="{Binding Name}" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-        </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+        </UniformGrid>
 
         <UniformGrid Columns="2">
             <Button Style="{StaticResource MaterialDesignFlatButton}" Content="OK"

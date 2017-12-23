@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Printing;
 
 namespace TrainTripThinker.Model.Printing
@@ -7,7 +9,7 @@ namespace TrainTripThinker.Model.Printing
     {
         static PaperOrientation()
         {
-            Orientations = GetOrientations();
+            Orientations = GetOrientations().ToList();
         }
 
         public PaperOrientation(string name, PageOrientation orientation)
@@ -16,7 +18,7 @@ namespace TrainTripThinker.Model.Printing
             Orientation = orientation;
         }
 
-        public static IEnumerable<PaperOrientation> Orientations { get; }
+        public static IList<PaperOrientation> Orientations { get; }
 
         public static PaperOrientation Portrait => new PaperOrientation("縦", PageOrientation.Portrait);
 
@@ -25,6 +27,18 @@ namespace TrainTripThinker.Model.Printing
         public string Name { get; }
 
         public PageOrientation Orientation { get; }
+
+        public override bool Equals(object obj)
+        {
+            PaperOrientation other = obj as PaperOrientation ?? throw new InvalidOperationException();
+
+            return Name.Equals(other.Name) && Orientation == other.Orientation;
+        }
+
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode() * Orientation.GetHashCode();
+        }
 
         private static IEnumerable<PaperOrientation> GetOrientations()
         {
