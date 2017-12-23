@@ -34,5 +34,10 @@ namespace TrainTripThinker.Model.Printing
             get => paperOrientation;
             set => SetProperty(ref paperOrientation, value);
         }
+
+        public void Print()
+        {
+            PrinterSelector.SelectedPrinter.Print(null, PaperOrientation.RotateSize(PaperSize.Size));
+        }
     }
 }
