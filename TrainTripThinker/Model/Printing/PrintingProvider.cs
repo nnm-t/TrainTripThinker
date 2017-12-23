@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using Prism.Mvvm;
 
 namespace TrainTripThinker.Model.Printing
@@ -37,6 +41,23 @@ namespace TrainTripThinker.Model.Printing
 
         public void Print()
         {
+            // ResourcesからItinerariesのViewを引き抜く
+            TabControl items = Application.Current.Resources["ItinerariesTabControl"] as TabControl;
+
+            if (items.Items.Count < 1)
+            {
+                // タブが無い
+                throw new InvalidOperationException();
+            }
+
+            if (items.SelectedIndex < 0)
+            {
+                // タブ未選択
+                throw new InvalidOperationException();
+            }
+
+            // タブ選択済だとここまで走る
+
             PrinterSelector.SelectedPrinter.Print(null, PaperOrientation.RotateSize(PaperSize.Size));
         }
     }
