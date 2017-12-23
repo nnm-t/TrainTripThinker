@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using Prism.Mvvm;
+using TrainTripThinker.Extensions;
+using TrainTripThinker.View;
 
 namespace TrainTripThinker.Model.Printing
 {
@@ -42,23 +44,39 @@ namespace TrainTripThinker.Model.Printing
         public void Print()
         {
             // ResourcesからItinerariesのViewを引き抜く
-            TabControl items = Application.Current.Resources["ItinerariesTabControl"] as TabControl;
+            TabControl tabs = Application.Current.Resources["ItinerariesTabControl"] as TabControl;
 
-            if (items.Items.Count < 1)
+            if (tabs.Items.Count < 1)
             {
                 // タブが無い
                 throw new InvalidOperationException();
             }
 
-            if (items.SelectedIndex < 0)
+            if (tabs.SelectedIndex < 0)
             {
                 // タブ未選択
                 throw new InvalidOperationException();
             }
 
-            // タブ選択済だとここまで走る
+            try
+            {
+                // タブ選択済だとここまで走る
+                // VisualTreeを辿って選択中のTabを取得
+                DependencyObject currentTab = tabs.Children().Skip(tabs.SelectedIndex).First();
 
-            PrinterSelector.SelectedPrinter.Print(null, PaperOrientation.RotateSize(PaperSize.Size));
+                // Tab内のName=ItineraryElementsControlのItemsControlを取得
+                IEnumerable<ItemsControl> itemsControls = currentTab.Descendants<ItemsControl>();
+                ItemsControl itemsControl = itemsControls.First(x => x.Name.Equals("ItineraryElementsControl"));
+
+                // ページネーション
+
+                // 印刷を実行
+                PrinterSelector.SelectedPrinter.Print(null, PaperOrientation.RotateSize(PaperSize.Size));
+            }
+            catch (InvalidOperationException)
+            {
+                // 該当するUI要素が無い
+            }
         }
     }
 }

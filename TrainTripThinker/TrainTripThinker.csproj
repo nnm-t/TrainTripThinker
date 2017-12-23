@@ -207,9 +207,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Extensions\Color32Extensions.cs" />
+    <Compile Include="Extensions\DependencyObjectExtensions.cs" />
     <Compile Include="Model\ColorName.cs" />
     <Compile Include="Model\CommonDialogs\CommonDialog.cs" />
     <Compile Include="Model\ModelManager.cs" />
+    <Compile Include="Model\Printing\IPrintable.cs" />
     <Compile Include="Model\Printing\IPrinter.cs" />
     <Compile Include="Model\Printing\PaperOrientation.cs" />
     <Compile Include="Model\Printing\PaperSize.cs" />

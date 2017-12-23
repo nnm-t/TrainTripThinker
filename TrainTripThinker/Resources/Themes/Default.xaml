@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
                     xmlns:data="clr-namespace:TrainTripThinker.Core.Data;assembly=TrainTripThinker.Core"
-                    xmlns:vm="clr-namespace:TrainTripThinker.ViewModel">
+                    xmlns:vm="clr-namespace:TrainTripThinker.ViewModel"
+                    xmlns:local="clr-namespace:TrainTripThinker.View">
     <ResourceDictionary.MergedDictionaries>
     </ResourceDictionary.MergedDictionaries>
 
@@ -418,7 +419,7 @@
             <DataTemplate DataType="vm:ItineraryViewModel">
                 <Grid>
                     <ScrollViewer>
-                        <ItemsControl ItemsSource="{Binding Elements}"
+                        <ItemsControl Name="ItineraryElementsControl" ItemsSource="{Binding Elements}"
                                       Style="{StaticResource ItineraryElementsItemsControl}"
                                       Margin="0 0 0 72"/>
                     </ScrollViewer>
