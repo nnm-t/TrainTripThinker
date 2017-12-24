@@ -1,4 +1,6 @@
-﻿using Prism.Mvvm;
+﻿using System;
+
+using Prism.Mvvm;
 
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
@@ -15,6 +17,8 @@ namespace TrainTripThinker.ViewModel
             Title = model.ObserveProperty(m => m.Title).ToReactiveProperty();
             Elements = model.Elements.ToReadOnlyReactiveCollection(
                 ItineraryElementViewModelFactory.CreateViewModel);
+
+            Title.Subscribe(x => model.Title = x);
 
             AddTransportElementCommand = new ReactiveCommand();
             AddTransportElementCommand.Subscribe(model.AddTransportElement);
