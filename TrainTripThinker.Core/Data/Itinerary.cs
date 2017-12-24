@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-
+using System.Linq;
 using Newtonsoft.Json;
 
 using Prism.Mvvm;
@@ -56,7 +56,13 @@ namespace TrainTripThinker.Core.Data
 
         public void AddTransportElement()
         {
-            Elements.Add(new TransportElement(new Train(), delegates));
+            DateTime? endTime = GetLastPeriodElementEndTime();
+            if (!endTime.HasValue)
+            {
+                Elements.Add(new TransportElement(new Train(), delegates));
+                return;
+            }
+            Elements.Add(new TransportElement(new Train(), delegates, endTime.Value));
         }
 
         public void AddItineraryElement()
@@ -66,7 +72,14 @@ namespace TrainTripThinker.Core.Data
 
         public void AddPeriodElement()
         {
-            Elements.Add(new PeriodElement(delegates));
+            DateTime? endTime = GetLastPeriodElementEndTime();
+
+            if (!endTime.HasValue)
+            {
+                Elements.Add(new PeriodElement(delegates));
+                return;
+            }
+            Elements.Add(new PeriodElement(delegates, endTime.Value));
         }
 
         public void AddDelegateToElements()
@@ -75,6 +88,11 @@ namespace TrainTripThinker.Core.Data
             {
                 element.AddDelegates(delegates);
             }
+        }
+
+        private DateTime? GetLastPeriodElementEndTime()
+        {
+            return (Elements.LastOrDefault(e => e is PeriodElement) as PeriodElement)?.Period.End.DateTime;
         }
     }
 }

@@ -14,9 +14,14 @@ namespace TrainTripThinker.Core.Data
         private string name;
         private Platform platform;
 
-        public Departure()
+        public Departure() : this(DateTime.Now)
         {
-            DateTime = DateTime.Now;
+            
+        }
+
+        public Departure(DateTime dateTime)
+        {
+            DateTime = dateTime;
 
             Platform = new Platform();
         }

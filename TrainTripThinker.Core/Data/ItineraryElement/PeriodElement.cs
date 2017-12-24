@@ -8,6 +8,11 @@ namespace TrainTripThinker.Core.Data
     {
         private Period<Departure> period;
 
+        public PeriodElement(ItineraryElementDelegates delegates, DateTime beginTime) : base(delegates)
+        {
+            CreatePeriodInstance(beginTime);
+        }
+
         public PeriodElement(ItineraryElementDelegates delegates) : base(delegates)
         {
             CreatePeriodInstance();
@@ -30,6 +35,11 @@ namespace TrainTripThinker.Core.Data
         private void CreatePeriodInstance()
         {
             Period = new Period<Departure>(new Departure(), new Departure());
+        }
+
+        private void CreatePeriodInstance(DateTime begin)
+        {
+            Period = new Period<Departure>(new Departure(begin), new Departure(begin));
         }
     }
 }
