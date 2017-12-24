@@ -1,0 +1,120 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:local="clr-namespace:TrainTripThinker.View"
+                    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+                    xmlns:enum="clr-namespace:TrainTripThinker.Core.Enums;assembly=TrainTripThinker.Core"
+                    xmlns:data="clr-namespace:TrainTripThinker.Core.Data;assembly=TrainTripThinker.Core">
+    <ObjectDataProvider x:Key="SeatTypeEnum" MethodName="GetValues"
+                        ObjectType="{x:Type system:Enum}">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="enum:SeatType" />
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+    <local:SeatTypeTemplateSelector x:Key="SeatTypeTemplateSelector">
+        <local:SeatTypeTemplateSelector.NonReserved>
+            <DataTemplate>
+                <TextBlock Text="自" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.NonReserved>
+
+        <local:SeatTypeTemplateSelector.PartOfReserved>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsPartOfReserved}" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.PartOfReserved>
+
+        <local:SeatTypeTemplateSelector.AllReserved>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsAllReserved}" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.AllReserved>
+
+        <local:SeatTypeTemplateSelector.GreenCarNonReserved>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsGreenCarNonReserved}" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.GreenCarNonReserved>
+
+        <local:SeatTypeTemplateSelector.GreenCarReserved>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsGreenCarReserved}" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.GreenCarReserved>
+
+        <local:SeatTypeTemplateSelector.GranClass>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsGranClass}" ></ContentPresenter>
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.GranClass>
+
+        <local:SeatTypeTemplateSelector.B_BedClass>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsB-BedClass}" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.B_BedClass>
+
+        <local:SeatTypeTemplateSelector.A_BedClass>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsA-BedClass}" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.A_BedClass>
+
+        <local:SeatTypeTemplateSelector.Bus4Column>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsBus4Column}" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.Bus4Column>
+
+        <local:SeatTypeTemplateSelector.Bus3Column>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsBus3Column}" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.Bus3Column>
+
+        <local:SeatTypeTemplateSelector.Bus2Column>
+            <DataTemplate>
+                <ContentPresenter Content="{StaticResource TrainIconsBus2Column}" />
+            </DataTemplate>
+        </local:SeatTypeTemplateSelector.Bus2Column>
+    </local:SeatTypeTemplateSelector>
+
+    <DataTemplate x:Key="TransportSeatTemplate" DataType="data:TransportSeat">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="48" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ComboBox SelectedItem="{Binding Type}"
+                      ItemsSource="{Binding Source={StaticResource SeatTypeEnum}}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Viewbox Width="24" Height="24">
+                            <ContentPresenter ContentTemplateSelector="{StaticResource SeatTypeTemplateSelector}" />
+                        </Viewbox>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+
+                <ComboBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="4" HorizontalAlignment="Left" />
+                    </ItemsPanelTemplate>
+                </ComboBox.ItemsPanel>
+
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Margin" Value="0" />
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        <Setter Property="VerticalAlignment" Value="Stretch" />
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+
+            <TextBox Grid.Column="1" Text="{Binding Remarks}" FontSize="16"
+                     md:HintAssist.Hint="席番"/>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

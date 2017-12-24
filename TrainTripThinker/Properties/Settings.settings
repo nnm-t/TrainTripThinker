@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TrainTripThinker.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SettingsJson" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Settings.json</Value>
+    </Setting>
+    <Setting Name="ExtensionFilter" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Train Trip Thinker行程表(*.tttlst)|*.tttlst|JavaScript Object Notation(*.json)|*.json|すべてのファイル(*.*)|*.*</Value>
+    </Setting>
+    <Setting Name="DefaultDocumentName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">名称未設定</Value>
+    </Setting>
+    <Setting Name="WikiUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://github.com/nnm-t/TrainTripThinker/wiki</Value>
+    </Setting>
+    <Setting Name="GitHubUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://github.com/nnm-t/TrainTripThinker</Value>
+    </Setting>
+    <Setting Name="WebSiteUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://kamisawa.net/</Value>
+    </Setting>
+    <Setting Name="LicenseTextPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Resources\OSSLicense.txt</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

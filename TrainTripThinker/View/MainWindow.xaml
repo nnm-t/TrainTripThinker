@@ -1,0 +1,88 @@
+﻿<metro:MetroWindow x:Class="TrainTripThinker.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrainTripThinker.View"
+        xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Style="{StaticResource TttWindowStyle}"
+        DataContext="{StaticResource MainWindowViewModel}"
+        WindowStartupLocation="CenterScreen"
+        Closing="OnClosing">
+    <metro:MetroWindow.Resources>
+        <ResourceDictionary Source="ResourceDictionary/MainWindowUI.xaml" />
+    </metro:MetroWindow.Resources>
+    
+    <metro:MetroWindow.RightWindowCommands>
+        <metro:WindowCommands DataContext="{StaticResource AboutViewModel}">
+            <Button Command="{Binding ShowWikiCommand}">
+                <md:PackIcon Kind="HelpCircle" /> 
+            </Button>
+            
+            <Button Command="{Binding ShowAboutCommand}">
+                <md:PackIcon Kind="Information" />
+            </Button>
+        </metro:WindowCommands>
+    </metro:MetroWindow.RightWindowCommands>
+
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <ItemsControl Background="{DynamicResource PrimaryHueDarkBrush}">
+                <Button Style="{StaticResource MenuButton}" Command="{Binding CreateDocummentCommand}">
+                    <md:PackIcon Kind="File" Style="{DynamicResource ModeIcon}" />
+                </Button>
+
+                <Button Style="{StaticResource MenuButton}" Command="{Binding OpenFileCommand}">
+                    <md:PackIcon Kind="Folder" Style="{DynamicResource ModeIcon}" />
+                </Button>
+
+                <Button Style="{StaticResource MenuButton}" Command="{Binding SaveFileCommand}">
+                    <md:PackIcon Kind="Floppy" Style="{DynamicResource ModeIcon}" />
+                </Button>
+
+                <Button Style="{StaticResource MenuButton}" IsEnabled="False"
+                        Background="{DynamicResource GrayHoverBrush}"
+                        DataContext="{StaticResource PrinterSelectorDialogViewModel}"
+                        Command="{Binding ShowDialogCommand}">
+                    <md:PackIcon Kind="Printer" Style="{DynamicResource ModeIcon}"
+                                 Foreground="{DynamicResource GrayNormalBrush}"/>
+                </Button>
+
+                <Button Style="{StaticResource MenuButton}" IsEnabled="False"
+                        Background="{DynamicResource GrayHoverBrush}">
+                    <md:PackIcon Kind="Settings" Style="{DynamicResource ModeIcon}"
+                                 Foreground="{DynamicResource GrayNormalBrush}"/>
+                </Button>
+            </ItemsControl>
+
+            <local:ItineraryViewer Grid.Column="1" />
+        </Grid>
+
+        <md:DialogHost IsOpen="{Binding IsShowFileChangeDialog}">
+            <md:DialogHost.DialogContent>
+                <local:FileChangeDialog />
+            </md:DialogHost.DialogContent>
+        </md:DialogHost>
+        
+        <md:DialogHost DataContext="{StaticResource PrinterSelectorDialogViewModel}"
+            IsOpen="{Binding IsShowDialog}">
+            <md:DialogHost.DialogContent>
+                <local:PrinterSelectorDialog />
+            </md:DialogHost.DialogContent>
+        </md:DialogHost>
+        
+        <md:DialogHost DataContext="{StaticResource AboutViewModel}"
+                       IsOpen="{Binding IsShowDialog}">
+            <md:DialogHost.DialogContent>
+                <local:AboutDialog />
+            </md:DialogHost.DialogContent>
+        </md:DialogHost>
+    </Grid>
+</metro:MetroWindow>

@@ -1,0 +1,24 @@
+﻿<Page x:Class="TrainTripThinker.View.Icons.Restroom"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TrainTripThinker.View.Icons"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="Restroom">
+
+    <Canvas Width="300" Height="300">
+        <Path Fill="White" 
+              Data="M 40 70 H 50 A 20 17.5 0 0 0 100 70 H 110 L 120 80
+                    L 110 170 H 100 L 90 260 H 60 L 50 170 H 40 L 30 80 Z"/>
+        <Ellipse Fill="White"
+                 Width="40" Height="40" Canvas.Left="55" Canvas.Top="45" />
+        <Path Fill="White" 
+              Data="M 197.5 70 H 200 A 20 17.5 0 0 0 250 70 H 252.5 L 255 72.5
+                    L 250 140 Q 280 150 285 180 H 245 L 235 260 H 215 L 205 180
+                    H 165 Q 170 150 200 140 L 195 72.5 Z"/>
+        <Ellipse Fill="White"
+                 Width="40" Height="40" Canvas.Left="205" Canvas.Top="45" />
+    </Canvas>
+</Page>

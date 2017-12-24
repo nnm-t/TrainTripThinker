@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:TrainTripThinker.View">
+    <local:Color32BrushConverter x:Key="Color32BrushConverter" />
+    <local:ColorNameConverter x:Key="ColorNameConverter" />
+    <local:TransportClassConverter x:Key="TransportClassConverter" />
+</ResourceDictionary>

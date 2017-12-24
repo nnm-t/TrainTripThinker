@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="TrainTripThinker.View.AboutDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TrainTripThinker.View"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             DataContext="{StaticResource AboutViewModel}">
+    <UserControl.Resources>
+        <ResourceDictionary Source="../ResourceDictionary/Dialog.xaml" />
+    </UserControl.Resources>
+
+    <StackPanel Style="{StaticResource DialogParentStackPanel}" Width="600">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Style="{StaticResource DialogTitleStackPanel}">
+                <Image Source="../../MainIcon.ico" Width="32" Height="32"
+                       Margin="4 0"/>
+
+                <TextBlock VerticalAlignment="Center" FontSize="24"
+                           Text="{Binding AssemblyTitle}" />
+
+            </StackPanel>
+
+            <Grid Grid.Column="1" HorizontalAlignment="Right">
+                <StackPanel Style="{StaticResource DialogTitleStackPanel}" >
+                    <Button Style="{DynamicResource DialogTitleFloatingActionButton}"
+                            Command="{Binding ShowWebSiteCommand}">
+                        <md:PackIcon Kind="Web" Style="{StaticResource DialogTitleButtonIcon}" />
+                    </Button>
+
+                    <Button Style="{DynamicResource DialogTitleFloatingActionButton}"
+                            Command="{Binding ShowGitHubCommand}">
+                        <md:PackIcon Kind="GithubBox" Style="{StaticResource DialogTitleButtonIcon}" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock FontSize="16" Text="Version " />
+
+            <TextBlock FontSize="16" Text="{Binding AssemblyVersion}" />
+        </StackPanel>
+
+        <UniformGrid Height="16" />
+
+        <TextBlock Style="{StaticResource DialogText}" Text="{Binding AssemblyCopyright}" />
+
+        <UniformGrid Height="16" />
+
+        <TextBlock Style="{StaticResource DialogText}" TextWrapping="Wrap"
+           Text="This software includes following Open Source Softwares distributed under the terms of various open source licences." />
+
+        <ScrollViewer Height="300" Margin="0 4">
+            <TextBlock TextWrapping="Wrap" Text="{Binding LicenseText.Value}" />
+        </ScrollViewer>
+
+        <UniformGrid Columns="3">
+            <Grid />
+
+            <Grid />
+
+            <Button Style="{DynamicResource MaterialDesignFlatButton}" Content="閉じる"
+                    Command="{Binding CloseAboutCommand}"/>
+        </UniformGrid>
+    </StackPanel>
+</UserControl>
