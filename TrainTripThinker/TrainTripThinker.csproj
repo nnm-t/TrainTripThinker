@@ -218,6 +218,7 @@
     <Compile Include="Model\Printing\Printer.cs" />
     <Compile Include="Model\Printing\PrinterSelector.cs" />
     <Compile Include="Model\Printing\PrintingProvider.cs" />
+    <Compile Include="Model\Settings\TttHelp.cs" />
     <Compile Include="Model\Settings\TttSettings.cs" />
     <Compile Include="Model\ThemeSelector.cs" />
     <Compile Include="Model\TttMain.cs" />
@@ -229,6 +230,7 @@
     <Compile Include="ViewModel\ItineraryViewModel.cs" />
     <Compile Include="ViewModel\ItineraryElement\PeriodElementViewModel.cs" />
     <Compile Include="ViewModel\ItineraryElement\TransportElementViewModel.cs" />
+    <Compile Include="ViewModel\MainRightWindowViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\BindingConverter\Color32BrushConverter.cs" />

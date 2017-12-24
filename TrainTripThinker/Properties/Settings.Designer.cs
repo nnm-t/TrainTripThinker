@@ -59,5 +59,29 @@ namespace TrainTripThinker.Properties {
                 this["DefaultDocumentName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/nnm-t/TrainTripThinker/wiki")]
+        public string WikiUrl {
+            get {
+                return ((string)(this["WikiUrl"]));
+            }
+            set {
+                this["WikiUrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/nnm-t/TrainTripThinker")]
+        public string GitHubUrl {
+            get {
+                return ((string)(this["GitHubUrl"]));
+            }
+            set {
+                this["GitHubUrl"] = value;
+            }
+        }
     }
 }

@@ -11,5 +11,11 @@
     <Setting Name="DefaultDocumentName" Type="System.String" Scope="User">
       <Value Profile="(Default)">名称未設定</Value>
     </Setting>
+    <Setting Name="WikiUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://github.com/nnm-t/TrainTripThinker/wiki</Value>
+    </Setting>
+    <Setting Name="GitHubUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://github.com/nnm-t/TrainTripThinker</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -16,9 +16,9 @@
     </metro:MetroWindow.Resources>
     
     <metro:MetroWindow.RightWindowCommands>
-        <metro:WindowCommands>
-            <Button>
-                <md:PackIcon Kind="HelpCircle"/> 
+        <metro:WindowCommands DataContext="{StaticResource MainRightWindowViewModel}">
+            <Button Command="{Binding ShowWikiCommand}">
+                <md:PackIcon Kind="HelpCircle" /> 
             </Button>
             
             <Button>
