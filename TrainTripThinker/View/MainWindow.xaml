@@ -14,6 +14,18 @@
     <metro:MetroWindow.Resources>
         <ResourceDictionary Source="ResourceDictionary/MainWindowUI.xaml" />
     </metro:MetroWindow.Resources>
+    
+    <metro:MetroWindow.RightWindowCommands>
+        <metro:WindowCommands>
+            <Button>
+                <md:PackIcon Kind="HelpCircle"/> 
+            </Button>
+            
+            <Button>
+                <md:PackIcon Kind="Information" />
+            </Button>
+        </metro:WindowCommands>
+    </metro:MetroWindow.RightWindowCommands>
 
     <Grid>
         <Grid>
@@ -35,9 +47,12 @@
                     <md:PackIcon Kind="Floppy" Style="{DynamicResource ModeIcon}" />
                 </Button>
 
-                <Button Style="{StaticResource MenuButton}" DataContext="{StaticResource PrinterSelectorDialogViewModel}"
+                <Button Style="{StaticResource MenuButton}" IsEnabled="False"
+                        Background="{DynamicResource GrayHoverBrush}"
+                        DataContext="{StaticResource PrinterSelectorDialogViewModel}"
                         Command="{Binding ShowDialogCommand}">
-                    <md:PackIcon Kind="Printer" Style="{DynamicResource ModeIcon}" />
+                    <md:PackIcon Kind="Printer" Style="{DynamicResource ModeIcon}"
+                                 Foreground="{DynamicResource GrayNormalBrush}"/>
                 </Button>
 
                 <Button Style="{StaticResource MenuButton}" IsEnabled="False"
