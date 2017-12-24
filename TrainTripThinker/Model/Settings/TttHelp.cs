@@ -8,5 +8,15 @@ namespace TrainTripThinker.Model
         {
             Process.Start(Properties.Settings.Default.WikiUrl);
         }
+
+        public static void AccessToGitHub()
+        {
+            Process.Start(Properties.Settings.Default.GitHubUrl);
+        }
+
+        public static void AccessToWebSite()
+        {
+            Process.Start(Properties.Settings.Default.WebSiteUrl);
+        }
     }
 }

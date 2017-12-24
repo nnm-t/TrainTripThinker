@@ -46,6 +46,7 @@ namespace TrainTripThinker.Model
                 Settings = JsonConvert.DeserializeObject<TttSettings>(textReader.Read());
             }
 
+            About = new About();
             ThemeSelector = new ThemeSelector(Settings);
 
             PrintingProvider = new PrintingProvider();
@@ -67,6 +68,8 @@ namespace TrainTripThinker.Model
         public ThemeSelector ThemeSelector { get; }
 
         public PrintingProvider PrintingProvider { get; }
+
+        public About About { get; }
 
         /// <summary>
         /// ファイル新規作成

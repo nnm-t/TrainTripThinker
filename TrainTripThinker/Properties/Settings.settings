@@ -17,5 +17,11 @@
     <Setting Name="GitHubUrl" Type="System.String" Scope="User">
       <Value Profile="(Default)">https://github.com/nnm-t/TrainTripThinker</Value>
     </Setting>
+    <Setting Name="WebSiteUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://kamisawa.net/</Value>
+    </Setting>
+    <Setting Name="LicenseTextPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Resources\OSSLicense.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

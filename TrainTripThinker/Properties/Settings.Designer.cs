@@ -83,5 +83,29 @@ namespace TrainTripThinker.Properties {
                 this["GitHubUrl"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://kamisawa.net/")]
+        public string WebSiteUrl {
+            get {
+                return ((string)(this["WebSiteUrl"]));
+            }
+            set {
+                this["WebSiteUrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Resources\\OSSLicense.txt")]
+        public string LicenseTextPath {
+            get {
+                return ((string)(this["LicenseTextPath"]));
+            }
+            set {
+                this["LicenseTextPath"] = value;
+            }
+        }
     }
 }

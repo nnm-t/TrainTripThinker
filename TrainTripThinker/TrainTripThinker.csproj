@@ -133,6 +133,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Content Include="Resources\OSSLicense.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Themes\Default.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -212,6 +215,7 @@
     </Compile>
     <Compile Include="Extensions\Color32Extensions.cs" />
     <Compile Include="Extensions\DependencyObjectExtensions.cs" />
+    <Compile Include="Model\About.cs" />
     <Compile Include="Model\AssemblyInformation.cs" />
     <Compile Include="Model\ColorName.cs" />
     <Compile Include="Model\CommonDialogs\CommonDialog.cs" />
