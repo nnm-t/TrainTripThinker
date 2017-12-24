@@ -1,4 +1,6 @@
-﻿using Prism.Mvvm;
+﻿using System;
+
+using Prism.Mvvm;
 
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
@@ -15,6 +17,10 @@ namespace TrainTripThinker.ViewModel
             Color = model.ObserveProperty(m => m.Color).ToReactiveProperty();
             FreeForm = model.ObserveProperty(m => m.FreeForm).ToReactiveProperty();
             Icon = model.ObserveProperty(m => m.Icon).ToReactiveProperty();
+
+            FreeForm.Subscribe(x => model.FreeForm = x);
+            Color.Subscribe(x => model.Color = x);
+            Icon.Subscribe(x => model.Icon = x);
 
             RemoveElementCommand = new ReactiveCommand();
             RemoveElementCommand.Subscribe(model.RemoveElement);
