@@ -16,12 +16,12 @@
     </metro:MetroWindow.Resources>
     
     <metro:MetroWindow.RightWindowCommands>
-        <metro:WindowCommands DataContext="{StaticResource MainRightWindowViewModel}">
+        <metro:WindowCommands DataContext="{StaticResource AboutViewModel}">
             <Button Command="{Binding ShowWikiCommand}">
                 <md:PackIcon Kind="HelpCircle" /> 
             </Button>
             
-            <Button>
+            <Button Command="{Binding ShowAboutCommand}">
                 <md:PackIcon Kind="Information" />
             </Button>
         </metro:WindowCommands>
@@ -75,6 +75,13 @@
             IsOpen="{Binding IsShowDialog}">
             <md:DialogHost.DialogContent>
                 <local:PrinterSelectorDialog />
+            </md:DialogHost.DialogContent>
+        </md:DialogHost>
+        
+        <md:DialogHost DataContext="{StaticResource AboutViewModel}"
+                       IsOpen="{Binding IsShowDialog}">
+            <md:DialogHost.DialogContent>
+                <local:AboutDialog />
             </md:DialogHost.DialogContent>
         </md:DialogHost>
     </Grid>

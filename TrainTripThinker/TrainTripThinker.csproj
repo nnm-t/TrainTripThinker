@@ -138,6 +138,10 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Page Include="View\Dialogs\AboutDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Dialogs\FileChangeDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -208,6 +212,7 @@
     </Compile>
     <Compile Include="Extensions\Color32Extensions.cs" />
     <Compile Include="Extensions\DependencyObjectExtensions.cs" />
+    <Compile Include="Model\AssemblyInformation.cs" />
     <Compile Include="Model\ColorName.cs" />
     <Compile Include="Model\CommonDialogs\CommonDialog.cs" />
     <Compile Include="Model\ModelManager.cs" />
@@ -230,7 +235,7 @@
     <Compile Include="ViewModel\ItineraryViewModel.cs" />
     <Compile Include="ViewModel\ItineraryElement\PeriodElementViewModel.cs" />
     <Compile Include="ViewModel\ItineraryElement\TransportElementViewModel.cs" />
-    <Compile Include="ViewModel\MainRightWindowViewModel.cs" />
+    <Compile Include="ViewModel\AboutViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\BindingConverter\Color32BrushConverter.cs" />
@@ -241,6 +246,9 @@
     <Compile Include="View\DataTemplateSelector\DynamicTemplateSelector\DataTemplateHolderCollection.cs" />
     <Compile Include="View\DataTemplateSelector\MealTypeTemplateSelector.cs" />
     <Compile Include="View\DataTemplateSelector\SeatTypeTemplateSelector.cs" />
+    <Compile Include="View\Dialogs\AboutDialog.xaml.cs">
+      <DependentUpon>AboutDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Dialogs\FileChangeDialog.xaml.cs">
       <DependentUpon>FileChangeDialog.xaml</DependentUpon>
     </Compile>

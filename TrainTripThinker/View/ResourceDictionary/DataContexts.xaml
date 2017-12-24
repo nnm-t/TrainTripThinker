@@ -4,5 +4,5 @@
     <vm:MainWindowViewModel x:Key="MainWindowViewModel" />
     <vm:ItineraryViewerViewModel x:Key="ItineraryViewModel" />
     <vm:PrinterSelectorDialogViewModel x:Key="PrinterSelectorDialogViewModel" />
-    <vm:MainRightWindowViewModel x:Key="MainRightWindowViewModel" />
+    <vm:AboutViewModel x:Key="AboutViewModel" />
 </ResourceDictionary>

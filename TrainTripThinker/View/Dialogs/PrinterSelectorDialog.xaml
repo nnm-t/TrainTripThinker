@@ -14,11 +14,11 @@
     </UserControl.Resources>
 
     <StackPanel Style="{StaticResource DialogParentStackPanel}">
-        <StackPanel Orientation="Horizontal" Margin="0 0 0 4">
+        <StackPanel Style="{StaticResource DialogTitleStackPanel}">
             <md:PackIcon Kind="Printer" Width="24" Height="24"
                          VerticalAlignment="Center" />
 
-            <TextBlock FontSize="20" Text="印刷"/>
+            <TextBlock Style="{StaticResource DialogTitleSizeText}" Text="印刷"/>
         </StackPanel>
 
         <TextBlock Style="{StaticResource DialogText}" Text="プリンタ: " />
