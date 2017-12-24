@@ -20,8 +20,11 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Style="{StaticResource DialogTitleStackPanel}">
-                <TextBlock Style="{StaticResource DialogTitleSizeText}"
-                       FontSize="24"  Text="{Binding AssemblyTitle}" />
+                <Image Source="../../MainIcon.ico" Width="32" Height="32"
+                       Margin="4 0"/>
+
+                <TextBlock VerticalAlignment="Center" FontSize="24"
+                           Text="{Binding AssemblyTitle}" />
 
             </StackPanel>
 
