@@ -238,6 +238,7 @@
     <Compile Include="Utility\SizeExtensions.cs" />
     <Compile Include="ViewModel\Dialogs\PrinterSelectorDialogViewModel.cs" />
     <Compile Include="ViewModel\Factory\ItineraryElementViewModelFactory.cs" />
+    <Compile Include="ViewModel\Factory\TransportBaseViewModelFactory.cs" />
     <Compile Include="ViewModel\ItineraryElement\ItineraryElementViewModel.cs" />
     <Compile Include="ViewModel\ItineraryViewerViewModel.cs" />
     <Compile Include="ViewModel\ItineraryViewModel.cs" />
@@ -245,6 +246,8 @@
     <Compile Include="ViewModel\ItineraryElement\TransportElementViewModel.cs" />
     <Compile Include="ViewModel\AboutViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\Transport\TrainViewModel.cs" />
+    <Compile Include="ViewModel\Transport\TransportBaseViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\BindingConverter\Color32BrushConverter.cs" />
     <Compile Include="View\BindingConverter\ColorNameConverter.cs" />

@@ -125,7 +125,7 @@
         </UniformGrid>
     </DataTemplate>
 
-    <DataTemplate x:Key="TrainTemplate"  DataType="data:Train">
+    <DataTemplate x:Key="TrainViewModelTemplate"  DataType="vm:TrainViewModel">
         <Grid Margin="4, 4">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*" />
@@ -142,14 +142,14 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <ContentControl Content="{Binding TransportNumber}"
+                <ContentControl Content="{Binding TransportNumber.Value}"
                                             ContentTemplate="{StaticResource TransportNumberTemplate}" />
 
-                <ContentControl Grid.Column="2" Content="{Binding Seat}"
+                <ContentControl Grid.Column="2" Content="{Binding Seat.Value}"
                                             ContentTemplate="{StaticResource TransportSeatTemplate}" />
 
                 <ToggleButton Grid.Column="3" Style="{StaticResource MaterialDesignActionLightToggleButton}"
-                                          IsChecked="{Binding HasRestRoom, UpdateSourceTrigger=PropertyChanged}">
+                                          IsChecked="{Binding HasRestRoom.Value, UpdateSourceTrigger=PropertyChanged}">
                     <md:ToggleButtonAssist.OnContent>
                         <Viewbox Width="24" Height="24">
                             <ContentPresenter Content="{StaticResource TrainIconsRestroom}" />
@@ -157,7 +157,7 @@
                     </md:ToggleButtonAssist.OnContent>
                 </ToggleButton>
 
-                <ComboBox Grid.Column="4" SelectedItem="{Binding MealType, UpdateSourceTrigger=PropertyChanged}"
+                <ComboBox Grid.Column="4" SelectedItem="{Binding MealType.Value, UpdateSourceTrigger=PropertyChanged}"
                                       ItemsSource="{Binding Source={StaticResource MealTypeEnum}}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
@@ -197,13 +197,13 @@
                     <ColumnDefinition Width="3*" />
                 </Grid.ColumnDefinitions>
 
-                <ComboBox SelectedItem="{Binding LineColor, Converter={StaticResource ColorNameConverter}, UpdateSourceTrigger=PropertyChanged}"
+                <ComboBox SelectedItem="{Binding LineColor.Value, Converter={StaticResource ColorNameConverter}, UpdateSourceTrigger=PropertyChanged}"
                                       ItemsSource="{StaticResource ColorNameArray}"
                                       Style="{StaticResource ColorComboBox}"
                                       Margin="0 0 0 4"
                                       FontSize="20" HorizontalAlignment="Stretch"/>
 
-                <ComboBox Grid.Column="1" SelectedItem="{Binding Class, Mode=TwoWay, Converter={StaticResource TransportClassConverter},
+                <ComboBox Grid.Column="1" SelectedItem="{Binding Class.Value, Mode=TwoWay, Converter={StaticResource TransportClassConverter},
                                       UpdateSourceTrigger=PropertyChanged}"
                                       ItemsSource="{StaticResource TransportClasses}"
                                       Margin="4 0 4 0" FontSize="20" FontWeight="Bold"
@@ -220,9 +220,9 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
 
-                <TextBox Grid.Column="2" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                <TextBox Grid.Column="2" Text="{Binding Name.Value, UpdateSourceTrigger=PropertyChanged}"
                                          md:HintAssist.Hint="列車名" />
-                <TextBox Grid.Column="3" Text="{Binding Destination, UpdateSourceTrigger=PropertyChanged}"
+                <TextBox Grid.Column="3" Text="{Binding Destination.Value, UpdateSourceTrigger=PropertyChanged}"
                                      md:HintAssist.Hint="行先" />
             </Grid>
         </Grid>
