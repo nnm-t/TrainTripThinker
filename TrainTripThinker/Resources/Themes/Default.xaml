@@ -229,7 +229,7 @@
     </DataTemplate>
 
 
-    <DataTemplate x:Key="DepartureTemplate" DataType="data:Departure">
+    <DataTemplate x:Key="DepartureViewModelTemplate" DataType="vm:DepartureViewModel">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="7*" />
@@ -238,31 +238,31 @@
             </Grid.ColumnDefinitions>
 
             <UniformGrid Columns="2" Margin="4, 0">
-                <DatePicker FontSize="16" SelectedDate="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                <DatePicker FontSize="16" SelectedDate="{Binding Date.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                 md:HintAssist.Hint="日付"/>
                 <md:TimePicker Margin="0" FontSize="16"
                                    md:HintAssist.Hint="時刻"
-                                   SelectedTime="{Binding Time, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                   SelectedTime="{Binding Time.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </UniformGrid>
 
-            <TextBox Grid.Column="1" FontSize="16" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+            <TextBox Grid.Column="1" FontSize="16" Text="{Binding Name.Value, UpdateSourceTrigger=PropertyChanged}"
                          md:HintAssist.Hint="駅名" Margin="4,0"/>
 
-            <ContentControl Grid.Column="2" Content="{Binding Platform, UpdateSourceTrigger=PropertyChanged}"
-                                ContentTemplate="{DynamicResource PlatformTemplate}"/>
+            <ContentControl Grid.Column="2" Content="{Binding Platform.Value, UpdateSourceTrigger=PropertyChanged}"
+                                ContentTemplate="{DynamicResource PlatformViewModelTemplate}"/>
         </Grid>
     </DataTemplate>
 
-    <DataTemplate x:Key="PlatformTemplate" DataType="data:Platform">
+    <DataTemplate x:Key="PlatformViewModelTemplate" DataType="vm:PlatformViewModel">
         <UniformGrid Columns="3" Margin="4 0">
             <UniformGrid.Resources>
                 <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
                     <Setter Property="Margin" Value="0 0 0 1" />
                 </Style>
             </UniformGrid.Resources>
-            <TextBox Text="{Binding Prefix, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBox Text="{Binding Number, UpdateSourceTrigger=PropertyChanged}" />
-            <ComboBox Text="{Binding Suffix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEditable="True"
+            <TextBox Text="{Binding Prefix.Value, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Text="{Binding Number.Value, UpdateSourceTrigger=PropertyChanged}" />
+            <ComboBox Text="{Binding Suffix.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEditable="True"
                           ItemsSource="{StaticResource PlatformSuffixes}"/>
         </UniformGrid>
     </DataTemplate>
@@ -279,7 +279,7 @@
     </Style>
 
     <Style TargetType="ContentControl" x:Key="DepartureContentControl">
-        <Setter Property="ContentTemplate" Value="{StaticResource DepartureTemplate}" />
+        <Setter Property="ContentTemplate" Value="{StaticResource DepartureViewModelTemplate}" />
     </Style>
 
     <Style TargetType="ContentControl" BasedOn="{StaticResource DepartureContentControl}"

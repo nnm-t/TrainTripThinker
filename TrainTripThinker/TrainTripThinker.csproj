@@ -237,6 +237,8 @@
     <Compile Include="Model\TttMain.cs" />
     <Compile Include="Utility\SizeExtensions.cs" />
     <Compile Include="ViewModel\Dialogs\PrinterSelectorDialogViewModel.cs" />
+    <Compile Include="ViewModel\Elements\DepartureViewModel.cs" />
+    <Compile Include="ViewModel\Elements\PlatformViewModel.cs" />
     <Compile Include="ViewModel\Factory\ItineraryElementViewModelFactory.cs" />
     <Compile Include="ViewModel\Factory\TransportBaseViewModelFactory.cs" />
     <Compile Include="ViewModel\ItineraryElement\ItineraryElementViewModel.cs" />
