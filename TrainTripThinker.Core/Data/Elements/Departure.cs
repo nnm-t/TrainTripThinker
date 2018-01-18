@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Newtonsoft.Json;
 using Prism.Mvvm;
 
 namespace TrainTripThinker.Core.Data
@@ -43,6 +43,7 @@ namespace TrainTripThinker.Core.Data
         /// 日付
         /// </summary>
         /// <remarks>DatePickerはここにBinding</remarks>
+        [JsonIgnore]
         public DateTime Date
         {
             get => dateTime;
@@ -53,6 +54,7 @@ namespace TrainTripThinker.Core.Data
         /// 時刻
         /// </summary>
         /// <remarks>TimePickerはここにBinding</remarks>
+        [JsonIgnore]
         public DateTime Time
         {
             get => dateTime;
