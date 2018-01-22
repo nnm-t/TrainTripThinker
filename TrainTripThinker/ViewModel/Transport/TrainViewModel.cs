@@ -1,4 +1,5 @@
-﻿using Reactive.Bindings;
+﻿using System.Reactive.Linq;
+using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 using TrainTripThinker.Core.Data;
 using TrainTripThinker.Core.Enums;
@@ -11,7 +12,7 @@ namespace TrainTripThinker.ViewModel
         {
             Class = model.ObserveProperty(m => m.Class).ToReactiveProperty();
             LineColor = model.ObserveProperty(m => m.LineColor).ToReactiveProperty();
-            Seat = model.ObserveProperty(m => m.Seat).ToReactiveProperty();
+            Seat = model.ObserveProperty(m => m.Seat).Select(s => new TransportSeatViewModel(s)).ToReactiveProperty();
             HasRestRoom = model.ObserveProperty(m => m.HasRestRoom).ToReactiveProperty();
             MealType = model.ObserveProperty(m => m.MealType).ToReactiveProperty();
         }
@@ -20,7 +21,7 @@ namespace TrainTripThinker.ViewModel
 
         public ReactiveProperty<Color32> LineColor { get; }
 
-        public ReactiveProperty<TransportSeat> Seat { get; }
+        public ReactiveProperty<TransportSeatViewModel> Seat { get; }
 
         public ReactiveProperty<bool> HasRestRoom { get; }
 

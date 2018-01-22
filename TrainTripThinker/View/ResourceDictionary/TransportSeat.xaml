@@ -4,7 +4,7 @@
                     xmlns:local="clr-namespace:TrainTripThinker.View"
                     xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
                     xmlns:enum="clr-namespace:TrainTripThinker.Core.Enums;assembly=TrainTripThinker.Core"
-                    xmlns:data="clr-namespace:TrainTripThinker.Core.Data;assembly=TrainTripThinker.Core">
+                    xmlns:vm="clr-namespace:TrainTripThinker.ViewModel">
     <ObjectDataProvider x:Key="SeatTypeEnum" MethodName="GetValues"
                         ObjectType="{x:Type system:Enum}">
         <ObjectDataProvider.MethodParameters>
@@ -80,14 +80,14 @@
         </local:SeatTypeTemplateSelector.Bus2Column>
     </local:SeatTypeTemplateSelector>
 
-    <DataTemplate x:Key="TransportSeatTemplate" DataType="data:TransportSeat">
+    <DataTemplate x:Key="TransportSeatViewModelTemplate" DataType="vm:TransportSeatViewModel">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="48" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <ComboBox SelectedItem="{Binding Type}"
+            <ComboBox SelectedItem="{Binding Type.Value}"
                       ItemsSource="{Binding Source={StaticResource SeatTypeEnum}}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -113,7 +113,7 @@
                 </ComboBox.ItemContainerStyle>
             </ComboBox>
 
-            <TextBox Grid.Column="1" Text="{Binding Remarks}" FontSize="16"
+            <TextBox Grid.Column="1" Text="{Binding Remarks.Value}" FontSize="16"
                      md:HintAssist.Hint="席番"/>
         </Grid>
     </DataTemplate>
