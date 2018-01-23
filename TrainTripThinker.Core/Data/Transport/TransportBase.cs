@@ -17,8 +17,8 @@ namespace TrainTripThinker.Core.Data
         {
             TransportNumber = new TransportNumber();
 
-            Route = new ObservableCollection<string>();
-            Route.CollectionChangedAsObservable().Subscribe(OnCollectionChanged);
+            Routes = new ObservableCollection<string>();
+            Routes.CollectionChangedAsObservable().Subscribe(OnCollectionChanged);
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace TrainTripThinker.Core.Data
         /// <summary>
         /// 路線
         /// </summary>
-        public ObservableCollection<string> Route { get; set; }
+        public ObservableCollection<string> Routes { get; set; }
 
         /// <summary>
         /// 名前

@@ -23,7 +23,7 @@
         <Setter Property="local:DynamicTemplateSelector.Templates">
             <Setter.Value>
                 <local:DataTemplateHolderCollection>
-                    <local:DataTemplateHolder Value="data:Train" DataTemplate="{DynamicResource TrainTemplate}" />
+                    <local:DataTemplateHolder Value="vm:TrainViewModel" DataTemplate="{DynamicResource TrainViewModelTemplate}" />
                 </local:DataTemplateHolderCollection>
             </Setter.Value>
         </Setter>

@@ -1,4 +1,5 @@
-﻿using Reactive.Bindings;
+﻿using System.Reactive.Linq;
+using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 
 using TrainTripThinker.Core.Data;
@@ -10,9 +11,10 @@ namespace TrainTripThinker.ViewModel
         public TransportElementViewModel(TransportElement model)
             : base(model)
         {
-            Transport = model.ObserveProperty(m => m.Transport).ToReactiveProperty();
+            Transport = model.ObserveProperty(m => m.Transport)
+                .Select(TransportBaseViewModelFactory.CreateViewMode).ToReactiveProperty();
         }
 
-        public ReactiveProperty<TransportBase> Transport { get; }
+        public ReactiveProperty<TransportBaseViewModel> Transport { get; }
     }
 }
