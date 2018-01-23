@@ -112,16 +112,16 @@
         </Setter>
     </Style>
 
-    <DataTemplate x:Key="TransportNumberTemplate" DataType="data:TransportNumber">
+    <DataTemplate x:Key="TransportNumberViewModelTemplate" DataType="vm:TransportNumberViewModel">
         <UniformGrid Columns="3" Margin="4 0">
             <UniformGrid.Resources>
                 <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
                     <Setter Property="FontSize" Value="16" />
                 </Style>
             </UniformGrid.Resources>
-            <TextBox Text="{Binding Prefix, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBox Text="{Binding Number, UpdateSourceTrigger=PropertyChanged}" md:HintAssist.Hint="便名" />
-            <TextBox Text="{Binding Suffix, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Text="{Binding Prefix.Value, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Text="{Binding Number.Value, UpdateSourceTrigger=PropertyChanged}" md:HintAssist.Hint="便名" />
+            <TextBox Text="{Binding Suffix.Value, UpdateSourceTrigger=PropertyChanged}" />
         </UniformGrid>
     </DataTemplate>
 
@@ -143,7 +143,7 @@
                 </Grid.ColumnDefinitions>
 
                 <ContentControl Content="{Binding TransportNumber.Value}"
-                                            ContentTemplate="{StaticResource TransportNumberTemplate}" />
+                                            ContentTemplate="{StaticResource TransportNumberViewModelTemplate}" />
 
                 <ContentControl Grid.Column="2" Content="{Binding Seat.Value}"
                                             ContentTemplate="{StaticResource TransportSeatViewModelTemplate}" />
