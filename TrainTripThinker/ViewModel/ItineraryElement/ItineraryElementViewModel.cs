@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reactive.Disposables;
 
 using Prism.Mvvm;
 
@@ -10,7 +11,7 @@ using TrainTripThinker.Core.Enums;
 
 namespace TrainTripThinker.ViewModel
 {
-    public class ItineraryElementViewModel : BindableBase
+    public class ItineraryElementViewModel : ViewModelBase
     {
         public ItineraryElementViewModel(ItineraryElement model)
         {
@@ -18,9 +19,9 @@ namespace TrainTripThinker.ViewModel
             FreeForm = model.ObserveProperty(m => m.FreeForm).ToReactiveProperty();
             Icon = model.ObserveProperty(m => m.Icon).ToReactiveProperty();
 
-            FreeForm.Subscribe(x => model.FreeForm = x);
-            Color.Subscribe(x => model.Color = x);
-            Icon.Subscribe(x => model.Icon = x);
+            FreeForm.Subscribe(x => model.FreeForm = x).AddTo(Disposables);
+            Color.Subscribe(x => model.Color = x).AddTo(Disposables);
+            Icon.Subscribe(x => model.Icon = x).AddTo(Disposables);
 
             RemoveElementCommand = new ReactiveCommand();
             RemoveElementCommand.Subscribe(model.RemoveElement);

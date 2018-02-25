@@ -16,6 +16,11 @@ namespace TrainTripThinker.ViewModel
 
             Platform = model.ObserveProperty(m => m.Platform).Select(p => new PlatformViewModel(p))
                 .ToReactiveProperty();
+
+            // ViewModel -> Model
+            Date.Subscribe(x => model.Date = x).AddTo(Disposables);
+            Time.Subscribe(x => model.Time = x).AddTo(Disposables);
+            Name.Subscribe(x => model.Name = x).AddTo(Disposables);
         }
         
         public ReactiveProperty<DateTime> Date { get; }
