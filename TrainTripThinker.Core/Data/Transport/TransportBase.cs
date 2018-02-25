@@ -13,6 +13,11 @@ namespace TrainTripThinker.Core.Data
     /// <inheritdoc cref="BindableBase"/>
     public abstract class TransportBase : FileChangeNotifyBase
     {
+        private string name;
+        private string destination;
+        private TransportNumber transportNumber;
+        private ObservableCollection<string> routes;
+
         protected TransportBase()
         {
             TransportNumber = new TransportNumber();
@@ -24,21 +29,37 @@ namespace TrainTripThinker.Core.Data
         /// <summary>
         /// 便名
         /// </summary>
-        public TransportNumber TransportNumber { get; set; }
+        public TransportNumber TransportNumber
+        {
+            get => transportNumber;
+            set => SetProperty(ref transportNumber, value);
+        }
 
         /// <summary>
         /// 路線
         /// </summary>
-        public ObservableCollection<string> Routes { get; set; }
+        public ObservableCollection<string> Routes
+        {
+            get => routes;
+            set => SetProperty(ref routes, value);
+        }
 
         /// <summary>
         /// 名前
         /// </summary>
-        public string Name { get; set; }
+        public string Name
+        {
+            get => name;
+            set => SetProperty(ref name, value);
+        }
 
         /// <summary>
         /// 行先
         /// </summary>
-        public string Destination { get; set; }
+        public string Destination
+        {
+            get => destination;
+            set => SetProperty(ref destination, value);
+        }
     }
 }
