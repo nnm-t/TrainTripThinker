@@ -10,14 +10,8 @@ namespace TrainTripThinker.Core.Data
     /// <inheritdoc cref="PeriodElement"/>
     public class TransportElement : PeriodElement
     {
-        public TransportElement(TransportBase transport, ItineraryElementDelegates delegates, DateTime beginTime)
-            : base(delegates, beginTime)
-        {
-            Transport = transport;
-        }
-
-        public TransportElement(TransportBase transport, ItineraryElementDelegates delegates)
-            : base(delegates)
+        public TransportElement(TransportBase transport, ItineraryElementDelegates delegates, Departure departure = null)
+            : base(delegates, departure)
         {
             Transport = transport;
         }

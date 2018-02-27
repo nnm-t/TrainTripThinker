@@ -16,14 +16,29 @@ namespace TrainTripThinker.Core.Data
 
         public Departure() : this(DateTime.Now)
         {
-            
+
         }
 
         public Departure(DateTime dateTime)
         {
-            DateTime = dateTime;
+            DefaultInitialize(dateTime);
+        }
 
-            Platform = new Platform();
+        /// <summary>
+        /// コピーコンストラクタ
+        /// </summary>
+        /// <param name="daperture">コピー元の発着データ</param>
+        public Departure(Departure departure)
+        {
+            if (departure == null)
+            {
+                DefaultInitialize(DateTime.Now);
+                return;
+            }
+
+            DateTime = departure.DateTime;
+            Name = departure.Name;
+            Platform = departure.Platform;
         }
 
         /// <summary>
@@ -77,6 +92,21 @@ namespace TrainTripThinker.Core.Data
         {
             get => platform;
             set => SetProperty(ref platform, value);
+        }
+
+        /// <summary>
+        /// 駅情報を引っこ抜いてインスタンスをコピー
+        /// </summary>
+        /// <returns>駅情報が抜けたインスタンス</returns>
+        public Departure ExceptStation()
+        {
+            return new Departure(DateTime);
+        }
+
+        private void DefaultInitialize(DateTime dateTime)
+        {
+            DateTime = dateTime;
+            Platform = new Platform();
         }
 
         private DateTime SetNewDate(DateTime oldDate, DateTime newDate)

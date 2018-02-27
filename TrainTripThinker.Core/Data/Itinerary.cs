@@ -56,13 +56,7 @@ namespace TrainTripThinker.Core.Data
 
         public void AddTransportElement()
         {
-            DateTime? endTime = GetLastPeriodElementEndTime();
-            if (!endTime.HasValue)
-            {
-                Elements.Add(new TransportElement(new Train(), delegates));
-                return;
-            }
-            Elements.Add(new TransportElement(new Train(), delegates, endTime.Value));
+            Elements.Add(new TransportElement(new Train(), delegates, GetLastPeriodDeparture()));
         }
 
         public void AddItineraryElement()
@@ -72,14 +66,7 @@ namespace TrainTripThinker.Core.Data
 
         public void AddPeriodElement()
         {
-            DateTime? endTime = GetLastPeriodElementEndTime();
-
-            if (!endTime.HasValue)
-            {
-                Elements.Add(new PeriodElement(delegates));
-                return;
-            }
-            Elements.Add(new PeriodElement(delegates, endTime.Value));
+            Elements.Add(new PeriodElement(delegates, GetLastPeriodDeparture()));
         }
 
         public void AddDelegateToElements()
@@ -90,9 +77,9 @@ namespace TrainTripThinker.Core.Data
             }
         }
 
-        private DateTime? GetLastPeriodElementEndTime()
+        private Departure GetLastPeriodDeparture()
         {
-            return (Elements.LastOrDefault(e => e is PeriodElement) as PeriodElement)?.Period.End.DateTime;
+            return (Elements.LastOrDefault(e => e is PeriodElement) as PeriodElement)?.Period.End;
         }
     }
 }
