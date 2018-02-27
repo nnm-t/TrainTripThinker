@@ -1,5 +1,6 @@
 ﻿namespace TrainTripThinker.Core.Utility
 {
+
     /// <summary>
     /// 期間の範囲を表す
     /// </summary>
