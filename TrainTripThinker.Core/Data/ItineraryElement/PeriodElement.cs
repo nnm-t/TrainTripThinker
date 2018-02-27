@@ -15,10 +15,10 @@ namespace TrainTripThinker.Core.Data
         private Period<Departure> period;
 
 
-        public PeriodElement(ItineraryElementDelegates delegates, Departure departure = null) : base(delegates)
+        public PeriodElement(ItineraryElementDelegates delegates, Departure lastArrive = null) : base(delegates)
         {
             disposables = new CompositeDisposable();
-            CreatePeriodInstance(departure);
+            CreatePeriodInstance(lastArrive);
         }
 
         public PeriodElement()
@@ -65,9 +65,9 @@ namespace TrainTripThinker.Core.Data
             }).AddTo(disposables);
         }
 
-        private void CreatePeriodInstance(Departure begin = null)
+        private void CreatePeriodInstance(Departure lastArrive = null)
         {
-            Period = new Period<Departure>(new Departure(begin), new Departure(begin?.ExceptStation()));
+            Period = new Period<Departure>(new Departure(lastArrive), new Departure(lastArrive?.ExceptStation()));
             SubscribeBeginDateTimeMismatch();
         }
     }
