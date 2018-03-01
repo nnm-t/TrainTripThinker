@@ -378,7 +378,7 @@
         <Setter Property="Height" Value="24" />
     </Style>
 
-    <TabControl x:Key="ItinerariesTabControl" ItemsSource="{Binding Itineraries}" >
+    <TabControl x:Key="ItinerariesTabControl" ItemsSource="{Binding Itineraries}">
         <TabControl.Template>
             <ControlTemplate TargetType="TabControl">
                 <Grid>

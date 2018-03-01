@@ -1,18 +1,14 @@
 ﻿using System;
 using System.IO;
-using System.Reactive.Linq;
-using System.Windows;
+using System.Windows.Media.Imaging;
 
 using Newtonsoft.Json;
 
 using Prism.Mvvm;
 
-using Reactive.Bindings.Extensions;
-
 using TrainTripThinker.Core;
 using TrainTripThinker.Core.Data;
 using TrainTripThinker.Model.Printing;
-using TrainTripThinker.ViewModel;
 
 using TextReader = TrainTripThinker.Core.TextReader;
 
@@ -82,9 +78,9 @@ namespace TrainTripThinker.Model
             return result;
         }
 
-        public void OpenFile()
+        public void OpenDocument()
         {
-            string filePath = CommonDialog.ChooseOpenFile();
+            string filePath = CommonDialog.ChooseOpenFile(ExtensionFilter.TTTDocument);
 
             if (filePath == null)
             {
@@ -96,18 +92,24 @@ namespace TrainTripThinker.Model
             DocumentName = Path.GetFileName(filePath);
         }
 
-        public void SaveFile()
+        public void SaveDocument()
         {
-            string filePath = CommonDialog.ChooseSaveFile();
+            SaveFile(ExtensionFilter.TTTDocument,
+                path =>
+                    {
+                        main.SaveDocument(path);
+                        DocumentName = Path.GetFileName(path);
+                    });
+        }
 
-            if (filePath == null)
-            {
-                // キャンセル
-                return;
-            }
-
-            main.SaveDocument(filePath);
-            DocumentName = Path.GetFileName(filePath);
+        public void SaveScreenShot(BitmapSource source)
+        {
+            SaveFile(ExtensionFilter.PNGImage,
+                path =>
+                    {
+                        var writer = new BitmapWriter(source);
+                        writer.Save(path);
+                    });
         }
 
         public void Print()
@@ -124,6 +126,19 @@ namespace TrainTripThinker.Model
 
             action();
             return false;
+        }
+
+        private void SaveFile(ExtensionFilter filter, Action<string> saveAction)
+        {
+            string filePath = CommonDialog.ChooseSaveFile(filter);
+
+            if (filePath == null)
+            {
+                // キャンセル
+                return;
+            }
+
+            saveAction(filePath);
         }
     }
 }
