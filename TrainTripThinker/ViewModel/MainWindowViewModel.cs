@@ -3,6 +3,8 @@ using System.ComponentModel;
 using System.Reactive.Linq;
 using System.Reflection;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
@@ -30,10 +32,10 @@ namespace TrainTripThinker.ViewModel
             CreateDocummentCommand.Subscribe(() => JudgeShowFileChangeDialog(() => Main.CreateDocument()));
 
             OpenFileCommand = new ReactiveCommand();
-            OpenFileCommand.Subscribe(() => JudgeShowFileChangeDialog(() => Main.OpenFile()));
+            OpenFileCommand.Subscribe(() => JudgeShowFileChangeDialog(() => Main.OpenDocument()));
 
             SaveFileCommand = new ReactiveCommand();
-            SaveFileCommand.Subscribe(() => Main.SaveFile());
+            SaveFileCommand.Subscribe(() => Main.SaveDocument());
 
             PrintCommand = new ReactiveCommand();
             PrintCommand.Subscribe(() => Main.Print());
@@ -41,6 +43,8 @@ namespace TrainTripThinker.ViewModel
             ClosingWindowCommand = new ReactiveCommand<CancelEventArgs>();
             ClosingWindowCommand.Subscribe(OnClosingWindow);
 
+            CaptureScreenshotCommand = new ReactiveCommand<Visual>();
+            CaptureScreenshotCommand.Subscribe(CaptureScreenShot);
         }
 
         public bool IsShowFileChangeDialog
@@ -64,6 +68,8 @@ namespace TrainTripThinker.ViewModel
         public ReactiveCommand<bool?> CloseDialogCommand { get; }
 
         public ReactiveCommand<CancelEventArgs> ClosingWindowCommand { get; }
+
+        public ReactiveCommand<Visual> CaptureScreenshotCommand { get; }
 
         public void JudgeShowFileChangeDialog(Action action)
         {
@@ -90,7 +96,7 @@ namespace TrainTripThinker.ViewModel
             {
                 // はい
                 // 保存のロジックを割り込ませる
-                Main.SaveFile();
+                Main.SaveDocument();
             }
 
             // いいえ
@@ -104,6 +110,28 @@ namespace TrainTripThinker.ViewModel
 
             // ダイアログの結果に応じてAppication.Current.Shutdown()で落とす
             JudgeShowFileChangeDialog(() => Application.Current.Shutdown());
+        }
+
+        public void CaptureScreenShot(Visual visual)
+        {
+            // スクリーンショット撮影
+            Rect bounds = VisualTreeHelper.GetDescendantBounds(visual);
+
+            // TODO: 設定でこのへんいじれるようにしてもいいかも
+            var bitmap = new RenderTargetBitmap((int)bounds.Width, (int)bounds.Height, 96, 96, PixelFormats.Pbgra32);
+            var dv = new DrawingVisual();
+
+            using (DrawingContext dc = dv.RenderOpen())
+            {
+                var vb = new VisualBrush(visual);
+                dc.DrawRectangle(vb, null, bounds);
+            }
+
+            bitmap.Render(dv);
+            bitmap.Freeze();
+
+            // ファイル保存呼び出し
+            Main.SaveScreenShot(bitmap);
         }
     }
 }

@@ -223,6 +223,8 @@
     <Compile Include="Model\AssemblyInformation.cs" />
     <Compile Include="Model\ColorName.cs" />
     <Compile Include="Model\CommonDialogs\CommonDialog.cs" />
+    <Compile Include="Model\CommonDialogs\ExtensionFilter.cs" />
+    <Compile Include="Model\IO\BitmapWriter.cs" />
     <Compile Include="Model\ModelManager.cs" />
     <Compile Include="Model\Printing\IPrintable.cs" />
     <Compile Include="Model\Printing\IPrinter.cs" />

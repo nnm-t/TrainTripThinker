@@ -5,7 +5,7 @@
     <Setting Name="SettingsJson" Type="System.String" Scope="User">
       <Value Profile="(Default)">Settings.json</Value>
     </Setting>
-    <Setting Name="ExtensionFilter" Type="System.String" Scope="User">
+    <Setting Name="TTTDocumentFilter" Type="System.String" Scope="User">
       <Value Profile="(Default)">Train Trip Thinker行程表(*.tttlst)|*.tttlst|JavaScript Object Notation(*.json)|*.json|すべてのファイル(*.*)|*.*</Value>
     </Setting>
     <Setting Name="DefaultDocumentName" Type="System.String" Scope="User">
@@ -22,6 +22,9 @@
     </Setting>
     <Setting Name="LicenseTextPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">Resources\OSSLicense.txt</Value>
+    </Setting>
+    <Setting Name="PNGImageFilter" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Portable Network Graphics(*png)|*.png|すべてのファイル(*.*)|*.*</Value>
     </Setting>
   </Settings>
 </SettingsFile>

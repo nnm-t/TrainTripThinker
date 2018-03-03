@@ -39,12 +39,12 @@ namespace TrainTripThinker.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Train Trip Thinker行程表(*.tttlst)|*.tttlst|JavaScript Object Notation(*.json)|*.jso" +
             "n|すべてのファイル(*.*)|*.*")]
-        public string ExtensionFilter {
+        public string TTTDocumentFilter {
             get {
-                return ((string)(this["ExtensionFilter"]));
+                return ((string)(this["TTTDocumentFilter"]));
             }
             set {
-                this["ExtensionFilter"] = value;
+                this["TTTDocumentFilter"] = value;
             }
         }
         
@@ -105,6 +105,18 @@ namespace TrainTripThinker.Properties {
             }
             set {
                 this["LicenseTextPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Portable Network Graphics(*png)|*.png|すべてのファイル(*.*)|*.*")]
+        public string PNGImageFilter {
+            get {
+                return ((string)(this["PNGImageFilter"]));
+            }
+            set {
+                this["PNGImageFilter"] = value;
             }
         }
     }

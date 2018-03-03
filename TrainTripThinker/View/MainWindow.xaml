@@ -14,13 +14,13 @@
     <metro:MetroWindow.Resources>
         <ResourceDictionary Source="ResourceDictionary/MainWindowUI.xaml" />
     </metro:MetroWindow.Resources>
-    
+
     <metro:MetroWindow.RightWindowCommands>
         <metro:WindowCommands DataContext="{StaticResource AboutViewModel}">
             <Button Command="{Binding ShowWikiCommand}">
-                <md:PackIcon Kind="HelpCircle" /> 
+                <md:PackIcon Kind="HelpCircle" />
             </Button>
-            
+
             <Button Command="{Binding ShowAboutCommand}">
                 <md:PackIcon Kind="Information" />
             </Button>
@@ -47,6 +47,12 @@
                     <md:PackIcon Kind="Floppy" Style="{DynamicResource ModeIcon}" />
                 </Button>
 
+                <Button Style="{StaticResource MenuButton}"
+                        Command="{Binding CaptureScreenshotCommand}"
+                        CommandParameter="{Binding ElementName=itineraryViewer, Mode=OneWay}">
+                    <md:PackIcon Kind="Camera" Style="{StaticResource ModeIcon}" />
+                </Button>
+
                 <Button Style="{StaticResource MenuButton}" IsEnabled="False"
                         Background="{DynamicResource GrayHoverBrush}"
                         DataContext="{StaticResource PrinterSelectorDialogViewModel}"
@@ -62,7 +68,7 @@
                 </Button>
             </ItemsControl>
 
-            <local:ItineraryViewer Grid.Column="1" />
+            <local:ItineraryViewer x:Name="itineraryViewer" Grid.Column="1" />
         </Grid>
 
         <md:DialogHost IsOpen="{Binding IsShowFileChangeDialog}">
@@ -70,14 +76,14 @@
                 <local:FileChangeDialog />
             </md:DialogHost.DialogContent>
         </md:DialogHost>
-        
+
         <md:DialogHost DataContext="{StaticResource PrinterSelectorDialogViewModel}"
             IsOpen="{Binding IsShowDialog}">
             <md:DialogHost.DialogContent>
                 <local:PrinterSelectorDialog />
             </md:DialogHost.DialogContent>
         </md:DialogHost>
-        
+
         <md:DialogHost DataContext="{StaticResource AboutViewModel}"
                        IsOpen="{Binding IsShowDialog}">
             <md:DialogHost.DialogContent>
