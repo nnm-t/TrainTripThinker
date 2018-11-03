@@ -42,6 +42,38 @@
         </Grid>
     </ControlTemplate>
 
+    <ControlTemplate TargetType="ToggleButton" x:Key="MenuToggleButtonTemplate">
+        <Grid x:Name="ButtonGrid" Background="{TemplateBinding Background}" >
+            <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}">
+
+            </ContentPresenter>
+
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup Name="CommonStates">
+                    <VisualState Name="Normal" />
+
+                    <VisualState Name="Checked">
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="ButtonGrid"
+                                    Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                    Duration="0"
+                                    To="{DynamicResource Primary900}" />
+                        </Storyboard>
+                    </VisualState>
+
+                    <VisualState Name="MouseOver">
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="ButtonGrid"
+                                    Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                    Duration="0"
+                                    To="{DynamicResource Primary500}" />
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+    </ControlTemplate>
+
     <Style x:Key="MenuButton" TargetType="Button">
         <Setter Property="Background">
             <Setter.Value>
@@ -50,6 +82,16 @@
         </Setter>
         <Setter Property="Padding" Value="8" />
         <Setter Property="Template" Value="{StaticResource MenuButtonTemplate}" />
+    </Style>
+
+    <Style x:Key="MenuToggleButton" TargetType="ToggleButton">
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="{DynamicResource Primary700}" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="Template" Value="{StaticResource MenuToggleButtonTemplate}" />
     </Style>
 
 </ResourceDictionary>

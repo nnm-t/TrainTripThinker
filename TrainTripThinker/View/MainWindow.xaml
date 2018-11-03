@@ -14,6 +14,14 @@
     <metro:MetroWindow.Resources>
         <ResourceDictionary Source="ResourceDictionary/MainWindowUI.xaml" />
     </metro:MetroWindow.Resources>
+    
+    <metro:MetroWindow.Flyouts>
+        <metro:FlyoutsControl>
+            <metro:Flyout Header="設定" Position="Right" IsOpen="{Binding IsShowSettings}" Width="240">
+                <local:Settings />
+            </metro:Flyout>
+        </metro:FlyoutsControl>
+    </metro:MetroWindow.Flyouts>
 
     <metro:MetroWindow.RightWindowCommands>
         <metro:WindowCommands DataContext="{StaticResource AboutViewModel}">
@@ -53,19 +61,10 @@
                     <md:PackIcon Kind="Camera" Style="{StaticResource ModeIcon}" />
                 </Button>
 
-                <Button Style="{StaticResource MenuButton}" IsEnabled="False"
-                        Background="{DynamicResource GrayHoverBrush}"
-                        DataContext="{StaticResource PrinterSelectorDialogViewModel}"
-                        Command="{Binding ShowDialogCommand}">
-                    <md:PackIcon Kind="Printer" Style="{DynamicResource ModeIcon}"
-                                 Foreground="{DynamicResource GrayNormalBrush}"/>
-                </Button>
-
-                <Button Style="{StaticResource MenuButton}" IsEnabled="False"
-                        Background="{DynamicResource GrayHoverBrush}">
-                    <md:PackIcon Kind="Settings" Style="{DynamicResource ModeIcon}"
-                                 Foreground="{DynamicResource GrayNormalBrush}"/>
-                </Button>
+                <ToggleButton IsChecked="{Binding IsShowSettings}"
+                              Style="{StaticResource MenuToggleButton}">
+                    <md:PackIcon Kind="Settings" Style="{DynamicResource ModeIcon}" />
+                </ToggleButton>
             </ItemsControl>
 
             <local:ItineraryViewer x:Name="itineraryViewer" Grid.Column="1" />

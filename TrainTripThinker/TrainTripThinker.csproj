@@ -157,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\Flyouts\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Icons\A-Bed.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -271,6 +275,9 @@
     </Compile>
     <Compile Include="View\Dialogs\PrinterSelectorDialog.xaml.cs">
       <DependentUpon>PrinterSelectorDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Flyouts\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Icons\A-Bed.xaml.cs">
       <DependentUpon>A-Bed.xaml</DependentUpon>

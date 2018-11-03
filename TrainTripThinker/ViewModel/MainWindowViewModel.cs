@@ -15,6 +15,8 @@ namespace TrainTripThinker.ViewModel
     {
         private bool isShowFileChangeDialog;
 
+        private bool isShowSettings;
+
         private Action fileChangeDialogAction;
 
         public MainWindowViewModel()
@@ -51,6 +53,12 @@ namespace TrainTripThinker.ViewModel
         {
             get => isShowFileChangeDialog;
             set => SetProperty(ref isShowFileChangeDialog, value);
+        }
+
+        public bool IsShowSettings
+        {
+            get => isShowSettings;
+            set => SetProperty(ref isShowSettings, value);
         }
 
         public ReactiveProperty<string> DocumentName { get; }
