@@ -256,6 +256,7 @@
     <Compile Include="ViewModel\ItineraryElement\TransportElementViewModel.cs" />
     <Compile Include="ViewModel\AboutViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\Settings\SettingsViewModel.cs" />
     <Compile Include="ViewModel\Transport\TrainViewModel.cs" />
     <Compile Include="ViewModel\Transport\TransportBaseViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />

@@ -1,3 +1,6 @@
 ﻿{
-  "ThemePath" :  "pack://application:,,,/Resources/Themes/Default.xaml"
+  "ThemePath": "pack://application:,,,/Resources/Themes/Default.xaml",
+  "BaseColor": "Blue",
+  "AccentColor": "Yellow",
+  "ThemeColor": "BaseLight" 
 }

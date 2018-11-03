@@ -26,7 +26,7 @@
         </Grid>
 
         <Grid>
-            <TextBlock Text="..." />
+            <TextBlock Text="{Binding ThemePath}" />
         </Grid>
 
         <Grid>
@@ -37,7 +37,9 @@
 
             <TextBlock Text="基本色" />
 
-            <ComboBox Grid.Column="1" />
+            <ComboBox Grid.Column="1"
+                      ItemsSource="{StaticResource BaseColors}"
+                      />
         </Grid>
 
         <Grid>
@@ -48,7 +50,22 @@
 
             <TextBlock Text="アクセント色" />
 
-            <ComboBox Grid.Column="1" />
+            <ComboBox Grid.Column="1"
+                      ItemsSource="{StaticResource AccentColors}"
+                      />
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="テーマカラー" />
+
+            <ComboBox Grid.Column="1"
+                      ItemsSource="{StaticResource ThemeColors}"
+                      />
         </Grid>
     </StackPanel>
 </UserControl>

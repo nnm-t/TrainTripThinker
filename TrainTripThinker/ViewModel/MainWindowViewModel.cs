@@ -48,6 +48,8 @@ namespace TrainTripThinker.ViewModel
 
             CaptureScreenshotCommand = new ReactiveCommand<Visual>();
             CaptureScreenshotCommand.Subscribe(CaptureScreenShot);
+
+            SettingsViewModel = new SettingsViewModel(Main.Settings);
         }
 
         public bool IsShowFileChangeDialog
@@ -79,6 +81,8 @@ namespace TrainTripThinker.ViewModel
         public ReactiveCommand<CancelEventArgs> ClosingWindowCommand { get; }
 
         public ReactiveCommand<Visual> CaptureScreenshotCommand { get; }
+
+        public SettingsViewModel SettingsViewModel { get; }
 
         public void JudgeShowFileChangeDialog(Action action)
         {

@@ -22,7 +22,7 @@
             <metro:Flyout Header="設定" Position="Right"
                           IsOpen="{Binding IsShowSettings}" 
                           Width="240" Theme="Inverse">
-                <local:Settings />
+                <local:Settings DataContext="{Binding SettingsViewModel}" />
             </metro:Flyout>
         </metro:FlyoutsControl>
     </metro:MetroWindow.Flyouts>
