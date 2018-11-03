@@ -15,6 +15,10 @@
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
+    <Style TargetType="ComboBox" BasedOn="{StaticResource MaterialDesignComboBox}">
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+
     <x:Array Type="system:String" x:Key="BaseColors">
         <system:String>Blue</system:String>
     </x:Array>
