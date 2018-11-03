@@ -6,7 +6,49 @@
              xmlns:local="clr-namespace:TrainTripThinker.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock>設定ですぞ</TextBlock>
-    </Grid>
+             <UserControl.Resources>
+                 <ResourceDictionary Source="../ResourceDictionary/SettingsRecources.xaml" />
+             </UserControl.Resources>
+    <StackPanel Style="{StaticResource SettingsStackPanel}">
+        <TextBlock Text="テーマ" FontSize="20" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="テーマXAML" />
+
+            <Button Grid.Column="1">
+                <TextBlock Text="開く" />
+            </Button>
+        </Grid>
+
+        <Grid>
+            <TextBlock Text="..." />
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="基本色" />
+
+            <ComboBox Grid.Column="1" />
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="アクセント色" />
+
+            <ComboBox Grid.Column="1" />
+        </Grid>
+    </StackPanel>
 </UserControl>
