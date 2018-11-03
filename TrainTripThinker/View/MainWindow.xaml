@@ -10,14 +10,18 @@
         Style="{StaticResource TttWindowStyle}"
         DataContext="{StaticResource MainWindowViewModel}"
         WindowStartupLocation="CenterScreen"
-        Closing="OnClosing">
+        Closing="OnClosing"
+        WindowButtonCommandsOverlayBehavior="Never"
+        RightWindowCommandsOverlayBehavior="Never">
     <metro:MetroWindow.Resources>
         <ResourceDictionary Source="ResourceDictionary/MainWindowUI.xaml" />
     </metro:MetroWindow.Resources>
     
     <metro:MetroWindow.Flyouts>
         <metro:FlyoutsControl>
-            <metro:Flyout Header="設定" Position="Right" IsOpen="{Binding IsShowSettings}" Width="240">
+            <metro:Flyout Header="設定" Position="Right"
+                          IsOpen="{Binding IsShowSettings}" 
+                          Width="240" Theme="Inverse">
                 <local:Settings />
             </metro:Flyout>
         </metro:FlyoutsControl>
